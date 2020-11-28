@@ -53,7 +53,6 @@ def establishCommunication(being0, being1):
 
 def assessRelationship(being0, being1):
     level = being0.connections[being1]["level"]
-    print(level)
     if level > 5:
         being0.connections[being1]["relationship"] = "FRIEND"
         being1.connections[being0]["relationship"] = "FRIEND"
@@ -63,14 +62,16 @@ def assessRelationship(being0, being1):
     else:
         being0.connections[being1]["relationship"] = "ACQUAINTANCE"
         being1.connections[being0]["relationship"] = "ACQUAINTANCE"
-    print()
-
+    return being0.connections[being1]["relationship"]
 
 def positiveInteraction(being0, being1):
     being0.connections[being1]["level"] += 1
     being1.connections[being0]["level"] += 1
-    assessRelationship(being0, being1)
-
+    print("+ " + being0.name + ", " + being1.name)
+    preRel = being0.connections[being1]["relationship"]
+    newRel = assessRelationship(being0, being1)
+    if preRel != newRel:
+        print("\tRelationship status changed from " + preRel + " to " + newRel)
 
 def negativeInteraction(being0, being1):
     being0.connections[being1]["level"] -= 1
@@ -80,6 +81,11 @@ def negativeInteraction(being0, being1):
 
 def formCommunity(communityName, beings):
     state[communityName] = beings
+    print("\nCommunity formed: " + communityName + "\n")
+
+def removeFromCommunity(being, community):
+    state[community].remove(being)
+    print("\n" + being.name + " removed from " + community + "\n")
 
 
 def main():
@@ -144,7 +150,6 @@ def main():
     establishCommunication(cableBox, xbox)
 
     guitarHeroSmashHitsXboxGame = wake("Guitar Hero Smash Hits Xbox Game")
-
     toyTrain = wake("Toy Train")
     
     establishCommunication(guitarHeroSmashHitsXboxGame, xbox)
@@ -156,6 +161,7 @@ def main():
     wineGlass0 = wake("Wine Glass 0")
     cups.append(wineGlass0)
 
+    establishCommunication(guitarHero5XboxGame, guitarHeroSmashHitsXboxGame)
     establishCommunication(toyTrain, toyElephant)
 
     bentMetalStraw = wake("Bent Metal Straw")
@@ -166,11 +172,11 @@ def main():
     establishCommunication(toyBear, toyBlanket)
 
     wineGlass1 = wake("Wine Glass 1")
+    cups.append(wineGlass1)
 
     establishCommunication(wineGlass0, wineGlass1)
     establishCommunication(toyTrain, toyBlanket)
 
-    cups.append(wineGlass1)
     UNDMug = wake("University of Notre Dame Mug")
     cups.append(UNDMug)
     justDance2014XboxGame = wake("Just Dance 2014 Xbox Game")
@@ -182,6 +188,10 @@ def main():
     wineGlass2 = wake("Wine Glass 2")
     cups.append(wineGlass2)
 
+    establishCommunication(guitarHero5XboxGame, justDance2014XboxGame)
+    establishCommunication(xbox, justDance2014XboxGame)
+    establishCommunication(wineGlass2, dogMomMug)
+
     negativeInteraction(fish, dog)
     positiveInteraction(computer, phone)
 
@@ -190,163 +200,309 @@ def main():
     establishCommunication(wineGlass0, wineGlass2)
     
     GTAVXboxGame = wake("GTA V Xbox Game")
+
+    establishCommunication(guitarHero5XboxGame, minecraftXboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, justDance2014XboxGame)
+    
     starWarsMug = wake("Star Wars Mug")
     cups.append(starWarsMug)
+    
+    establishCommunication(xbox, minecraftXboxGame)
+    establishCommunication(wineGlass1, wineGlass2)
+    establishCommunication(guitarHeroSmashHitsXboxGame, minecraftXboxGame)
+    
     xboxController0 = wake("Xbox Controller 0")
     wineGlass3 = wake("Wine Glass 3")
     cups.append(wineGlass3)
     
+    establishCommunication(xbox, xboxController0)
     establishCommunication(toyElephant, dogAlligatorToy)
+    establishCommunication(dogMomMug, UNDMug)
+    establishCommunication(wineGlass2, starWarsMug)
+    establishCommunication(xbox, GTAVXboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, GTAVXboxGame)
 
     xboxController1 = wake("Xbox Controller 1")
     guitarHeroWorldTourXboxGame = wake("Guitar Hero World Tour Xbox Game")
+
+    establishCommunication(xbox, xboxController1)
+    establishCommunication(wineGlass2, wineGlass3)
+    establishCommunication(guitarHero5XboxGame, GTAVXboxGame)
+
     stemlessWineGlass0 = wake("Stemless Wine Glass 0")
     cups.append(stemlessWineGlass0)
-    
+
+    establishCommunication(xboxController0, xboxController1)
     establishCommunication(toyBear, dogAlligatorToy)
     establishCommunication(wineGlass0, wineGlass3)
+    establishCommunication(guitarHeroSmashHitsXboxGame, guitarHeroWorldTourXboxGame)
+    establishCommunication(wineGlass2, stemlessWineGlass0)
     
     tv = wake("TV")
 
     establishCommunication(toyBlanket, dogAlligatorToy)
     establishCommunication(tv, cableBox)
+    establishCommunication(UNDMug, starWarsMug)
+    establishCommunication(justDance2014XboxGame, minecraftXboxGame)
+    establishCommunication(wineGlass1, wineGlass3)
+    establishCommunication(xbox, guitarHeroWorldTourXboxGame)
 
     dallasMug = wake("Dallas Mug")
     cups.append(dallasMug)
     
     callOfDutyMW3XboxGame = wake("Call of Duty MW3 Xbox Game")
     
+    establishCommunication(minecraftXboxGame, GTAVXboxGame)
     establishCommunication(tv, computer)
+    establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyMW3XboxGame)
+    establishCommunication(minecraftXboxGame, guitarHeroWorldTourXboxGame)
     
     dogPlushCarrot = wake("Dog Plush Carrot")
 
+    establishCommunication(wineGlass2, dallasMug)
+    establishCommunication(guitarHero5XboxGame, guitarHeroWorldTourXboxGame)
     establishCommunication(tv, phone)
     
-    stemlessWineGlass1 = wake("Stemless Wine Glass")
+    stemlessWineGlass1 = wake("Stemless Wine Glass 1")
     cups.append(stemlessWineGlass1)
+
+    establishCommunication(wineGlass3, stemlessWineGlass0)
+    
     leechLakeMug = wake("Leech Lake Mug")
     cups.append(leechLakeMug)
 
+    establishCommunication(GTAVXboxGame, guitarHeroWorldTourXboxGame)
     establishCommunication(toyElephant, dogPlushCarrot)
+    establishCommunication(xbox, callOfDutyMW3XboxGame)
     establishCommunication(tv, xbox)
     establishCommunication(wineGlass0, stemlessWineGlass0)
+    establishCommunication(wineGlass1, stemlessWineGlass0)
 
     dogPlushMonkey = wake("Dog Plush Monkey")
+
+    establishCommunication(wineGlass2, stemlessWineGlass1)
+    establishCommunication(guitarHero5XboxGame, callOfDutyMW3XboxGame)
+    establishCommunication(justDance2014XboxGame, GTAVXboxGame)
+    establishCommunication(dogMomMug, starWarsMug)
+
     fallout4XboxGame = wake("Fallout 4 Xbox Game")
 
     establishCommunication(tv, xboxController0)
     establishCommunication(toyBear, dogPlushCarrot)
     establishCommunication(tv, xboxController1)
-    establishCommunication(dogPlushDinosaur, dogPlushMonkey)
-
+    
     positiveInteraction(dog, fish)
+
+    establishCommunication(dogPlushDinosaur, dogPlushMonkey)
+    establishCommunication(GTAVXboxGame, callOfDutyMW3XboxGame)
+    establishCommunication(guitarHero5XboxGame, fallout4XboxGame)
 
     electronicsCommunity = [computer, phone, xbox, cableBox, tv, xboxController0, xboxController1]
     formCommunity("Electronics", electronicsCommunity)
 
     establishCommunication(dogPlushDinosaur, dogPlushCarrot)
+    establishCommunication(guitarHeroSmashHitsXboxGame, fallout4XboxGame)
     establishCommunication(wineGlass0, stemlessWineGlass1)
+    establishCommunication(xbox, fallout4XboxGame)
     establishCommunication(dogPlushCarrot, dogPlushMonkey)
 
     house = wake("House")
+
+    establishCommunication(dogMomMug, dallasMug)
+    establishCommunication(wineGlass2, leechLakeMug)
+    establishCommunication(justDance2014XboxGame, guitarHeroWorldTourXboxGame)
+    establishCommunication(minecraftXboxGame, callOfDutyMW3XboxGame)
+
     stemlessWineGlass2 = wake("Stemless Wine Glass 2")
     cups.append(stemlessWineGlass2)
 
+    establishCommunication(wineGlass1, stemlessWineGlass1)
     establishCommunication(toyTrain, dogPlushCarrot)
     
     keurig = wake("Keurig")
     
     establishCommunication(dogAlligatorToy, dogPlushCarrot)
+    establishCommunication(UNDMug, dallasMug)
+    establishCommunication(wineGlass3, stemlessWineGlass1)
+    
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(wineGlass3, stemlessWineGlass2)
     establishCommunication(toyElephant, dogPlushMonkey)
+    establishCommunication(xboxController0, callOfDutyMW3XboxGame)
 
     dogBlanket = wake("Dog Blanket")
 
+    establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyMW3XboxGame)
     establishCommunication(toyBlanket, dogBlanket)
     establishCommunication(dogAlligatorToy, dogPlushMonkey)
     
     xboxController2 = wake("Xbox Controller 2")
 
     establishCommunication(toyBear, dogPlushMonkey)
+    establishCommunication(dallasMug, leechLakeMug)
     establishCommunication(wineGlass0, stemlessWineGlass2)
+    establishCommunication(xbox, xboxController2)
     
     maddenXboxGame = wake("Madden Xbox Game")
+
+    establishCommunication(xbox, maddenXboxGame)
+    establishCommunication(stemlessWineGlass0, stemlessWineGlass1)
+    establishCommunication(tv, xboxController2)
+    
     stemlessWineGlass3 = wake("Stemless Wine Glass 3")
     cups.append(stemlessWineGlass3)
 
+    establishCommunication(dogMomMug, leechLakeMug)
     establishCommunication(toyBlanket, dogPlushCarrot)
     establishCommunication(dogAlligatorToy, dogBlanket)
+    establishCommunication(xboxController0, fallout4XboxGame)
+    establishCommunication(UNDMug, leechLakeMug)
+    establishCommunication(minecraftXboxGame, fallout4XboxGame)
 
     negativeInteraction(computer, phone)
     
     establishCommunication(toyTrain, dogPlushMonkey)
+    establishCommunication(starWarsMug, dallasMug)
+    establishCommunication(wineGlass2, stemlessWineGlass3)
+    establishCommunication(wineGlass1, stemlessWineGlass2)
     establishCommunication(dogPlushCarrot, dogBlanket)
 
     dogDuraforce = wake("Duraforce")
 
+    establishCommunication(xboxController0, xboxController2)
     establishCommunication(dogPlushMonkey, dogBlanket)
     establishCommunication(wineGlass0, stemlessWineGlass3)
     
     halo5XboxGame = wake("Halo 5 Xbox Game")
 
     establishCommunication(toyBlanket, dogPlushMonkey)
+    establishCommunication(minecraftXboxGame, maddenXboxGame)
     establishCommunication(dogPlushMonkey, dogDuraforce)
+    establishCommunication(xbox, halo5XboxGame)
+    establishCommunication(justDance2014XboxGame, callOfDutyMW3XboxGame)
     
     tvRemote = wake("TV Remote")
 
+    establishCommunication(guitarHero5XboxGame, maddenXboxGame)
+    
+    negativeInteraction(xbox, tv)
+    
     establishCommunication(toyElephant, dogBlanket)
+    establishCommunication(wineGlass1, stemlessWineGlass3)
+    establishCommunication(guitarHeroSmashHitsXboxGame, maddenXboxGame)
 
     callOfDutyModernWarfare2XboxGame = wake("Call of Duty Modern Warfare 2 Xbox Game")
-    xboxController3 = wake("Xbox Controller")
+    
+    establishCommunication(GTAVXboxGame, fallout4XboxGame)
+    establishCommunication(starWarsMug, leechLakeMug)
+    establishCommunication(stemlessWineGlass0, stemlessWineGlass2)
+    
+    xboxController3 = wake("Xbox Controller 3")
+
+    establishCommunication(xbox, xboxController3)
+    establishCommunication(guitarHero5XboxGame, halo5XboxGame)
+    
     seaofThievesXboxGame = wake("Sea of Thieves Xbox Game")
 
     establishCommunication(dogPlushDinosaur, dogBlanket)
+    establishCommunication(xbox, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(xboxController0, maddenXboxGame)
     
     callOfDutyAdvancedWarfareXboxGame = wake("Call of Duty Advanced Warfare Xbox Game")
+    
+    establishCommunication(GTAVXboxGame, maddenXboxGame)
+    establishCommunication(guitarHeroWorldTourXboxGame, fallout4XboxGame)
+    establishCommunication(tv, xboxController3)
+    
     pastaMaker = wake("Pasta Maker")
 
+    establishCommunication(justDance2014XboxGame, fallout4XboxGame)
+    establishCommunication(xbox, seaofThievesXboxGame)
+    establishCommunication(guitarHero5XboxGame, callOfDutyModernWarfare2XboxGame)
     establishCommunication(dogPlushDinosaur, dogDuraforce)
+    establishCommunication(guitarHeroSmashHitsXboxGame, halo5XboxGame)
     
     legoStarWarsIIXboxGame = wake("Lego Star Wars II Xbox Game")
     dogKong = wake("Kong")
 
     establishCommunication(toyBear, dogBlanket)
+    establishCommunication(xbox, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(toyTrain, dogDuraforce)
+    establishCommunication(xbox, legoStarWarsIIXboxGame)
     
     loveseat = wake("Loveseat")
+
+    establishCommunication(guitarHeroWorldTourXboxGame, maddenXboxGame)
+    establishCommunication(wineGlass2, stemlessWineGlass2)
+    
     iceCreamScoop = wake("Ice Cream Scoop")
+    
+    establishCommunication(GTAVXboxGame, halo5XboxGame)
+    establishCommunication(stemlessWineGlass0, stemlessWineGlass3)
+    
     battlefield4XboxGame = wake("Battlefield 4 Xbox Game")
     
     establishCommunication(toyTrain, dogBlanket)
+    establishCommunication(minecraftXboxGame, halo5XboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(guitarHero5XboxGame, seaofThievesXboxGame)
     establishCommunication(dogBlanket, dogDuraforce)
+    establishCommunication(guitarHeroSmashHitsXboxGame, seaofThievesXboxGame)
+    establishCommunication(xbox, battlefield4XboxGame)
 
     dogRope = wake("Dog Rope")
 
     establishCommunication(toyElephant, dogDuraforce)
+    establishCommunication(justDance2014XboxGame, maddenXboxGame)
+    
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(guitarHero5XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogAlligatorToy, dogKong)
+    establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyAdvancedWarfareXboxGame)
     
     couch = wake("Couch")
 
     establishCommunication(toyBear, dogDuraforce)
+    establishCommunication(wineGlass3, stemlessWineGlass3)
     establishCommunication(toyTrain, dogKong)
+    establishCommunication(xboxController0, seaofThievesXboxGame)
+    establishCommunication(guitarHero5XboxGame, legoStarWarsIIXboxGame)
     
     bowls = []
     mediumMixingBowl = wake("Medium Mixing Bowl")
     bowls.append(mediumMixingBowl)
 
+    establishCommunication(xboxController0, legoStarWarsIIXboxGame)
     establishCommunication(toyBlanket, dogKong)
+    establishCommunication(minecraftXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, legoStarWarsIIXboxGame)
+    
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(xboxController0, xboxController3)
     establishCommunication(dogPlushCarrot, dogRope)
     establishCommunication(dogAlligatorToy, dogDuraforce)
     
     throwPillow0 = wake("Throw Pillow 0")
+
+    establishCommunication(guitarHero5XboxGame, battlefield4XboxGame)
+    establishCommunication(justDance2014XboxGame, halo5XboxGame)
+    establishCommunication(guitarHeroWorldTourXboxGame, halo5XboxGame)
+
     largeMixingBowl = wake("Large Mixing Bowl")
     bowls.append(largeMixingBowl)
 
     establishCommunication(dogPlushMonkey, dogKong)
+    establishCommunication(xboxController0, callOfDutyAdvancedWarfareXboxGame)
     
     mediumPot0 = wake("Medium Pot 0")
     
     establishCommunication(toyBear, dogKong)
     establishCommunication(dogPlushDinosaur, dogRope)
+    establishCommunication(guitarHeroSmashHitsXboxGame, battlefield4XboxGame)
+    establishCommunication(minecraftXboxGame, seaofThievesXboxGame)
 
     smallMixingBowl = wake("Small Mixing Bowl")
     bowls.append(smallMixingBowl)
@@ -355,22 +511,36 @@ def main():
     establishCommunication(dogBlanket, dogKong)
     establishCommunication(dogDuraforce, dogKong)
     
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(justDance2014XboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyModernWarfare2XboxGame)
+    
     whisk = wake("Whisk")
+
+    establishCommunication(GTAVXboxGame, callOfDutyModernWarfare2XboxGame)
+    
     microwave = wake("Microwave")
 
     establishCommunication(dogPlushDinosaur, dogKong)
     establishCommunication(toyElephant, dogRope)
+    establishCommunication(guitarHeroWorldTourXboxGame, seaofThievesXboxGame)
     
     throwPillow1 = wake("Throw Pillow 1")
     ladle = wake("Ladle")
+
+    removeFromCommunity(xbox, "Electronics")
+
     fridge = wake("Fridge")
 
+    establishCommunication(xboxController0, battlefield4XboxGame)
     establishCommunication(dogPlushCarrot, dogKong)
     establishCommunication(dogBlanket, dogRope)
     
     bottleOpener = wake("Bottle Opener")
 
     establishCommunication(toyElephant, dogKong)
+    establishCommunication(justDance2014XboxGame, seaofThievesXboxGame)
     establishCommunication(toyBlanket, dogRope)
     
     crockpot = wake("Crockpot")
@@ -378,6 +548,7 @@ def main():
     positiveInteraction(dog, fish)
 
     establishCommunication(dogAlligatorToy, dogRope)
+    establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyAdvancedWarfareXboxGame)
 
     spatula0 = wake("Spatula")
 
@@ -395,6 +566,8 @@ def main():
     servingSpoon0 = wake("Serving Spoon 0")
     spoons.append(servingSpoon0)
 
+    establishCommunication(guitarHeroWorldTourXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(justDance2014XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogKong, dogRope)
 
     throwPillow2 = wake("Throw Pillow 2")
@@ -402,16 +575,28 @@ def main():
     toaster = wake("Toaster")
 
     establishCommunication(dogDuraforce, dogRope)
+    establishCommunication(minecraftXboxGame, callOfDutyAdvancedWarfareXboxGame)
 
     ovenMitt0 = wake("Oven Mitt 0")
     spatula1 = wake("Spatula 1")
+    
+    establishCommunication(GTAVXboxGame, seaofThievesXboxGame)
+    
+    negativeInteraction(xbox, tv)
+    
     mediumPot2 = wake("Medium Pot 2")
     ovenMitt1 = wake("Oven Mitt 1")
     potholder1 = wake("Potholder 1")
     strainer = wake("Strainer")
+    
+    establishCommunication(justDance2014XboxGame, legoStarWarsIIXboxGame)
+    
     dishDryingTowel0 = wake("Dish Drying Towel 0")
     dishSoap = wake("Dish Soap")
     largePot0 = wake("Large Pot 0")
+    
+    establishCommunication(GTAVXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    
     throwPillow3 = wake("Throw Pillow 3")
     dryingRack = wake("Drying Rack")
     sponge = wake("Sponge")
@@ -434,9 +619,15 @@ def main():
     servingSpoon1 = wake("Serving Spoon 1")
     spoons.append(servingSpoon1)
     rug = wake("Rug")
+    
+    establishCommunication(justDance2014XboxGame, battlefield4XboxGame)
+    
     largePot1 = wake("Large Pot 1")
     dishDryingTowel1 = wake("Dish Drying Towel 1")
     oneCupMeasuringCup = wake("One Cup Measuring Cup")
+
+    establishCommunication(minecraftXboxGame, legoStarWarsIIXboxGame)
+    
     straightMetalStraw = wake("Straight Metal Straw")
     babyBlueWineStopper = wake("Baby Blue Wine Stopper")
     kitchenHandTowel0 = wake("Kitchen Hand Towel 0")
@@ -445,6 +636,7 @@ def main():
     knives.append(serratedKnife)
     navyWineStopper = wake("Navy Wine Stopper")
 
+    negativeInteraction(xbox, tv)
     negativeInteraction(computer, phone)
 
     blanket0 = wake("Blanket 0")
@@ -459,6 +651,9 @@ def main():
     halfCupMeasuringCup = wake("Half Cup Measuring Cup")
     chair0 = wake("Chair 0")
     toyBasket = wake("Toy Basket")
+    
+    establishCommunication(GTAVXboxGame, legoStarWarsIIXboxGame)
+    
     chair1 = wake("Chair 1")
     cloroxWipes = wake("Clorox Wipes")
     teaspoon = wake("Teaspoon")
@@ -466,7 +661,13 @@ def main():
     positiveInteraction(dog, fish)
 
     windex = wake("Windex")
+    
+    establishCommunication(minecraftXboxGame, battlefield4XboxGame)
+    
     standingLamp = wake("Standing Lamp")
+    
+    negativeInteraction(xbox, tv)
+
     entertainmentCenter = wake("Entertainment Center")
     slicingKnife = wake("Slicing Knife")
     knives.append(slicingKnife)
@@ -481,6 +682,9 @@ def main():
     lamp0 = wake("Lamp 0")
     throwPillow4 = wake("Throw Pillow 4")
     tinfoil = wake("Tinfoil")
+
+    establishCommunication(bentMetalStraw, straightMetalStraw)
+    
     foodScale = wake("Food Scale")
     thirdCupMeasuringCup = wake("Third Cup Measuring Cup")
     seasonalPlacemat1 = wake("Seasonal Placemat 1")
@@ -496,13 +700,16 @@ def main():
     saranWrap = wake("Saran Wrap")
     tomatoKnife = wake("Tomato Knife")
     knives.append(tomatoKnife)
+    
+    establishCommunication(GTAVXboxGame, battlefield4XboxGame)
+    
     placemat0 = wake("Placemat 0")
     halfTeaspoon = wake("Half Teaspoon")
     bakingSheet0 = wake("Baking Sheet 0")
     sandwichZiplockBags = wake("Sandwich Ziplock Bags")
     kitchenTrashcan = wake("Kitchen Trashcan")
     seasonalPlacemat2 = wake("Seasonal Placemat 2")
-    coffeePodBasket = wake("CoffeePodBasket")
+    coffeePodBasket = wake("Coffee Pod Basket")
     forks = []
     largeFork0 = wake("Large Fork 0")
     forks.append(largeFork0)
@@ -545,6 +752,9 @@ def main():
     cups.append(smallCup1)
     dunkinDonutsCoffeePod4 = wake("Dunkin' Donuts Coffee Pod 4")
     quarterTeaspoon = wake("Quarter Teaspoon")
+
+    establishCommunication(tv, callOfDutyMW3XboxGame)
+    
     dunkinDonutsCoffeePod5 = wake("Dunkin' Donuts Coffee Pod 5")
     largeFork4 = wake("Large Fork 4")
     forks.append(largeFork4)
@@ -566,6 +776,9 @@ def main():
     forks.append(largeFork5)
     paringKnife = wake("Paring Knife")
     smallFork1 = wake("Small Fork 1")
+    
+    establishCommunication(tv, fallout4XboxGame)
+    
     forks.append(smallFork1)
     knife1 = wake("Knife 1")
     knives.append(knife1)
@@ -574,6 +787,7 @@ def main():
     forks.append(largeFork6)
 
     positiveInteraction(phone, computer)
+    
     utilityKnife = wake("Utility Knife")
     smallFork2 = wake("Small Fork 2")
     forks.append(smallFork2)
@@ -583,6 +797,9 @@ def main():
     placemat2 = wake("Placemat 2")
     tallCup0 = wake("Tall Cup 0")
     cups.append(tallCup0)
+    
+    establishCommunication(tv, maddenXboxGame)
+    
     largeSpoon1 = wake("Large Spoon 1")
     spoons.append(largeSpoon1)
     dunkinDonutsCoffeePod8 = wake("Dunkin' Donuts Coffee Pod 8")
@@ -599,6 +816,9 @@ def main():
     knives.append(steakKnife4)
     bowl0 = wake("Bowl 0")
     bowls.append(bowl0)
+    
+    establishCommunication(tv, halo5XboxGame)
+    
     largeSpoon3 = wake("Large Spoon 3")
     spoons.append(largeSpoon3)
     largeFork9 = wake("Large Fork 9")
@@ -615,6 +835,9 @@ def main():
     steakKnife6 = wake("Steak Knife 6")
     knives.append(steakKnife6)
     strawBrush = wake("Straw Brush")
+    
+    establishCommunication(tv, callOfDutyModernWarfare2XboxGame)
+    
     dunkinDonutsCoffeePod11 = wake("Dunkin' Donuts Coffee Pod 11")
     smallSpoon1 = wake("Small Spoon 1")
     spoons.append(smallSpoon1)
@@ -624,6 +847,9 @@ def main():
     dunkinDonutsCoffeePod12 = wake("Dunkin' Donuts Coffee Pod 12")
     bowl2 = wake("Bowl 2")
     bowls.append(bowl2)
+    
+    establishCommunication(tv, seaofThievesXboxGame)
+    
     steakKnife7 = wake("Steak Knife 7")
     knives.append(steakKnife7)
     smallFork3 = wake("Small Fork 3")
@@ -636,6 +862,9 @@ def main():
     
     smallFork4 = wake("Small Fork 4")
     forks.append(smallFork4)
+    
+    establishCommunication(tv, callOfDutyAdvancedWarfareXboxGame)
+    
     dunkinDonutsCoffeePod14 = wake("Dunkin' Donuts Coffee Pod 14")
     smallFork5 = wake("Small Fork 5")
     forks.append(smallFork5)
@@ -658,6 +887,9 @@ def main():
     dunkinDonutsCoffeePod16 = wake("Dunkin' Donuts Coffee Pod 16")
     smallFork9 = wake("Small Fork 9")
     forks.append(smallFork9)
+    
+    establishCommunication(tv, legoStarWarsIIXboxGame)
+    
     dunkinDonutsCoffeePod17 = wake("Dunkin' Donuts Coffee Pod 17")
     smallPlate2 = wake("Small Plate 2")
     
@@ -676,6 +908,9 @@ def main():
     knives.append(knife7)
     knife8 = wake("Knife 8")
     knives.append(knife8)
+   
+    establishCommunication(tv, battlefield4XboxGame)
+    
     dunkinDonutsCoffeePod20 = wake("Dunkin' Donuts Coffee Pod 20")
 
     positiveInteraction(fish, dog)
@@ -785,100 +1020,6 @@ def main():
     bowls.append(bowl4)
     positiveInteraction(fish, dog)
     dunkinDonutsCoffeePod40 = wake("Dunkin' Donuts Coffee Pod 40")
-
-    ## REST OF HOUSE ##
-    
-    washingMachine = wake("Washing Machine")
-    dryer = wake("Dryer")
-    laundryDetergent = wake("Laundry Detergent")
-    dryerSheets = wake("Dryer Sheets")
-    bucket = wake("Bucket")
-    broom = wake("Broom")
-    vacuum = wake("Vacuum")
-    bathTowel0 = wake("Bath Towel 0")
-    bathTowel1 = wake("Bath Towel 1")
-    bathTowel2 = wake("Bath Towel 2")
-    bathTowel3 = wake("Bath Towel 3")
-    bathRug0 = wake("Bath Rug 0")
-    bathRug1 = wake("Bath Rug 1")
-    bathRug2 = wake("Bath Rug 2")
-    bathRug3 = wake("Bath Rug 3")
-    handSoap0 = wake("Hand Soap 0")
-    handSoap1 = wake("Hand Soap 1")
-    handSoap2 = wake("Hand Soap 2")
-    toilet0 = wake("Toilet 0")
-    toilet1 = wake("Toilet 1")
-    toilet1 = wake("Toilet 2")
-    shower0 = wake("Shower 0")
-    shower1 = wake("Shower 1")
-    showerCurtain0 = wake("Shower Curtain 0")
-    showerCurtain1 = wake("Shower Curtain 1")
-    greyToothbrush = wake("Grey Toothbrush")
-    blueToothbrush = wake("Blue Toothbrush")
-    toothbrushHolder = wake("Toothbrush Holder")
-    crest3DWhiteToothpaste = wake("Crest 3D White Toothpaste")
-    hairbrush0 = wake("Hairbrush 0")
-    hairbrush1 = wake("Hairbrush 1")
-    bathroomTrashcan0 = wake("Bathroom Trashcan 0")
-    bathroomTrashcan1 = wake("Bathroom Trashcan 1")
-    bathroomTrashcan2 = wake("Bathroom Trashcan 2")
-    razor0 = wake("Razor 0")
-    razor1 = wake("Razor 1")
-    extraRazorHeads = wake("Extra Razor Heads")
-    hairtie0 = wake("Hairtie 0")
-    hairtie1 = wake("Hairtie 1")
-    hairtie2 = wake("Hairtie 2")
-    hairtie3 = wake("Hairtie 3")
-    hairtie4 = wake("Hairtie 4")
-    hairtie5 = wake("Hairtie 5")
-    hairtie6 = wake("Hairtie 6")
-    hairtie7 = wake("Hairtie 7")
-    hairtie8 = wake("Hairtie 8")
-    hairtie9 = wake("Hairtie 9")
-    hairtie10 = wake("Hairtie 10")
-    hairtie11 = wake("Hairtie 11")
-    hairtie12 = wake("Hairtie 12")
-    hairtie13 = wake("Hairtie 13")
-    hairtie14 = wake("Hairtie 14")
-    hairtie15 = wake("Hairtie 15")
-    hairtie16 = wake("Hairtie 16")
-    hairtie17 = wake("Hairtie 17")
-    hairtie18 = wake("Hairtie 18")
-    hairtie19 = wake("Hairtie 19")
-    hairtie20 = wake("Hairtie 20")
-    hairtie21 = wake("Hairtie 21")
-    hairtie22 = wake("Hairtie 22")
-    hairtie23 = wake("Hairtie 23")
-    hairtie24 = wake("Hairtie 24")
-    hairtie25 = wake("Hairtie 25")
-    hairtie26 = wake("Hairtie 26")
-    hairtie27 = wake("Hairtie 27")
-    hairtie28 = wake("Hairtie 28")
-    hairtie29 = wake("Hairtie 29")
-    hairtie30 = wake("Hairtie 30")
-    hairtie31 = wake("Hairtie 31")
-    hairtie32 = wake("Hairtie 32")
-    hairtie33 = wake("Hairtie 33")
-    hairtie34 = wake("Hairtie 34")
-    hairtie35 = wake("Hairtie 35")
-    hairtie36 = wake("Hairtie 36")
-    hairtie37 = wake("Hairtie 37")
-    hairtie38 = wake("Hairtie 38")
-    hairtie39 = wake("Hairtie 39")
-    plaidScrunchie = wake("Plaid Scrunchie")
-    whiteFloralScrunchie = wake("White Floral Scrunchie")
-    blackFloralScrunchie = wake("Black Floral Scrunchie")
-    ginghamScrunchie = wake("Gingham Scrunchie")
-    dottedScrunchie = wake("Dotted Scrunchie")
-    stripedScrunchie = wake("Striped Scrunchie")
-    listerineMouthWash = wake("Listerine Mouth Wash")
-    ceraVeDailyMoisturizingLotion = wake("CeraVe Daily Moisturizing Lotion")
-    ceraVeRenewingSACleanser = wake("CeraVe Renewing SA Cleanser")
-    ceraVeFoamingFacialCleanser = wake("CeraVe Foaming Facial Cleanser")
-    niveaVanillaCaramelFoamingSilkMousseBodyWash = wake("Nivea Vanilla Caramel Foaming Silk Mousse Body Wash")
-    herbalEssencesShampoo = wake("Herbal Essences Shampoo")
-    herbalEssencesConditioner = wake("Herbal Essences Conditioner")
-    suave3in1ShampooConditionerBody = wake("Suave 3-in-1 Shampoo Conditioner Body")
 
     print("\n\nRELATIONSHIPS:")
     for being in state["beings"]:
