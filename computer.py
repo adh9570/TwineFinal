@@ -318,6 +318,7 @@ def main():
 
     establishCommunication(wineGlass1, stemlessWineGlass1)
     establishCommunication(toyTrain, dogPlushCarrot)
+    establishCommunication(callOfDutyMW3XboxGame, fallout4XboxGame)
     
     keurig = wake("Keurig")
     
@@ -385,6 +386,7 @@ def main():
     tvRemote = wake("TV Remote")
 
     establishCommunication(guitarHero5XboxGame, maddenXboxGame)
+    establishCommunication(callOfDutyMW3XboxGame, maddenXboxGame)
     
     negativeInteraction(xbox, tv)
     
@@ -414,6 +416,7 @@ def main():
     establishCommunication(GTAVXboxGame, maddenXboxGame)
     establishCommunication(guitarHeroWorldTourXboxGame, fallout4XboxGame)
     establishCommunication(tv, xboxController3)
+    establishCommunication(callOfDutyMW3XboxGame, halo5XboxGame)
     
     pastaMaker = wake("Pasta Maker")
 
@@ -424,6 +427,9 @@ def main():
     establishCommunication(guitarHeroSmashHitsXboxGame, halo5XboxGame)
     
     legoStarWarsIIXboxGame = wake("Lego Star Wars II Xbox Game")
+
+    establishCommunication(callOfDutyMW3XboxGame, callOfDutyModernWarfare2XboxGame)
+    
     dogKong = wake("Kong")
 
     establishCommunication(toyBear, dogBlanket)
@@ -440,6 +446,7 @@ def main():
     
     establishCommunication(GTAVXboxGame, halo5XboxGame)
     establishCommunication(stemlessWineGlass0, stemlessWineGlass3)
+    establishCommunication(callOfDutyMW3XboxGame, seaofThievesXboxGame)
     
     battlefield4XboxGame = wake("Battlefield 4 Xbox Game")
     
@@ -519,6 +526,7 @@ def main():
     whisk = wake("Whisk")
 
     establishCommunication(GTAVXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(callOfDutyMW3XboxGame, callOfDutyAdvancedWarfareXboxGame)
     
     microwave = wake("Microwave")
 
@@ -539,6 +547,7 @@ def main():
     
     bottleOpener = wake("Bottle Opener")
 
+    establishCommunication(callOfDutyMW3XboxGame, legoStarWarsIIXboxGame)
     establishCommunication(toyElephant, dogKong)
     establishCommunication(justDance2014XboxGame, seaofThievesXboxGame)
     establishCommunication(toyBlanket, dogRope)
@@ -555,6 +564,7 @@ def main():
     positiveInteraction(phone, computer)
 
     establishCommunication(toyTrain, dogRope)
+    establishCommunication(callOfDutyMW3XboxGame, battlefield4XboxGame)
 
     oven = wake("Oven")
     mediumPot1 = wake("Medium Pot 1")
