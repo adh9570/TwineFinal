@@ -31,7 +31,6 @@ class Being():
         }
 
     def joinCommunity(self, community):
-        print(state[community])
         state[community].append(self)
 
 
