@@ -104,8 +104,8 @@ def main():
 
     establishCommunication(dog, dogPlushDinosaur)
 
-    toyElephant = wake("Elephant")
-    toyBear = wake("Bear")
+    toyElephant = wake("Toy Elephant")
+    toyBear = wake("Toy Bear")
 
     establishCommunication(toyElephant, dogPlushDinosaur)
 
@@ -337,6 +337,15 @@ def main():
     establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyMW3XboxGame)
     establishCommunication(toyBlanket, dogBlanket)
     establishCommunication(dogAlligatorToy, dogPlushMonkey)
+
+    toyComm = []
+    for connection in dogPlushDinosaur.connections:
+        toyComm.append(connection)
+    for connection in toyElephant.connections:
+        if connection not in toyComm:
+            toyComm.append(connection)
+    
+    formCommunity("Toys", toyComm)
     
     xboxController2 = wake("Xbox Controller 2")
 
@@ -380,6 +389,9 @@ def main():
     establishCommunication(toyBlanket, dogPlushMonkey)
     establishCommunication(minecraftXboxGame, maddenXboxGame)
     establishCommunication(dogPlushMonkey, dogDuraforce)
+
+    dogDuraforce.joinCommunity("Toys")
+
     establishCommunication(xbox, halo5XboxGame)
     establishCommunication(justDance2014XboxGame, callOfDutyMW3XboxGame)
     
@@ -482,6 +494,9 @@ def main():
     
     establishCommunication(guitarHero5XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogAlligatorToy, dogKong)
+
+    dogKong.joinCommunity("Toys")
+
     establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(xboxController2, xboxController3)
     
@@ -507,6 +522,9 @@ def main():
     establishCommunication(house, couch)
     establishCommunication(xboxController0, xboxController3)
     establishCommunication(dogPlushCarrot, dogRope)
+
+    dogRope.joinCommunity("Toys")
+
     establishCommunication(seaofThievesXboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogAlligatorToy, dogDuraforce)
     
@@ -898,6 +916,8 @@ def main():
     establishCommunication(microwave, chair0)
     establishCommunication(mediumMixingBowl, largePot1)
     establishCommunication(house, chair1)
+    establishCommunication(dogPlushMonkey, toyBasket)
+    establishCommunication(sink, cloroxWipes)
     establishCommunication(pastaMaker, toaster)
     
     windex = wake("Windex")
@@ -912,6 +932,7 @@ def main():
 
     establishCommunication(microwave, chair1)
     establishCommunication(house, standingLamp)
+    establishCommunication(sink, windex)
 
     entertainmentCenter = wake("Entertainment Center")
 
