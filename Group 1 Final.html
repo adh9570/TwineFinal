@@ -11,7 +11,11 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Group 1 Final" startnode="1" creator="Twine" creator-version="2.3.9" ifid="836FAC98-F8D3-4C0C-8387-C03E799424B1" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"> #ctGrid {
+<tw-storydata name="Group 1 Final" startnode="1" creator="Twine" creator-version="2.3.9" ifid="836FAC98-F8D3-4C0C-8387-C03E799424B1" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#sidebarHouse {
+  height: 30px;
+}
+
+#ctGrid {
    display: grid;
    grid-template-columns: auto auto auto auto;
    width: 100%;
@@ -41,9 +45,7 @@ html.forkDarkGrey tw-story {
   background-color: #727272;
   color: black;
 }
-
-html.forkBlack tw-story {
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="" position="996,120" size="100,100">&lt;!-- main page, put images here --&gt;
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="" position="996,120" size="100,100">&lt;!-- main page, put images here --&gt;
 [[Fork]]
 [[Coffee Table]] 
 [[Plant]]
@@ -215,7 +217,7 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
     (else-if: $count is 104)[(show: ?word103)]
 	(else:)[(stop:)]
 ]}	
-</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="997,0" size="100,100">(append: ?sidebar)[ [[go home|main]] ]
+</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="997,0" size="100,100">(append: ?sidebar)[ [[&lt;img src=&quot;assets/Sidebar Image.png&quot; id=&quot;sidebarHouse&quot;/&gt;|main]] ]
 {
 (print: &quot;&lt;script&gt;$(&#39;html&#39;).removeClass(\)&lt;/script&gt;&quot;)
 (if: (passage:)&#39;s tags&#39;s length &gt; 0)[
