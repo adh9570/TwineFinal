@@ -31,6 +31,7 @@ class Being():
         }
 
     def joinCommunity(self, community):
+        print(state[community])
         state[community].append(self)
 
 
@@ -339,9 +340,9 @@ def main():
     establishCommunication(dogAlligatorToy, dogPlushMonkey)
 
     toyComm = []
-    for connection in dogPlushDinosaur.connections:
+    for connection in dogPlushDinosaur.connections.keys():
         toyComm.append(connection)
-    for connection in toyElephant.connections:
+    for connection in toyElephant.connections.keys():
         if connection not in toyComm:
             toyComm.append(connection)
     
@@ -1018,7 +1019,10 @@ def main():
     
     placemat0 = wake("Placemat 0")
 
-    formCommunity("Soft Things", throwPillow0.connections)
+    softies = []
+    for connection in throwPillow0.connections.keys():
+        softies.append(connection)
+    formCommunity("Soft Things", softies)
 
     halfTeaspoon = wake("Half Teaspoon")
 
@@ -1153,18 +1157,24 @@ def main():
     dunkinDonutsCoffeePod3 = wake("Dunkin' Donuts Coffee Pod 3")
 
     establishCommunication(keurig, dunkinDonutsCoffeePod2)
+    
+    toyElephant.joinCommunity("Soft Things")
 
     dunkinDonutsCoffeePod2.joinCommunity("Coffee")
 
     largeFork2 = wake("Large Fork 2")
     forks.append(largeFork2)
 
+    toyBear.joinCommunity("Soft Things")
+    
     negativeInteraction(phone, computer)
 
     tallCup1 = wake("Tall Cup 1")
     cups.append(tallCup1)
     
     establishCommunication(keurig, dunkinDonutsCoffeePod3)
+    
+    toyBlanket.joinCommunity("Soft Things")
     
     dunkinDonutsCoffeePod3.joinCommunity("Coffee")
     
@@ -1178,6 +1188,9 @@ def main():
     forks.append(largeFork3)
     
     establishCommunication(microwave, kitchenTrashcan)
+    establishCommunication(placemat0, seasonalPlacemat3)
+
+    seasonalPlacemat3.joinCommunity("Soft Things")
     
     smallCup1 = wake("Small Cup 1")
     cups.append(smallCup1)
@@ -1232,6 +1245,9 @@ def main():
     paringKnife = wake("Paring Knife")
 
     establishCommunication(knifeBlock, paringKnife)
+    establishCommunication(placemat0, placemat1)
+
+    placemat1.joinCommunity("Soft Things")
 
     paringKnife.joinCommunity("Knife Block")
 
@@ -1271,10 +1287,7 @@ def main():
     
     dunkinDonutsCoffeePod7.joinCommunity("Coffee")
     
-    placemat2 = wake("Placemat 2")
-
-    establishCommunication(microwave, placemat2)
-    
+    placemat2 = wake("Placemat 2")    
     tallCup0 = wake("Tall Cup 0")
     cups.append(tallCup0)
     
@@ -1292,6 +1305,12 @@ def main():
     placemat3 = wake("Placemat 3")
 
     establishCommunication(microwave, placemat3)
+    establishCommunication(placemat0, placemat2)
+    establishCommunication(placemat1, placemat3)
+
+    placemat2.joinCommunity("Soft Things")
+    placemat3.joinCommunity("Soft Things")
+
     establishCommunication(keurig, dunkinDonutsCoffeePod8)
     
     dunkinDonutsCoffeePod8.joinCommunity("Coffee")
