@@ -15,6 +15,7 @@
    display: grid;
    grid-template-columns: auto auto auto auto;
    width: 100%;
+
 }
 
 tw-story[tags~="kettle"] tw-passage {
@@ -23,6 +24,7 @@ tw-story[tags~="kettle"] tw-passage {
 	height: 630px;
 	background-size: contain;
 	background-repeat: no-repeat;
+   text-align: center;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="" position="996,120" size="100,100">&lt;!-- main page, put images here --&gt;
 [[Fork]]
 [[Coffee Table]] 
@@ -31,7 +33,10 @@ tw-story[tags~="kettle"] tw-passage {
 [[Water]]
 [[Kettle]]
 [[Light Switch]]
-[[Fish]]</tw-passagedata><tw-passagedata pid="2" name="Fork" tags="" position="99,52" size="100,100">the. view. never! changes.
+[[Fish]]
+[[Computer]] 
+</tw-passagedata><tw-passagedata pid="2" name="Fork" tags="" position="99,52" size="100,100">the. view. never! changes.
+</tw-passagedata><tw-passagedata pid="2" name="Fork" tags="" position="99,52" size="100,100">the. view. never! changes.
 plain! plain! plain!
 all. i. ever. see. is. this. [[ceiling!]]
 they. could. have. 
@@ -290,6 +295,3572 @@ EATSWIMDART(link-show:&quot;HIDE&quot;,?hide)SWIMSWIM
 
 |look)[LOOK: He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]
 </tw-passagedata></tw-storydata>
+
+</tw-passagedata><tw-passagedata pid="20" name="Computer" tags="" position="491,604" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
+&lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount = &quot;100&quot; style=&quot;height:20em; color: #ffffff;&quot;&gt;
+class Being():
+
+    def __init__(self, name):
+        self.name = name
+        self.connections = {}
+        self.friends = {}
+        self.enemies = {}
+
+    def assessSurroundings(self):
+        print(&quot;Assessing surroundings...&quot;)
+        print(&quot;Nearby beings:&quot;)
+        beings = state[&quot;beings&quot;]
+        for being in beings:
+            print(&quot;\t- &quot; + being.name)
+        return state[&quot;beings&quot;]
+
+    def addConnection(self, being):
+        self.connections[being] = {
+            &quot;relationship&quot;: &quot;ACQUAINTANCE&quot;,
+            &quot;level&quot;: 0
+        }
+
+    def joinCommunity(self, community):
+        print(state[community])
+        state[community].append(self)
+
+
+state = {
+    &quot;beings&quot;: []
+}
+
+
+def wake(name):
+    print(name + &quot; has woken&quot;)
+    being = Being(name)
+    state[&quot;beings&quot;].append(being)
+    return being
+
+
+def establishCommunication(being0, being1):
+    being0.addConnection(being1)
+    being1.addConnection(being0)
+
+
+def assessRelationship(being0, being1):
+    level = being0.connections[being1][&quot;level&quot;]
+    if level &gt; 5:
+        being0.connections[being1][&quot;relationship&quot;] = &quot;FRIEND&quot;
+        being1.connections[being0][&quot;relationship&quot;] = &quot;FRIEND&quot;
+    elif level &lt; -2:
+        being0.connections[being1][&quot;relationship&quot;] = &quot;ENEMY&quot;
+        being1.connections[being0][&quot;relationship&quot;] = &quot;ENEMY&quot;
+    else:
+        being0.connections[being1][&quot;relationship&quot;] = &quot;ACQUAINTANCE&quot;
+        being1.connections[being0][&quot;relationship&quot;] = &quot;ACQUAINTANCE&quot;
+    return being0.connections[being1][&quot;relationship&quot;]
+
+def positiveInteraction(being0, being1):
+    being0.connections[being1][&quot;level&quot;] += 1
+    being1.connections[being0][&quot;level&quot;] += 1
+    print(&quot;+ &quot; + being0.name + &quot;, &quot; + being1.name)
+    preRel = being0.connections[being1][&quot;relationship&quot;]
+    newRel = assessRelationship(being0, being1)
+    if preRel != newRel:
+        print(&quot;\tRelationship status changed from &quot; + preRel + &quot; to &quot; + newRel)
+
+def negativeInteraction(being0, being1):
+    being0.connections[being1][&quot;level&quot;] -= 1
+    being1.connections[being0][&quot;level&quot;] -= 1
+    assessRelationship(being0, being1)
+
+
+def formCommunity(communityName, beings):
+    state[communityName] = beings
+    print(&quot;\nCommunity formed: &quot; + communityName + &quot;\n&quot;)
+
+def removeFromCommunity(being, community):
+    state[community].remove(being)
+    print(&quot;\n&quot; + being.name + &quot; removed from &quot; + community + &quot;\n&quot;)
+
+
+def main():
+    dog = wake(&quot;Dash&quot;)
+    phone = wake(&quot;Phone&quot;)
+    computer = wake(&quot;Computer&quot;)
+
+    computer.assessSurroundings()
+    establishCommunication(computer, phone)
+
+    fish = wake(&quot;Fish&quot;)
+
+    establishCommunication(dog, fish)
+
+    dogPlushDinosaur = wake(&quot;Dog Plush Dinosaur&quot;)
+
+    establishCommunication(dog, dogPlushDinosaur)
+
+    toyElephant = wake(&quot;Toy Elephant&quot;)
+    toyBear = wake(&quot;Toy Bear&quot;)
+
+    establishCommunication(toyElephant, dogPlushDinosaur)
+
+    plant = wake(&quot;Plant&quot;)
+
+    positiveInteraction(dog, fish)
+
+    establishCommunication(toyBear, toyElephant)
+    positiveInteraction(phone, computer)
+
+    xbox = wake(&quot;Xbox&quot;)
+
+    establishCommunication(xbox, computer)
+    establishCommunication(xbox, phone)
+
+    establishCommunication(toyBear, dogPlushDinosaur)
+
+    negativeInteraction(phone, computer)
+    positiveInteraction(computer, xbox)
+
+    guitarHero5XboxGame = wake(&quot;Guitar Hero 5 Xbox Game&quot;)
+
+    positiveInteraction(phone, xbox)
+    positiveInteraction(computer, phone)
+
+    cups = []
+    dogMomMug = wake(&quot;Dog Mom Mug&quot;)
+    cups.append(dogMomMug)
+    
+    positiveInteraction(dog, fish)
+
+    establishCommunication(xbox, guitarHero5XboxGame)
+    negativeInteraction(xbox, guitarHero5XboxGame)
+
+    cableBox = wake(&quot;Cable Box&quot;)
+
+    establishCommunication(cableBox, computer)
+    establishCommunication(cableBox, phone)
+
+    positiveInteraction(phone, computer)
+    
+    establishCommunication(cableBox, xbox)
+
+    guitarHeroSmashHitsXboxGame = wake(&quot;Guitar Hero Smash Hits Xbox Game&quot;)
+    toyTrain = wake(&quot;Toy Train&quot;)
+    
+    establishCommunication(guitarHeroSmashHitsXboxGame, xbox)
+
+    toyBlanket = wake(&quot;Toy Blanket&quot;)
+
+    establishCommunication(toyTrain, dogPlushDinosaur)
+
+    wineGlass0 = wake(&quot;Wine Glass 0&quot;)
+    cups.append(wineGlass0)
+
+    establishCommunication(guitarHero5XboxGame, guitarHeroSmashHitsXboxGame)
+    establishCommunication(toyTrain, toyElephant)
+
+    bentMetalStraw = wake(&quot;Bent Metal Straw&quot;)
+
+    establishCommunication(toyTrain, toyBear)
+    establishCommunication(toyBlanket, toyElephant)
+    establishCommunication(toyBlanket, dogPlushDinosaur)
+    establishCommunication(toyBear, toyBlanket)
+
+    wineGlass1 = wake(&quot;Wine Glass 1&quot;)
+    cups.append(wineGlass1)
+
+    establishCommunication(wineGlass0, wineGlass1)
+    establishCommunication(toyTrain, toyBlanket)
+
+    UNDMug = wake(&quot;University of Notre Dame Mug&quot;)
+    cups.append(UNDMug)
+    justDance2014XboxGame = wake(&quot;Just Dance 2014 Xbox Game&quot;)
+    minecraftXboxGame = wake(&quot;Minecraft Xbox Game&quot;)
+    dogAlligatorToy = wake(&quot;Dog Alligator Toy&quot;)
+
+    positiveInteraction(wineGlass0, wineGlass1)
+
+    wineGlass2 = wake(&quot;Wine Glass 2&quot;)
+    cups.append(wineGlass2)
+
+    establishCommunication(guitarHero5XboxGame, justDance2014XboxGame)
+    establishCommunication(xbox, justDance2014XboxGame)
+    establishCommunication(wineGlass2, dogMomMug)
+
+    negativeInteraction(fish, dog)
+    positiveInteraction(computer, phone)
+
+    establishCommunication(dogPlushDinosaur, dogAlligatorToy)
+    establishCommunication(toyTrain, dogAlligatorToy)
+    establishCommunication(wineGlass0, wineGlass2)
+    
+    GTAVXboxGame = wake(&quot;GTA V Xbox Game&quot;)
+
+    establishCommunication(guitarHero5XboxGame, minecraftXboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, justDance2014XboxGame)
+    
+    starWarsMug = wake(&quot;Star Wars Mug&quot;)
+    cups.append(starWarsMug)
+    
+    establishCommunication(xbox, minecraftXboxGame)
+    establishCommunication(wineGlass1, wineGlass2)
+    establishCommunication(guitarHeroSmashHitsXboxGame, minecraftXboxGame)
+    
+    xboxController0 = wake(&quot;Xbox Controller 0&quot;)
+    wineGlass3 = wake(&quot;Wine Glass 3&quot;)
+    cups.append(wineGlass3)
+    
+    establishCommunication(xbox, xboxController0)
+    establishCommunication(toyElephant, dogAlligatorToy)
+    establishCommunication(dogMomMug, UNDMug)
+    establishCommunication(wineGlass2, starWarsMug)
+    establishCommunication(xbox, GTAVXboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, GTAVXboxGame)
+
+    xboxController1 = wake(&quot;Xbox Controller 1&quot;)
+    guitarHeroWorldTourXboxGame = wake(&quot;Guitar Hero World Tour Xbox Game&quot;)
+
+    establishCommunication(xbox, xboxController1)
+    establishCommunication(wineGlass2, wineGlass3)
+    establishCommunication(guitarHero5XboxGame, GTAVXboxGame)
+
+    stemlessWineGlass0 = wake(&quot;Stemless Wine Glass 0&quot;)
+    cups.append(stemlessWineGlass0)
+
+    establishCommunication(xboxController0, xboxController1)
+    establishCommunication(toyBear, dogAlligatorToy)
+    establishCommunication(wineGlass0, wineGlass3)
+    establishCommunication(guitarHeroSmashHitsXboxGame, guitarHeroWorldTourXboxGame)
+    establishCommunication(wineGlass2, stemlessWineGlass0)
+    
+    tv = wake(&quot;TV&quot;)
+
+    establishCommunication(toyBlanket, dogAlligatorToy)
+    establishCommunication(tv, cableBox)
+    establishCommunication(UNDMug, starWarsMug)
+    establishCommunication(justDance2014XboxGame, minecraftXboxGame)
+    establishCommunication(wineGlass1, wineGlass3)
+    establishCommunication(xbox, guitarHeroWorldTourXboxGame)
+
+    dallasMug = wake(&quot;Dallas Mug&quot;)
+    cups.append(dallasMug)
+    
+    callOfDutyMW3XboxGame = wake(&quot;Call of Duty MW3 Xbox Game&quot;)
+    
+    establishCommunication(minecraftXboxGame, GTAVXboxGame)
+    establishCommunication(tv, computer)
+    establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyMW3XboxGame)
+    establishCommunication(minecraftXboxGame, guitarHeroWorldTourXboxGame)
+    
+    dogPlushCarrot = wake(&quot;Dog Plush Carrot&quot;)
+
+    establishCommunication(wineGlass2, dallasMug)
+    establishCommunication(guitarHero5XboxGame, guitarHeroWorldTourXboxGame)
+    establishCommunication(tv, phone)
+    
+    stemlessWineGlass1 = wake(&quot;Stemless Wine Glass 1&quot;)
+    cups.append(stemlessWineGlass1)
+
+    establishCommunication(wineGlass3, stemlessWineGlass0)
+    
+    leechLakeMug = wake(&quot;Leech Lake Mug&quot;)
+    cups.append(leechLakeMug)
+
+    establishCommunication(GTAVXboxGame, guitarHeroWorldTourXboxGame)
+    establishCommunication(toyElephant, dogPlushCarrot)
+    establishCommunication(xbox, callOfDutyMW3XboxGame)
+    establishCommunication(tv, xbox)
+    establishCommunication(wineGlass0, stemlessWineGlass0)
+    establishCommunication(wineGlass1, stemlessWineGlass0)
+
+    dogPlushMonkey = wake(&quot;Dog Plush Monkey&quot;)
+
+    establishCommunication(wineGlass2, stemlessWineGlass1)
+    establishCommunication(guitarHero5XboxGame, callOfDutyMW3XboxGame)
+    establishCommunication(justDance2014XboxGame, GTAVXboxGame)
+    establishCommunication(dogMomMug, starWarsMug)
+
+    fallout4XboxGame = wake(&quot;Fallout 4 Xbox Game&quot;)
+
+    establishCommunication(tv, xboxController0)
+    establishCommunication(toyBear, dogPlushCarrot)
+    establishCommunication(tv, xboxController1)
+    
+    positiveInteraction(dog, fish)
+
+    establishCommunication(dogPlushDinosaur, dogPlushMonkey)
+    establishCommunication(GTAVXboxGame, callOfDutyMW3XboxGame)
+    establishCommunication(guitarHero5XboxGame, fallout4XboxGame)
+
+    electronicsCommunity = [computer, phone, xbox, cableBox, tv, xboxController0, xboxController1]
+    formCommunity(&quot;Electronics&quot;, electronicsCommunity)
+
+    establishCommunication(dogPlushDinosaur, dogPlushCarrot)
+    establishCommunication(guitarHeroSmashHitsXboxGame, fallout4XboxGame)
+    establishCommunication(wineGlass0, stemlessWineGlass1)
+    establishCommunication(xbox, fallout4XboxGame)
+    establishCommunication(dogPlushCarrot, dogPlushMonkey)
+
+    house = wake(&quot;House&quot;)
+
+    establishCommunication(dogMomMug, dallasMug)
+    establishCommunication(wineGlass2, leechLakeMug)
+    establishCommunication(justDance2014XboxGame, guitarHeroWorldTourXboxGame)
+    establishCommunication(minecraftXboxGame, callOfDutyMW3XboxGame)
+
+    stemlessWineGlass2 = wake(&quot;Stemless Wine Glass 2&quot;)
+    cups.append(stemlessWineGlass2)
+
+    establishCommunication(wineGlass1, stemlessWineGlass1)
+    establishCommunication(toyTrain, dogPlushCarrot)
+    establishCommunication(callOfDutyMW3XboxGame, fallout4XboxGame)
+    
+    keurig = wake(&quot;Keurig&quot;)
+    
+    establishCommunication(dogAlligatorToy, dogPlushCarrot)
+    establishCommunication(UNDMug, dallasMug)
+    establishCommunication(wineGlass3, stemlessWineGlass1)
+    
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(wineGlass3, stemlessWineGlass2)
+    establishCommunication(toyElephant, dogPlushMonkey)
+    establishCommunication(xboxController0, callOfDutyMW3XboxGame)
+
+    dogBlanket = wake(&quot;Dog Blanket&quot;)
+
+    establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyMW3XboxGame)
+    establishCommunication(toyBlanket, dogBlanket)
+    establishCommunication(dogAlligatorToy, dogPlushMonkey)
+
+    toyComm = []
+    for connection in dogPlushDinosaur.connections.keys():
+        toyComm.append(connection)
+    for connection in toyElephant.connections.keys():
+        if connection not in toyComm:
+            toyComm.append(connection)
+    
+    formCommunity(&quot;Toys&quot;, toyComm)
+    
+    xboxController2 = wake(&quot;Xbox Controller 2&quot;)
+
+    establishCommunication(toyBear, dogPlushMonkey)
+    establishCommunication(dallasMug, leechLakeMug)
+    establishCommunication(wineGlass0, stemlessWineGlass2)
+    establishCommunication(xbox, xboxController2)
+    
+    maddenXboxGame = wake(&quot;Madden Xbox Game&quot;)
+
+    establishCommunication(xbox, maddenXboxGame)
+    establishCommunication(stemlessWineGlass0, stemlessWineGlass1)
+    establishCommunication(tv, xboxController2)
+    
+    stemlessWineGlass3 = wake(&quot;Stemless Wine Glass 3&quot;)
+    cups.append(stemlessWineGlass3)
+
+    establishCommunication(dogMomMug, leechLakeMug)
+    establishCommunication(toyBlanket, dogPlushCarrot)
+    establishCommunication(dogAlligatorToy, dogBlanket)
+    establishCommunication(xboxController0, fallout4XboxGame)
+    establishCommunication(UNDMug, leechLakeMug)
+    establishCommunication(minecraftXboxGame, fallout4XboxGame)
+
+    negativeInteraction(computer, phone)
+    
+    establishCommunication(toyTrain, dogPlushMonkey)
+    establishCommunication(starWarsMug, dallasMug)
+    establishCommunication(wineGlass2, stemlessWineGlass3)
+    establishCommunication(wineGlass1, stemlessWineGlass2)
+    establishCommunication(dogPlushCarrot, dogBlanket)
+
+    dogDuraforce = wake(&quot;Duraforce&quot;)
+
+    establishCommunication(xboxController0, xboxController2)
+    establishCommunication(dogPlushMonkey, dogBlanket)
+    establishCommunication(wineGlass0, stemlessWineGlass3)
+    
+    halo5XboxGame = wake(&quot;Halo 5 Xbox Game&quot;)
+
+    establishCommunication(toyBlanket, dogPlushMonkey)
+    establishCommunication(minecraftXboxGame, maddenXboxGame)
+    establishCommunication(dogPlushMonkey, dogDuraforce)
+
+    dogDuraforce.joinCommunity(&quot;Toys&quot;)
+
+    establishCommunication(xbox, halo5XboxGame)
+    establishCommunication(justDance2014XboxGame, callOfDutyMW3XboxGame)
+    
+    tvRemote = wake(&quot;TV Remote&quot;)
+
+    establishCommunication(guitarHero5XboxGame, maddenXboxGame)
+    establishCommunication(stemlessWineGlass1, stemlessWineGlass2)
+    establishCommunication(callOfDutyMW3XboxGame, maddenXboxGame)
+    establishCommunication(tv, tvRemote)
+    establishCommunication(xboxController0, tvRemote)
+    
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(toyElephant, dogBlanket)
+    establishCommunication(wineGlass1, stemlessWineGlass3)
+    establishCommunication(guitarHeroSmashHitsXboxGame, maddenXboxGame)
+
+    callOfDutyModernWarfare2XboxGame = wake(&quot;Call of Duty Modern Warfare 2 Xbox Game&quot;)
+    
+    establishCommunication(GTAVXboxGame, fallout4XboxGame)
+    establishCommunication(starWarsMug, leechLakeMug)
+    establishCommunication(stemlessWineGlass0, stemlessWineGlass2)
+    
+    xboxController3 = wake(&quot;Xbox Controller 3&quot;)
+
+    establishCommunication(xbox, xboxController3)
+    establishCommunication(guitarHero5XboxGame, halo5XboxGame)
+    establishCommunication(stemlessWineGlass1, stemlessWineGlass3)
+    establishCommunication(fallout4XboxGame, maddenXboxGame)
+    establishCommunication(xboxController1, tvRemote)
+    
+    seaofThievesXboxGame = wake(&quot;Sea of Thieves Xbox Game&quot;)
+
+    establishCommunication(dogPlushDinosaur, dogBlanket)
+    establishCommunication(xbox, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(xboxController0, maddenXboxGame)
+    establishCommunication(stemlessWineGlass2, stemlessWineGlass3)
+    
+    callOfDutyAdvancedWarfareXboxGame = wake(&quot;Call of Duty Advanced Warfare Xbox Game&quot;)
+    
+    establishCommunication(GTAVXboxGame, maddenXboxGame)
+    establishCommunication(guitarHeroWorldTourXboxGame, fallout4XboxGame)
+    establishCommunication(tv, xboxController3)
+    establishCommunication(callOfDutyMW3XboxGame, halo5XboxGame)
+    
+    pastaMaker = wake(&quot;Pasta Maker&quot;)
+
+    establishCommunication(justDance2014XboxGame, fallout4XboxGame)
+    establishCommunication(xbox, seaofThievesXboxGame)
+    establishCommunication(guitarHero5XboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(dogPlushDinosaur, dogDuraforce)
+    establishCommunication(guitarHeroSmashHitsXboxGame, halo5XboxGame)
+    
+    legoStarWarsIIXboxGame = wake(&quot;Lego Star Wars II Xbox Game&quot;)
+    
+    establishCommunication(maddenXboxGame, halo5XboxGame)
+    establishCommunication(callOfDutyMW3XboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(fallout4XboxGame, halo5XboxGame)
+    establishCommunication(halo5XboxGame, callOfDutyModernWarfare2XboxGame)
+    
+    dogKong = wake(&quot;Kong&quot;)
+
+    establishCommunication(toyBear, dogBlanket)
+    establishCommunication(xbox, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(toyTrain, dogDuraforce)
+    establishCommunication(xbox, legoStarWarsIIXboxGame)
+    
+    loveseat = wake(&quot;Loveseat&quot;)
+    
+    establishCommunication(guitarHeroWorldTourXboxGame, maddenXboxGame)
+    establishCommunication(wineGlass2, stemlessWineGlass2)
+    establishCommunication(maddenXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(halo5XboxGame, seaofThievesXboxGame)
+    
+    iceCreamScoop = wake(&quot;Ice Cream Scoop&quot;)
+    
+    establishCommunication(GTAVXboxGame, halo5XboxGame)
+    establishCommunication(house, loveseat)
+    establishCommunication(stemlessWineGlass0, stemlessWineGlass3)
+    establishCommunication(callOfDutyMW3XboxGame, seaofThievesXboxGame)
+    
+    battlefield4XboxGame = wake(&quot;Battlefield 4 Xbox Game&quot;)
+    
+    establishCommunication(toyTrain, dogBlanket)
+    establishCommunication(minecraftXboxGame, halo5XboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(guitarHero5XboxGame, seaofThievesXboxGame)
+    establishCommunication(dogBlanket, dogDuraforce)
+    establishCommunication(guitarHeroSmashHitsXboxGame, seaofThievesXboxGame)
+    establishCommunication(xbox, battlefield4XboxGame)
+
+    dogRope = wake(&quot;Dog Rope&quot;)
+
+    establishCommunication(toyElephant, dogDuraforce)
+    establishCommunication(callOfDutyModernWarfare2XboxGame, seaofThievesXboxGame)
+    establishCommunication(justDance2014XboxGame, maddenXboxGame)
+    establishCommunication(fallout4XboxGame, callOfDutyModernWarfare2XboxGame)
+    
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(guitarHero5XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(dogAlligatorToy, dogKong)
+
+    dogKong.joinCommunity(&quot;Toys&quot;)
+
+    establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(xboxController2, xboxController3)
+    
+    couch = wake(&quot;Couch&quot;)
+    
+    establishCommunication(toyBear, dogDuraforce)
+    establishCommunication(wineGlass3, stemlessWineGlass3)
+    establishCommunication(toyTrain, dogKong)
+    establishCommunication(xboxController0, seaofThievesXboxGame)
+    establishCommunication(guitarHero5XboxGame, legoStarWarsIIXboxGame)
+    
+    bowls = []
+    mediumMixingBowl = wake(&quot;Medium Mixing Bowl&quot;)
+    bowls.append(mediumMixingBowl)
+
+    establishCommunication(xboxController0, legoStarWarsIIXboxGame)
+    establishCommunication(toyBlanket, dogKong)
+    establishCommunication(minecraftXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(guitarHeroSmashHitsXboxGame, legoStarWarsIIXboxGame)
+
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(house, couch)
+    establishCommunication(xboxController0, xboxController3)
+    establishCommunication(dogPlushCarrot, dogRope)
+
+    dogRope.joinCommunity(&quot;Toys&quot;)
+
+    establishCommunication(seaofThievesXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(dogAlligatorToy, dogDuraforce)
+    
+    throwPillow0 = wake(&quot;Throw Pillow 0&quot;)
+
+    establishCommunication(guitarHero5XboxGame, battlefield4XboxGame)
+    establishCommunication(justDance2014XboxGame, halo5XboxGame)
+    establishCommunication(guitarHeroWorldTourXboxGame, halo5XboxGame)
+    establishCommunication(fallout4XboxGame, seaofThievesXboxGame)
+
+    largeMixingBowl = wake(&quot;Large Mixing Bowl&quot;)
+    bowls.append(largeMixingBowl)
+
+    establishCommunication(dogPlushMonkey, dogKong)
+    establishCommunication(callOfDutyAdvancedWarfareXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(xboxController0, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(halo5XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    
+    mediumPot0 = wake(&quot;Medium Pot 0&quot;)
+    
+    establishCommunication(toyBear, dogKong)
+    establishCommunication(dogPlushDinosaur, dogRope)
+    establishCommunication(guitarHeroSmashHitsXboxGame, battlefield4XboxGame)
+    establishCommunication(minecraftXboxGame, seaofThievesXboxGame)
+
+    smallMixingBowl = wake(&quot;Small Mixing Bowl&quot;)
+    bowls.append(smallMixingBowl)
+    
+    establishCommunication(maddenXboxGame, seaofThievesXboxGame)
+    establishCommunication(dogPlushMonkey, dogRope)
+    establishCommunication(dogBlanket, dogKong)
+    establishCommunication(callOfDutyModernWarfare2XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(dogDuraforce, dogKong)
+    
+    negativeInteraction(xbox, tv)
+    
+    establishCommunication(justDance2014XboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(seaofThievesXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(xboxController2, tvRemote)
+    establishCommunication(mediumPot0, smallMixingBowl)
+    establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyModernWarfare2XboxGame)
+    
+    whisk = wake(&quot;Whisk&quot;)
+    
+    establishCommunication(GTAVXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(halo5XboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(callOfDutyMW3XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(iceCreamScoop, mediumMixingBowl)
+    
+    microwave = wake(&quot;Microwave&quot;)
+    
+    establishCommunication(dogPlushDinosaur, dogKong)
+    establishCommunication(toyElephant, dogRope)
+    establishCommunication(guitarHeroWorldTourXboxGame, seaofThievesXboxGame)
+    
+    throwPillow1 = wake(&quot;Throw Pillow 1&quot;)
+    
+    establishCommunication(keurig, microwave)
+    establishCommunication(callOfDutyModernWarfare2XboxGame, battlefield4XboxGame)
+    establishCommunication(mediumMixingBowl, largeMixingBowl)
+    establishCommunication(maddenXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(loveseat, couch)
+    
+    ladle = wake(&quot;Ladle&quot;)
+
+    removeFromCommunity(xbox, &quot;Electronics&quot;)
+
+    establishCommunication(xboxController3, tvRemote)
+    establishCommunication(callOfDutyAdvancedWarfareXboxGame, battlefield4XboxGame)
+    establishCommunication(seaofThievesXboxGame, battlefield4XboxGame)
+
+    fridge = wake(&quot;Fridge&quot;)
+
+    establishCommunication(microwave, fridge)
+    establishCommunication(xboxController0, battlefield4XboxGame)
+    establishCommunication(dogPlushCarrot, dogKong)
+    establishCommunication(couch, throwPillow0)
+    establishCommunication(dogBlanket, dogRope)
+    
+    bottleOpener = wake(&quot;Bottle Opener&quot;)
+
+    establishCommunication(callOfDutyMW3XboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(toyElephant, dogKong)
+    establishCommunication(justDance2014XboxGame, seaofThievesXboxGame)
+    establishCommunication(largeMixingBowl, mediumPot0)
+    establishCommunication(toyBlanket, dogRope)
+    
+    crockpot = wake(&quot;Crockpot&quot;)
+
+    positiveInteraction(dog, fish)
+
+    establishCommunication(dogAlligatorToy, dogRope)
+    establishCommunication(iceCreamScoop, largeMixingBowl)
+    establishCommunication(microwave, bottleOpener)
+    establishCommunication(keurig, fridge)
+    establishCommunication(mediumMixingBowl, mediumPot0)
+    establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyAdvancedWarfareXboxGame)
+
+    spatula0 = wake(&quot;Spatula&quot;)
+
+    positiveInteraction(phone, computer)
+
+    establishCommunication(toyTrain, dogRope)
+    establishCommunication(whisk, ladle)
+    establishCommunication(microwave, crockpot)
+    establishCommunication(callOfDutyMW3XboxGame, battlefield4XboxGame)
+    establishCommunication(maddenXboxGame, legoStarWarsIIXboxGame)
+
+    oven = wake(&quot;Oven&quot;)
+    mediumPot1 = wake(&quot;Medium Pot 1&quot;)
+    
+    establishCommunication(microwave, oven)
+    establishCommunication(pastaMaker, microwave)
+    establishCommunication(mediumPot0, mediumPot1)
+    establishCommunication(mediumMixingBowl, smallMixingBowl)
+    
+    christmasOvenMitt = wake(&quot;Christmas Oven Mitt&quot;)
+
+    establishCommunication(toyBear, dogRope)
+    establishCommunication(keurig, crockpot)
+    
+    spoons = []
+    servingSpoon0 = wake(&quot;Serving Spoon 0&quot;)
+    spoons.append(servingSpoon0)
+
+    establishCommunication(guitarHeroWorldTourXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(justDance2014XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(largeMixingBowl, smallMixingBowl)
+    establishCommunication(whisk, bottleOpener)
+    establishCommunication(microwave, mediumPot1)
+    establishCommunication(fallout4XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(dogKong, dogRope)
+    establishCommunication(smallMixingBowl, mediumPot1)
+
+    throwPillow2 = wake(&quot;Throw Pillow 2&quot;)
+
+    establishCommunication(iceCreamScoop, smallMixingBowl)
+    establishCommunication(microwave, mediumPot0)
+    establishCommunication(throwPillow0, throwPillow1)
+    establishCommunication(mediumMixingBowl, whisk)
+    establishCommunication(microwave, christmasOvenMitt)
+    
+    smallPot0 = wake(&quot;Small Pot 0&quot;)
+
+    establishCommunication(keurig, oven)
+    establishCommunication(legoStarWarsIIXboxGame, battlefield4XboxGame)
+    establishCommunication(microwave, servingSpoon0)
+    establishCommunication(house, fridge)
+    
+    toaster = wake(&quot;Toaster&quot;)
+
+    establishCommunication(dogDuraforce, dogRope)
+    establishCommunication(minecraftXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(mediumMixingBowl, ladle)
+    establishCommunication(pastaMaker, fridge)
+    
+    ovenMitt0 = wake(&quot;Oven Mitt 0&quot;)
+
+    establishCommunication(oven, toaster)
+    establishCommunication(microwave, toaster)
+
+    spatula1 = wake(&quot;Spatula 1&quot;)
+    
+    establishCommunication(GTAVXboxGame, seaofThievesXboxGame)
+    establishCommunication(microwave, smallPot0)
+    establishCommunication(oven, ovenMitt0)
+    establishCommunication(iceCreamScoop, whisk)
+    establishCommunication(microwave, spatula1)
+    
+    negativeInteraction(xbox, tv)
+    
+    mediumPot2 = wake(&quot;Medium Pot 2&quot;)
+
+    establishCommunication(mediumPot0, mediumPot2)
+    establishCommunication(whisk, spatula0)
+    establishCommunication(microwave, ovenMitt0)
+
+    ovenMitt1 = wake(&quot;Oven Mitt 1&quot;)
+
+    establishCommunication(throwPillow1, throwPillow2)
+    establishCommunication(mediumMixingBowl, spatula0)
+    establishCommunication(oven, ovenMitt1)
+    establishCommunication(largeMixingBowl, mediumPot1)
+    
+    potholder0 = wake(&quot;Potholder 0&quot;)
+
+    establishCommunication(microwave, ovenMitt1)
+
+    strainer = wake(&quot;Strainer&quot;)
+    
+    establishCommunication(justDance2014XboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(microwave, strainer)
+    establishCommunication(throwPillow1, ovenMitt0)
+    
+    dishDryingTowel0 = wake(&quot;Dish Drying Towel 0&quot;)
+    
+    establishCommunication(microwave, potholder0)
+    establishCommunication(house, oven)
+    establishCommunication(smallMixingBowl, mediumPot2)
+    establishCommunication(throwPillow0, ovenMitt0)
+    establishCommunication(pastaMaker, crockpot)
+    
+    dishSoap = wake(&quot;Dish Soap&quot;)
+    largePot0 = wake(&quot;Large Pot 0&quot;)
+    
+    establishCommunication(GTAVXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(microwave, dishDryingTowel0)
+    establishCommunication(microwave, dishSoap)
+    establishCommunication(iceCreamScoop, ladle)
+    
+    throwPillow3 = wake(&quot;Throw Pillow 3&quot;)
+
+    establishCommunication(throwPillow1, ovenMitt1)
+    
+    dryingRack = wake(&quot;Drying Rack&quot;)
+
+    establishCommunication(throwPillow0, throwPillow2)
+    establishCommunication(microwave, largePot0)
+    establishCommunication(mediumMixingBowl, mediumPot1)
+    establishCommunication(mediumPot0, largePot0)
+    establishCommunication(smallMixingBowl, potholder0)
+    
+    sponge = wake(&quot;Sponge&quot;)
+    kitchenHandSoap = wake(&quot;Hand Soap&quot;)
+    sink = wake(&quot;Sink&quot;)
+
+    establishCommunication(sponge, kitchenHandSoap)
+    establishCommunication(iceCreamScoop, bottleOpener)
+    establishCommunication(throwPillow0, ovenMitt1)
+    establishCommunication(microwave, sink)
+    
+    potholder1 = wake(&quot;Potholder 1&quot;)
+    
+    establishCommunication(smallMixingBowl, largePot0)
+    establishCommunication(sponge, sink)
+    establishCommunication(throwPillow1, potholder0)
+    establishCommunication(oven, sink)
+    
+    positiveInteraction(wineGlass1, wineGlass0)
+
+    establishCommunication(microwave, dryingRack)
+    establishCommunication(whisk, christmasOvenMitt)
+    
+    smallPot1 = wake(&quot;Small Pot 1&quot;)
+    
+    establishCommunication(mediumMixingBowl, servingSpoon0)
+    establishCommunication(microwave, sponge)
+    establishCommunication(mediumPot0, potholder0)
+    establishCommunication(largeMixingBowl, smallPot0)
+    
+    knives = []
+    chefsKnife = wake(&quot;Chef&#39;s Knife&quot;)
+    knives.append(chefsKnife)
+
+    establishCommunication(keurig, toaster)
+    establishCommunication(mediumPot0, potholder1)
+    establishCommunication(microwave, smallPot1)
+    establishCommunication(mediumPot0, smallPot1)
+    establishCommunication(microwave, kitchenHandSoap)
+    
+    unicornWineStopper = wake(&quot;Unicorn Wine Stopper&quot;)
+    pastaDryingRack = wake(&quot;Pasta Drying Rack&quot;)
+
+    negativeInteraction(xbox, guitarHero5XboxGame)
+    negativeInteraction(fish, dog)
+    
+    establishCommunication(fallout4XboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(largeMixingBowl, mediumPot2)
+    establishCommunication(iceCreamScoop, spatula0)
+    establishCommunication(microwave, potholder1)
+    establishCommunication(whisk, servingSpoon0)
+
+    servingSpoon1 = wake(&quot;Serving Spoon 1&quot;)
+    spoons.append(servingSpoon1)
+
+    establishCommunication(whisk, spatula1)
+    establishCommunication(microwave, chefsKnife)
+    establishCommunication(throwPillow1, dishDryingTowel0)
+    
+    rug = wake(&quot;Rug&quot;)
+
+    establishCommunication(couch, rug)
+    establishCommunication(mediumMixingBowl, smallPot0)
+    establishCommunication(justDance2014XboxGame, battlefield4XboxGame)
+    
+    largePot1 = wake(&quot;Large Pot 1&quot;)
+    dishDryingTowel1 = wake(&quot;Dish Drying Towel 1&quot;)
+    
+    establishCommunication(house, rug)
+    establishCommunication(microwave, pastaDryingRack)
+    establishCommunication(throwPillow1, throwPillow3)
+    establishCommunication(mediumMixingBowl, spatula1)
+    establishCommunication(microwave, unicornWineStopper)
+    establishCommunication(largeMixingBowl, largePot0)
+
+    oneCupMeasuringCup = wake(&quot;One Cup Measuring Cup&quot;)
+
+    establishCommunication(minecraftXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(pastaMaker, oven)
+    establishCommunication(microwave, largePot1)
+    establishCommunication(mediumPot0, largePot1)
+    
+    straightMetalStraw = wake(&quot;Straight Metal Straw&quot;)
+    
+    establishCommunication(throwPillow1, potholder1)
+    
+    babyBlueWineStopper = wake(&quot;Baby Blue Wine Stopper&quot;)
+
+    establishCommunication(throwPillow0, dishDryingTowel0)
+    establishCommunication(throwPillow1, rug)
+    establishCommunication(microwave, servingSpoon1)
+    
+    kitchenHandTowel0 = wake(&quot;Kitchen Hand Towel 0&quot;)
+    cherryWineStopper = wake(&quot;Cherry Wine Stopper&quot;)
+
+    establishCommunication(iceCreamScoop, servingSpoon0)
+    establishCommunication(microwave, dishDryingTowel1)
+    establishCommunication(microwave, straightMetalStraw)
+    establishCommunication(mediumMixingBowl, mediumPot2)
+    
+    serratedKnife = wake(&quot;Serrated Knife&quot;)
+    knives.append(serratedKnife)
+
+    establishCommunication(microwave, oneCupMeasuringCup)
+    establishCommunication(unicornWineStopper, babyBlueWineStopper)
+
+    navyWineStopper = wake(&quot;Navy Wine Stopper&quot;)
+
+    negativeInteraction(xbox, tv)
+
+    establishCommunication(smallMixingBowl, largePot1)
+    establishCommunication(microwave, kitchenHandTowel0)
+
+    negativeInteraction(computer, phone)
+
+    blanket0 = wake(&quot;Blanket 0&quot;)
+    
+    establishCommunication(throwPillow0, throwPillow3)
+    establishCommunication(microwave, cherryWineStopper)
+    
+    tablespoon = wake(&quot;Tablespoon&quot;)
+
+    establishCommunication(mediumMixingBowl, largePot0)
+    establishCommunication(unicornWineStopper, cherryWineStopper)
+    
+    blanket1 = wake(&quot;Blanket 1&quot;)
+    coffeeTable = wake(&quot;Coffee Table&quot;)
+    
+    establishCommunication(largeMixingBowl, largePot1)
+    establishCommunication(couch, coffeeTable)
+    establishCommunication(microwave, serratedKnife)
+    establishCommunication(plant, house)
+
+    kitchenTable = wake(&quot;Kitchen Table&quot;)
+
+    establishCommunication(microwave, navyWineStopper)
+    establishCommunication(blanket0, blanket1)
+    
+    dishwasher = wake(&quot;Dishwasher&quot;)
+
+    establishCommunication(mediumMixingBowl, smallPot1)
+    establishCommunication(unicornWineStopper, navyWineStopper)
+    establishCommunication(throwPillow0, blanket1)
+    establishCommunication(microwave, tablespoon)
+    
+    halfCupMeasuringCup = wake(&quot;Half Cup Measuring Cup&quot;)
+    
+    establishCommunication(house, kitchenTable)
+    establishCommunication(whisk, servingSpoon1)
+    
+    chair0 = wake(&quot;Chair 0&quot;)
+    toyBasket = wake(&quot;Toy Basket&quot;)
+    
+    establishCommunication(GTAVXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(mediumMixingBowl, servingSpoon1)
+    establishCommunication(microwave, kitchenTable)
+    
+    chair1 = wake(&quot;Chair 1&quot;)
+    
+    establishCommunication(house, dishwasher)
+    establishCommunication(microwave, dishwasher)
+    establishCommunication(microwave, halfCupMeasuringCup)
+    establishCommunication(house, chair0)
+    
+    cloroxWipes = wake(&quot;Clorox Wipes&quot;)
+    teaspoon = wake(&quot;Teaspoon&quot;)
+
+    establishCommunication(chair0, chair1)
+
+    positiveInteraction(dog, fish)
+
+    establishCommunication(microwave, chair0)
+    establishCommunication(mediumMixingBowl, largePot1)
+    establishCommunication(house, chair1)
+    establishCommunication(dogPlushMonkey, toyBasket)
+    establishCommunication(sink, cloroxWipes)
+    establishCommunication(pastaMaker, toaster)
+    
+    windex = wake(&quot;Windex&quot;)
+    
+    establishCommunication(minecraftXboxGame, battlefield4XboxGame)
+    establishCommunication(throwPillow0, potholder0)
+    establishCommunication(keurig, dishwasher)
+    
+    standingLamp = wake(&quot;Standing Lamp&quot;)
+    
+    negativeInteraction(xbox, tv)
+
+    establishCommunication(microwave, chair1)
+    establishCommunication(house, standingLamp)
+    establishCommunication(sink, windex)
+
+    entertainmentCenter = wake(&quot;Entertainment Center&quot;)
+
+    establishCommunication(whisk, serratedKnife)
+    establishCommunication(microwave, teaspoon)
+
+    slicingKnife = wake(&quot;Slicing Knife&quot;)
+    knives.append(slicingKnife)
+
+    establishCommunication(house, entertainmentCenter)
+    establishCommunication(iceCreamScoop, spatula1)
+    
+    kitchenHandTowel1 = wake(&quot;Kitchen Hand Towel 1&quot;)
+    knifeBlock = wake(&quot;Knife Block&quot;)
+    
+    knifeComm = [knifeBlock]
+    for knife in knives:
+        establishCommunication(knifeBlock, knife)
+        knifeComm.append(knife)
+
+    formCommunity(&quot;Knife Block&quot;, knifeComm)
+
+    negativeInteraction(phone, computer)
+
+    quarterCupMeasuringCup = wake(&quot;Quarter Cup Measuring Cup&quot;)
+    
+    establishCommunication(microwave, slicingKnife)
+    
+    rubberJarOpener = wake(&quot;Rubber Jar Opener&quot;)
+    seasonalPlacemat0 = wake(&quot;Seasonal Placemat 0&quot;)
+
+    establishCommunication(throwPillow0, rug)
+    establishCommunication(microwave, kitchenHandTowel1)
+    
+    lamp0 = wake(&quot;Lamp 0&quot;)
+    
+    establishCommunication(microwave, knifeBlock)
+    establishCommunication(iceCreamScoop, servingSpoon1)
+    
+    throwPillow4 = wake(&quot;Throw Pillow 4&quot;)
+    tinfoil = wake(&quot;Tinfoil&quot;)
+
+    establishCommunication(bentMetalStraw, straightMetalStraw)
+    establishCommunication(couch, lamp0)
+    
+    foodScale = wake(&quot;Food Scale&quot;)
+    thirdCupMeasuringCup = wake(&quot;Third Cup Measuring Cup&quot;)
+    seasonalPlacemat1 = wake(&quot;Seasonal Placemat 1&quot;)
+    
+    establishCommunication(throwPillow0, dishDryingTowel1)
+    establishCommunication(microwave, quarterCupMeasuringCup)
+    establishCommunication(throwPillow0, throwPillow4)
+    
+    lamp1 = wake(&quot;Lamp 1&quot;)
+    chair2 = wake(&quot;Chair 2&quot;)
+
+    negativeInteraction(plant, house)
+    
+    gallonZiplockBags = wake(&quot;Gallon Ziplock Bags&quot;)
+    
+    positiveInteraction(wineGlass1, wineGlass0)
+    
+    establishCommunication(chair0, chair2)
+    establishCommunication(couch, lamp1)
+    establishCommunication(throwPillow1, throwPillow4)
+    establishCommunication(microwave, rubberJarOpener)
+
+    saranWrap = wake(&quot;Saran Wrap&quot;)
+    tomatoKnife = wake(&quot;Tomato Knife&quot;)
+    knives.append(tomatoKnife)
+    
+    establishCommunication(house, chair2)
+    establishCommunication(couch, kitchenTable)
+    establishCommunication(knifeBlock, tomatoKnife)
+
+    tomatoKnife.joinCommunity(&quot;Knife Block&quot;)
+
+    establishCommunication(GTAVXboxGame, battlefield4XboxGame)
+    establishCommunication(microwave, seasonalPlacemat0)
+    
+    placemat0 = wake(&quot;Placemat 0&quot;)
+
+    softies = []
+    for connection in throwPillow0.connections.keys():
+        softies.append(connection)
+    formCommunity(&quot;Soft Things&quot;, softies)
+
+    halfTeaspoon = wake(&quot;Half Teaspoon&quot;)
+
+    establishCommunication(couch, entertainmentCenter)
+    establishCommunication(loveseat, standingLamp)
+    
+    bakingSheet0 = wake(&quot;Baking Sheet 0&quot;)
+
+    establishCommunication(microwave, tinfoil)
+    
+    sandwichZiplockBags = wake(&quot;Sandwich Ziplock Bags&quot;)
+    
+    establishCommunication(microwave, foodScale)
+    establishCommunication(couch, standingLamp)
+    establishCommunication(microwave, thirdCupMeasuringCup)
+    establishCommunication(throwPillow0, blanket0)
+
+    blanket0.joinCommunity(&quot;Soft Things&quot;)
+    
+    kitchenTrashcan = wake(&quot;Kitchen Trashcan&quot;)
+
+    establishCommunication(microwave, seasonalPlacemat1)
+    establishCommunication(blanket0, placemat0)
+
+    placemat0.joinCommunity(&quot;Soft Things&quot;)
+    
+    seasonalPlacemat2 = wake(&quot;Seasonal Placemat 2&quot;)
+
+    establishCommunication(house, kitchenTrashcan)
+    establishCommunication(microwave, chair2)
+    establishCommunication(seasonalPlacemat1, placemat0)
+
+    seasonalPlacemat1.joinCommunity(&quot;Soft Things&quot;)
+    
+    coffeePodBasket = wake(&quot;Coffee Pod Basket&quot;)
+    forks = []
+    largeFork0 = wake(&quot;Large Fork 0&quot;)
+    forks.append(largeFork0)
+
+    establishCommunication(microwave, gallonZiplockBags)
+    establishCommunication(microwave, saranWrap)
+    establishCommunication(seasonalPlacemat0, placemat0)
+    establishCommunication(seasonalPlacemat2, placemat0)
+
+    seasonalPlacemat0.joinCommunity(&quot;Soft Things&quot;)
+    seasonalPlacemat2.joinCommunity(&quot;Soft Things&quot;)
+    
+    steakKnife0 = wake(&quot;Steak Knife 0&quot;)
+    knives.append(steakKnife0)
+
+    establishCommunication(keurig, coffeePodBasket)
+    establishCommunication(microwave, tomatoKnife)
+
+    coffeeCommunity = [keurig, coffeePodBasket]
+    formCommunity(&quot;Coffee&quot;, coffeeCommunity)
+    
+    establishCommunication(knifeBlock, steakKnife0)
+
+    steakKnife0.joinCommunity(&quot;Knife Block&quot;)
+
+    dunkinDonutsCoffeePod0 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 0&quot;)
+    smallCup0 = wake(&quot;Small Cup 0&quot;)
+    cups.append(smallCup0)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod0)
+    establishCommunication(throwPillow3, throwPillow4)
+
+    dunkinDonutsCoffeePod0.joinCommunity(&quot;Coffee&quot;)
+
+    positiveInteraction(dog, fish)
+
+    dunkinDonutsCoffeePod1 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 1&quot;)
+    steakKnife1 = wake(&quot;Steak Knife 1&quot;)
+    knives.append(steakKnife1)
+    
+    establishCommunication(microwave, placemat0)
+    establishCommunication(loveseat, entertainmentCenter)
+    establishCommunication(knifeBlock, steakKnife1)
+
+    steakKnife1.joinCommunity(&quot;Knife Block&quot;)
+
+    establishCommunication(throwPillow0, kitchenHandTowel0)
+    
+    plates = []
+    smallPlate0 = wake(&quot;Small Plate 0&quot;)
+    plates.append(smallPlate0)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod1)
+    establishCommunication(microwave, halfTeaspoon)
+
+    dunkinDonutsCoffeePod1.joinCommunity(&quot;Coffee&quot;)
+    
+    largeFork1 = wake(&quot;Large Fork 1&quot;)
+    forks.append(largeFork1)
+    butterKnife0 = wake(&quot;Butter Knife 0&quot;)
+    knives.append(butterKnife0)
+    
+    establishCommunication(knifeBlock, butterKnife0)
+    establishCommunication(microwave, bakingSheet0)
+    establishCommunication(blanket0, dogBlanket)
+    
+    dunkinDonutsCoffeePod2 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 2&quot;)
+
+    positiveInteraction(dogBlanket, blanket0)
+
+    steakKnife2 = wake(&quot;Steak Knife 2&quot;)
+    knives.append(steakKnife2)
+    
+    establishCommunication(microwave, sandwichZiplockBags)
+    establishCommunication(blanket0, dogPlushCarrot)
+    establishCommunication(knifeBlock, steakKnife2)
+
+    steakKnife2.joinCommunity(&quot;Knife Block&quot;)
+
+    positiveInteraction(blanket0, dogPlushCarrot)
+
+    establishCommunication(blanket0, dogPlushDinosaur)
+    establishCommunication(blanket0, dogPlushMonkey)
+
+    positiveInteraction(dogPlushMonkey, blanket0)
+    
+    establishCommunication(blanket0, dogAlligatorToy)
+
+    positiveInteraction(blanket0, dogPlushDinosaur)
+    positiveInteraction(blanket0, dogAlligatorToy)
+
+    dogBlanket.joinCommunity(&quot;Soft Things&quot;)
+    dogPlushCarrot.joinCommunity(&quot;Soft Things&quot;)
+    dogPlushDinosaur.joinCommunity(&quot;Soft Things&quot;)
+    dogPlushMonkey.joinCommunity(&quot;Soft Things&quot;)
+    
+    dunkinDonutsCoffeePod3 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 3&quot;)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod2)
+    
+    toyElephant.joinCommunity(&quot;Soft Things&quot;)
+
+    dunkinDonutsCoffeePod2.joinCommunity(&quot;Coffee&quot;)
+
+    largeFork2 = wake(&quot;Large Fork 2&quot;)
+    forks.append(largeFork2)
+
+    toyBear.joinCommunity(&quot;Soft Things&quot;)
+    
+    negativeInteraction(phone, computer)
+
+    tallCup1 = wake(&quot;Tall Cup 1&quot;)
+    cups.append(tallCup1)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod3)
+    
+    toyBlanket.joinCommunity(&quot;Soft Things&quot;)
+    
+    dunkinDonutsCoffeePod3.joinCommunity(&quot;Coffee&quot;)
+    
+    smallPlate1 = wake(&quot;Small Plate 1&quot;)
+    plates.append(smallPlate1)
+    
+    establishCommunication(throwPillow0, kitchenHandTowel1)
+    
+    seasonalPlacemat3 = wake(&quot;Seasonal Placemat 3&quot;)
+    largeFork3 = wake(&quot;Large Fork 3&quot;)
+    forks.append(largeFork3)
+    
+    establishCommunication(microwave, kitchenTrashcan)
+    establishCommunication(placemat0, seasonalPlacemat3)
+
+    seasonalPlacemat3.joinCommunity(&quot;Soft Things&quot;)
+    
+    smallCup1 = wake(&quot;Small Cup 1&quot;)
+    cups.append(smallCup1)
+    dunkinDonutsCoffeePod4 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 4&quot;)
+    quarterTeaspoon = wake(&quot;Quarter Teaspoon&quot;)
+
+    establishCommunication(tv, callOfDutyMW3XboxGame)
+    establishCommunication(keurig, dunkinDonutsCoffeePod4)
+    establishCommunication(microwave, quarterTeaspoon)
+    
+    dunkinDonutsCoffeePod4.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod5 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 5&quot;)
+    largeFork4 = wake(&quot;Large Fork 4&quot;)
+    forks.append(largeFork4)
+    
+    establishCommunication(microwave, seasonalPlacemat2)
+    
+    largeSpoon0 = wake(&quot;Large Spoon 0&quot;)
+    spoons.append(largeSpoon0)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod5)
+    
+    dunkinDonutsCoffeePod5.joinCommunity(&quot;Coffee&quot;)
+    
+    smallFork0 = wake(&quot;Small Fork 0&quot;)
+    forks.append(smallFork0)
+
+    positiveInteraction(dog, fish)
+
+    largePlate1 = wake(&quot;Large Plate 1&quot;)
+    plates.append(largePlate1)
+    steakKnife3 = wake(&quot;Steak Knife 3&quot;)
+    knives.append(steakKnife3)
+
+    establishCommunication(microwave, seasonalPlacemat3)
+    establishCommunication(knifeBlock, steakKnife3)
+
+    steakKnife3.joinCommunity(&quot;Knife Block&quot;)
+    
+    dunkinDonutsCoffeePod6 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 6&quot;)
+    largeFork5 = wake(&quot;Large Fork 5&quot;)
+    forks.append(largeFork5)
+    placemat1 = wake(&quot;Placemat 1&quot;)
+
+    establishCommunication(microwave, placemat1)
+    establishCommunication(keurig, dunkinDonutsCoffeePod6)
+    
+    dunkinDonutsCoffeePod6.joinCommunity(&quot;Coffee&quot;)
+    
+    bakingSheet1 = wake(&quot;Baking Sheet 1&quot;)
+    paringKnife = wake(&quot;Paring Knife&quot;)
+
+    establishCommunication(knifeBlock, paringKnife)
+    establishCommunication(placemat0, placemat1)
+
+    placemat1.joinCommunity(&quot;Soft Things&quot;)
+
+    paringKnife.joinCommunity(&quot;Knife Block&quot;)
+
+    establishCommunication(microwave, bakingSheet1)
+
+    smallFork1 = wake(&quot;Small Fork 1&quot;)
+    
+    establishCommunication(tv, fallout4XboxGame)
+    
+    forks.append(smallFork1)
+    butterKnife1 = wake(&quot;Butter Knife 1&quot;)
+    knives.append(butterKnife1)
+
+    establishCommunication(knifeBlock, butterKnife1)
+
+    chair3 = wake(&quot;Chair 3&quot;)
+    largeFork6 = wake(&quot;Large Fork 6&quot;)
+    forks.append(largeFork6)
+
+    positiveInteraction(phone, computer)
+
+    establishCommunication(house, chair3)
+    
+    utilityKnife = wake(&quot;Utility Knife&quot;)
+    smallFork2 = wake(&quot;Small Fork 2&quot;)
+    forks.append(smallFork2)
+
+    establishCommunication(knifeBlock, utilityKnife)
+
+    utilityKnife.joinCommunity(&quot;Knife Block&quot;)
+
+    dunkinDonutsCoffeePod7 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 7&quot;)
+    largeFork7 = wake(&quot;Large Fork 7&quot;)
+    forks.append(largeFork7)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod7)
+    
+    dunkinDonutsCoffeePod7.joinCommunity(&quot;Coffee&quot;)
+    
+    placemat2 = wake(&quot;Placemat 2&quot;)    
+    tallCup0 = wake(&quot;Tall Cup 0&quot;)
+    cups.append(tallCup0)
+    
+    establishCommunication(tv, maddenXboxGame)
+    establishCommunication(microwave, placemat2)
+    
+    largeSpoon1 = wake(&quot;Large Spoon 1&quot;)
+    spoons.append(largeSpoon1)
+    dunkinDonutsCoffeePod8 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 8&quot;)
+    
+    negativeInteraction(xbox, guitarHero5XboxGame)
+    
+    largeFork8 = wake(&quot;Large Fork 8&quot;)
+    forks.append(largeFork8)
+    placemat3 = wake(&quot;Placemat 3&quot;)
+
+    establishCommunication(microwave, placemat3)
+    establishCommunication(placemat0, placemat2)
+    establishCommunication(placemat1, placemat3)
+
+    placemat2.joinCommunity(&quot;Soft Things&quot;)
+    placemat3.joinCommunity(&quot;Soft Things&quot;)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod8)
+    
+    dunkinDonutsCoffeePod8.joinCommunity(&quot;Coffee&quot;)
+    
+    largeSpoon2 = wake(&quot;Large Spoon 2&quot;)
+    spoons.append(largeSpoon2)
+    dunkinDonutsCoffeePod9 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 9&quot;)
+    steakKnife4 = wake(&quot;Steak Knife 4&quot;)
+    knives.append(steakKnife4)
+
+    establishCommunication(microwave, placemat3)
+    establishCommunication(knifeBlock, steakKnife4)
+
+    steakKnife4.joinCommunity(&quot;Knife Block&quot;)
+
+    bowl0 = wake(&quot;Bowl 0&quot;)
+    bowls.append(bowl0)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod9)
+    
+    dunkinDonutsCoffeePod9.joinCommunity(&quot;Coffee&quot;)
+
+    establishCommunication(tv, halo5XboxGame)
+    
+    largeSpoon3 = wake(&quot;Large Spoon 3&quot;)
+    spoons.append(largeSpoon3)
+    largeFork9 = wake(&quot;Large Fork 9&quot;)
+    forks.append(largeFork9)
+    dunkinDonutsCoffeePod10 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 10&quot;)
+    steakKnife5 = wake(&quot;Steak Knife 5&quot;)
+    knives.append(steakKnife5)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod10)
+    establishCommunication(knifeBlock, steakKnife5)
+
+    steakKnife5.joinCommunity(&quot;Knife Block&quot;)
+    
+    dunkinDonutsCoffeePod10.joinCommunity(&quot;Coffee&quot;)
+    
+    butterKnife2 = wake(&quot;Butter Knife 2&quot;)
+    knives.append(butterKnife2)
+    
+    negativeInteraction(wineGlass1, wineGlass0)
+
+    establishCommunication(knifeBlock, butterKnife2)
+    
+    canOpener = wake(&quot;Can Opener&quot;)
+    steakKnife6 = wake(&quot;Steak Knife 6&quot;)
+    knives.append(steakKnife6)
+
+    establishCommunication(knifeBlock, steakKnife6)
+
+    steakKnife6.joinCommunity(&quot;Knife Block&quot;)
+
+    strawBrush = wake(&quot;Straw Brush&quot;)
+    
+    establishCommunication(microwave, canOpener)
+    establishCommunication(tv, callOfDutyModernWarfare2XboxGame)
+    
+    dunkinDonutsCoffeePod11 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 11&quot;)
+    smallSpoon1 = wake(&quot;Small Spoon 1&quot;)
+    spoons.append(smallSpoon1)
+
+    positiveInteraction(dog, fish)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod11)
+    
+    dunkinDonutsCoffeePod11.joinCommunity(&quot;Coffee&quot;)
+
+    dunkinDonutsCoffeePod12 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 12&quot;)
+    bowl2 = wake(&quot;Bowl 2&quot;)
+    bowls.append(bowl2)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod12)
+    establishCommunication(microwave, strawBrush)
+    
+    dunkinDonutsCoffeePod12.joinCommunity(&quot;Coffee&quot;)
+
+    establishCommunication(tv, seaofThievesXboxGame)
+    
+    steakKnife7 = wake(&quot;Steak Knife 7&quot;)
+    knives.append(steakKnife7)
+
+    establishCommunication(knifeBlock, steakKnife7)
+
+    steakKnife7.joinCommunity(&quot;Knife Block&quot;)
+
+    smallFork3 = wake(&quot;Small Fork 3&quot;)
+    forks.append(smallFork3)
+    dunkinDonutsCoffeePod13 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 13&quot;)
+    butterKnife3 = wake(&quot;Butter Knife 3&quot;)
+    knives.append(butterKnife3)
+    
+    positiveInteraction(wineGlass0, wineGlass1)
+
+    establishCommunication(knifeBlock, butterKnife3)
+
+    smallFork4 = wake(&quot;Small Fork 4&quot;)
+    forks.append(smallFork4)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod13)
+    
+    dunkinDonutsCoffeePod13.joinCommunity(&quot;Coffee&quot;)
+
+    establishCommunication(tv, callOfDutyAdvancedWarfareXboxGame)
+    
+    dunkinDonutsCoffeePod14 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 14&quot;)
+    smallFork5 = wake(&quot;Small Fork 5&quot;)
+    forks.append(smallFork5)
+    bowl1 = wake(&quot;Bowl 1&quot;)
+    bowls.append(bowl1)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod14)
+    
+    dunkinDonutsCoffeePod14.joinCommunity(&quot;Coffee&quot;)
+
+    positiveInteraction(phone, computer)
+
+    dunkinDonutsCoffeePod15 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 15&quot;)
+    smallFork6 = wake(&quot;Small Fork 6&quot;)
+    forks.append(smallFork6)
+    sideTable0 = wake(&quot;Side Table 0&quot;)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod15)
+    
+    smallFork7 = wake(&quot;Small Fork 7&quot;)
+    forks.append(smallFork7)
+    smallFork8 = wake(&quot;Small Fork 8&quot;)
+    forks.append(smallFork8)
+    
+    negativeInteraction(plant, house)
+    
+    dunkinDonutsCoffeePod16 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 16&quot;)
+
+    establishCommunication(couch, sideTable0)
+
+    smallFork9 = wake(&quot;Small Fork 9&quot;)
+    forks.append(smallFork9)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod16)
+    establishCommunication(tv, legoStarWarsIIXboxGame)
+    
+    dunkinDonutsCoffeePod17 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 17&quot;)
+    smallPlate2 = wake(&quot;Small Plate 2&quot;)
+    plates.append(smallPlate2)
+    
+    negativeInteraction(xbox, guitarHero5XboxGame)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod17)
+    
+    butterKnife4 = wake(&quot;Butter Knife 4&quot;)
+    knives.append(butterKnife4)
+
+    establishCommunication(knifeBlock, butterKnife4)
+
+    dunkinDonutsCoffeePod18 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 18&quot;)
+    butterKnife5 = wake(&quot;Butter Knife 5&quot;)
+    knives.append(butterKnife5)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod18)
+    establishCommunication(knifeBlock, butterKnife5)
+
+    dunkinDonutsCoffeePod18.joinCommunity(&quot;Coffee&quot;)
+    
+    butterKnife6 = wake(&quot;Butter Knife 6&quot;)
+    knives.append(butterKnife6)
+
+    establishCommunication(knifeBlock, butterKnife6)
+
+    dunkinDonutsCoffeePod19 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 19&quot;)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod19)
+    
+    dunkinDonutsCoffeePod19.joinCommunity(&quot;Coffee&quot;)
+    
+    butterKnife7 = wake(&quot;Butter Knife 7&quot;)
+    knives.append(butterKnife7)
+    butterKnife8 = wake(&quot;Butter Knife 8&quot;)
+    knives.append(butterKnife8)
+
+    establishCommunication(tv, battlefield4XboxGame)
+
+    sideTable1 = wake(&quot;Side Table 1&quot;)
+    
+    establishCommunication(knifeBlock, butterKnife7)
+    establishCommunication(knifeBlock, butterKnife8)
+
+    dunkinDonutsCoffeePod20 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 20&quot;)
+
+    positiveInteraction(fish, dog)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod20)
+    
+    dunkinDonutsCoffeePod20.joinCommunity(&quot;Coffee&quot;)
+
+    butterKnife9 = wake(&quot;Butter Knife 9&quot;)
+    knives.append(butterKnife9)
+
+    establishCommunication(knifeBlock, butterKnife9)
+
+    dunkinDonutsCoffeePod21 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 21&quot;)
+    dunkinDonutsCoffeePod22 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 22&quot;)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod21)
+    establishCommunication(couch, sideTable1)
+    
+    dunkinDonutsCoffeePod21.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod23 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 23&quot;)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod22)
+    
+    dunkinDonutsCoffeePod22.joinCommunity(&quot;Coffee&quot;)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod23)
+    
+    dunkinDonutsCoffeePod23.joinCommunity(&quot;Coffee&quot;)
+    
+    largeSpoon4 = wake(&quot;Large Spoon 4&quot;)
+    spoons.append(largeSpoon4)
+    largeSpoon5 = wake(&quot;Large Spoon 5&quot;)
+    spoons.append(largeSpoon5)
+    largeSpoon6 = wake(&quot;Large Spoon 6&quot;)
+    spoons.append(largeSpoon6)
+    largeSpoon7 = wake(&quot;Large Spoon 7&quot;)
+    spoons.append(largeSpoon7)
+    largeSpoon8 = wake(&quot;Large Spoon 8&quot;)
+    spoons.append(largeSpoon8)
+    dunkinDonutsCoffeePod24 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 24&quot;)
+    largeSpoon9 = wake(&quot;Large Spoon 9&quot;)
+    spoons.append(largeSpoon9)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod24)
+    
+    dunkinDonutsCoffeePod24.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod25 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 25&quot;)
+    smallSpoon0 = wake(&quot;Small Spoon 0&quot;)
+    spoons.append(smallSpoon0)
+    dunkinDonutsCoffeePod26 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 26&quot;)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod25)
+    
+    dunkinDonutsCoffeePod25.joinCommunity(&quot;Coffee&quot;)
+
+    smallSpoon2 = wake(&quot;Small Spoon 2&quot;)
+    spoons.append(smallSpoon2)
+    dunkinDonutsCoffeePod27 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 27&quot;)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod26)
+    
+    dunkinDonutsCoffeePod26.joinCommunity(&quot;Coffee&quot;)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod27)
+    
+    dunkinDonutsCoffeePod27.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod28 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 28&quot;)
+    smallSpoon3 = wake(&quot;Small Spoon 3&quot;)
+    spoons.append(smallSpoon3)
+    smallSpoon4 = wake(&quot;Small Spoon 4&quot;)
+    spoons.append(smallSpoon4)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod28)
+    
+    dunkinDonutsCoffeePod28.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod29 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 29&quot;)
+    
+    positiveInteraction(dog, fish)
+    
+    smallSpoon5 = wake(&quot;Small Spoon 5&quot;)
+    spoons.append(smallSpoon5)
+    dunkinDonutsCoffeePod30 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 30&quot;)
+    
+    negativeInteraction(xbox, guitarHero5XboxGame)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod29)
+    
+    dunkinDonutsCoffeePod29.joinCommunity(&quot;Coffee&quot;)
+    
+    smallSpoon6 = wake(&quot;Small Spoon 6&quot;)
+    spoons.append(smallSpoon6)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod30)
+    
+    dunkinDonutsCoffeePod30.joinCommunity(&quot;Coffee&quot;)
+    
+    smallSpoon7 = wake(&quot;Small Spoon 7&quot;)
+    spoons.append(smallSpoon7)
+    dunkinDonutsCoffeePod31 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 31&quot;)
+    smallSpoon8 = wake(&quot;Small Spoon 8&quot;)
+    spoons.append(smallSpoon8)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod31)
+    
+    dunkinDonutsCoffeePod31.joinCommunity(&quot;Coffee&quot;)
+
+    positiveInteraction(computer, phone)
+
+    dunkinDonutsCoffeePod32 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 32&quot;)
+    smallSpoon9 = wake(&quot;Small Spoon 9&quot;)
+    spoons.append(smallSpoon9)
+    dunkinDonutsCoffeePod33 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 33&quot;)
+    smallCup2 = wake(&quot;Small Cup 2&quot;)
+    cups.append(smallCup2)
+    smallCup3 = wake(&quot;Small Cup 3&quot;)
+    cups.append(smallCup3)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod32)
+    
+    dunkinDonutsCoffeePod32.joinCommunity(&quot;Coffee&quot;)
+    
+    negativeInteraction(plant, house)
+    
+    dunkinDonutsCoffeePod34 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 34&quot;)
+    tallCup2 = wake(&quot;Tall Cup 2&quot;)
+    cups.append(tallCup2)
+    
+    negativeInteraction(wineGlass1, wineGlass0)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod33)
+    
+    dunkinDonutsCoffeePod33.joinCommunity(&quot;Coffee&quot;)
+    
+    tallCup3 = wake(&quot;Tall Cup 2&quot;)
+    cups.append(tallCup3)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod34)
+    
+    dunkinDonutsCoffeePod34.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod35 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 35&quot;)
+    smallPlate3 = wake(&quot;Small Plate 3&quot;)
+    plates.append(smallPlate3)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod35)
+    
+    dunkinDonutsCoffeePod35.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod36 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 36&quot;)
+    smallPlate4 = wake(&quot;Small Plate 4&quot;)
+    plates.append(smallPlate4)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod36)
+    
+    dunkinDonutsCoffeePod36.joinCommunity(&quot;Coffee&quot;)
+    
+    dunkinDonutsCoffeePod37 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 37&quot;)
+    largePlate0 = wake(&quot;Large Plate 0&quot;)
+    plates.append(largePlate0)
+    largePlate2 = wake(&quot;Large Plate 2&quot;)
+    plates.append(largePlate2)
+
+    establishCommunication(keurig, dunkinDonutsCoffeePod37)
+    
+    dunkinDonutsCoffeePod37.joinCommunity(&quot;Coffee&quot;)
+    
+    positiveInteraction(fish, dog)
+    
+    positiveInteraction(dog, fish)
+    dunkinDonutsCoffeePod38 = wake(&quot;Dunkin&#39; Donuts Coffee Pod 38&quot;)
+    
+    establishCommunication(keurig, dunkinDonutsCoffeePod38)
+    
+    dunkinDonutsCoffeePod38.joinCommunity(&quot;Coffee&quot;)
+    
+    largePlate3 = wake(&quot;Large Plate 3&quot;)
+    plates.append(largePlate3)
+
+    positiveInteraction(dog, fish)
+    positiveInteraction(computer, phone)
+
+    largePlate4 = wake(&quot;Large Plate 4&quot;)
+    plates.append(largePlate4)
+    
+    positiveInteraction(wineGlass1, wineGlass0)
+
+    silverware = forks
+    for knife in knives:
+        silverware.append(knife)
+    for spoon in spoons:
+        silverware.append(spoon)
+    formCommunity(&quot;Silverware&quot;, silverware)
+
+    bowl3 = wake(&quot;Bowl 3&quot;)
+    
+    negativeInteraction(xbox, guitarHero5XboxGame)
+    
+    bowls.append(bowl3)
+    bowl4 = wake(&quot;Bowl 4&quot;)
+    bowls.append(bowl4)
+    positiveInteraction(fish, dog)
+
+    print(&quot;\n\nRELATIONSHIPS:\n&quot;)
+    for being in state[&quot;beings&quot;]:
+        if being.connections == {}:
+            continue
+        print(being.name + &quot;&#39;s connections: &quot;)
+        for connection in being.connections:
+            relationship = being.connections[connection][&quot;relationship&quot;]
+            if relationship == &quot;FRIEND&quot; or relationship == &quot;ENEMY&quot;:
+                relationship += &quot;\t&quot;        # for alignment purposes
+            print(&quot;\t&quot; + relationship + &quot;\t&quot; + str(being.connections[connection][&quot;level&quot;]) + &quot;\t&quot; + connection.name)
+
+    print(&quot;\n\nCOMMUNITIES:\n&quot;)
+    if len(state) &gt; 1:
+        for community in state:
+            if community == &quot;beings&quot;:
+                continue
+            print(community + &quot;&#39;s members:&quot;)
+            for being in state[community]:
+                print(&quot;\t&quot; + being.name)
+            print()
+
+if __name__ == &#39;__main__&#39;:
+    main()
+	
+	
+*****OUTPUT******
+
+Dash has woken
+Phone has woken
+Computer has woken
+Assessing surroundings...
+Nearby beings:
+        - Dash
+        - Phone
+        - Computer
+Fish has woken
+Dog Plush Dinosaur has woken
+Toy Elephant has woken
+Toy Bear has woken
+Plant has woken
++ Dash, Fish
++ Phone, Computer
+Xbox has woken
++ Computer, Xbox
+Guitar Hero 5 Xbox Game has woken
++ Phone, Xbox
++ Computer, Phone
+Dog Mom Mug has woken
++ Dash, Fish
+Cable Box has woken
++ Phone, Computer
+Guitar Hero Smash Hits Xbox Game has woken
+Toy Train has woken
+Toy Blanket has woken
+Wine Glass 0 has woken
+Bent Metal Straw has woken
+Wine Glass 1 has woken
+University of Notre Dame Mug has woken
+Just Dance 2014 Xbox Game has woken
+Minecraft Xbox Game has woken
+Dog Alligator Toy has woken
++ Wine Glass 0, Wine Glass 1
+Wine Glass 2 has woken
++ Computer, Phone
+GTA V Xbox Game has woken
+Star Wars Mug has woken
+Xbox Controller 0 has woken
+Wine Glass 3 has woken
+Xbox Controller 1 has woken
+Guitar Hero World Tour Xbox Game has woken
+Stemless Wine Glass 0 has woken
+TV has woken
+Dallas Mug has woken
+Call of Duty MW3 Xbox Game has woken
+Dog Plush Carrot has woken
+Stemless Wine Glass 1 has woken
+Leech Lake Mug has woken
+Dog Plush Monkey has woken
+Fallout 4 Xbox Game has woken
++ Dash, Fish
+
+Community formed: Electronics
+
+House has woken
+Stemless Wine Glass 2 has woken
+Keurig has woken
+Dog Blanket has woken
+
+Community formed: Toys
+
+Xbox Controller 2 has woken
+Madden Xbox Game has woken
+Stemless Wine Glass 3 has woken
+Duraforce has woken
+Halo 5 Xbox Game has woken
+TV Remote has woken
+Call of Duty Modern Warfare 2 Xbox Game has woken
+Xbox Controller 3 has woken
+Sea of Thieves Xbox Game has woken
+Call of Duty Advanced Warfare Xbox Game has woken
+Pasta Maker has woken
+Lego Star Wars II Xbox Game has woken
+Kong has woken
+Loveseat has woken
+Ice Cream Scoop has woken
+Battlefield 4 Xbox Game has woken
+Dog Rope has woken
+Couch has woken
+Medium Mixing Bowl has woken
+Throw Pillow 0 has woken
+Large Mixing Bowl has woken
+Medium Pot 0 has woken
+Small Mixing Bowl has woken
+Whisk has woken
+Microwave has woken
+Throw Pillow 1 has woken
+Ladle has woken
+
+Xbox removed from Electronics
+
+Fridge has woken
+Bottle Opener has woken
+Crockpot has woken
++ Dash, Fish
+Spatula has woken
++ Phone, Computer
+Oven has woken
+Medium Pot 1 has woken
+Christmas Oven Mitt has woken
+Serving Spoon 0 has woken
+Throw Pillow 2 has woken
+Small Pot 0 has woken
+Toaster has woken
+Oven Mitt 0 has woken
+Spatula 1 has woken
+Medium Pot 2 has woken
+Oven Mitt 1 has woken
+Potholder 0 has woken
+Strainer has woken
+Dish Drying Towel 0 has woken
+Dish Soap has woken
+Large Pot 0 has woken
+Throw Pillow 3 has woken
+Drying Rack has woken
+Sponge has woken
+Hand Soap has woken
+Sink has woken
+Potholder 1 has woken
++ Wine Glass 1, Wine Glass 0
+Small Pot 1 has woken
+Chef&#39;s Knife has woken
+Unicorn Wine Stopper has woken
+Pasta Drying Rack has woken
+Serving Spoon 1 has woken
+Rug has woken
+Large Pot 1 has woken
+Dish Drying Towel 1 has woken
+One Cup Measuring Cup has woken
+Straight Metal Straw has woken
+Baby Blue Wine Stopper has woken
+Kitchen Hand Towel 0 has woken
+Cherry Wine Stopper has woken
+Serrated Knife has woken
+Navy Wine Stopper has woken
+Blanket 0 has woken
+Tablespoon has woken
+Blanket 1 has woken
+Coffee Table has woken
+Kitchen Table has woken
+Dishwasher has woken
+Half Cup Measuring Cup has woken
+Chair 0 has woken
+Toy Basket has woken
+Chair 1 has woken
+Clorox Wipes has woken
+Teaspoon has woken
++ Dash, Fish
+Windex has woken
+Standing Lamp has woken
+Entertainment Center has woken
+Slicing Knife has woken
+Kitchen Hand Towel 1 has woken
+Knife Block has woken
+
+Community formed: Knife Block
+
+Quarter Cup Measuring Cup has woken
+Rubber Jar Opener has woken
+Seasonal Placemat 0 has woken
+Lamp 0 has woken
+Throw Pillow 4 has woken
+Tinfoil has woken
+Food Scale has woken
+Third Cup Measuring Cup has woken
+Seasonal Placemat 1 has woken
+Lamp 1 has woken
+Chair 2 has woken
+Gallon Ziplock Bags has woken
++ Wine Glass 1, Wine Glass 0
+Saran Wrap has woken
+Tomato Knife has woken
+Placemat 0 has woken
+
+Community formed: Soft Things
+
+Half Teaspoon has woken
+Baking Sheet 0 has woken
+Sandwich Ziplock Bags has woken
+Kitchen Trashcan has woken
+Seasonal Placemat 2 has woken
+Coffee Pod Basket has woken
+Large Fork 0 has woken
+Steak Knife 0 has woken
+
+Community formed: Coffee
+
+Dunkin&#39; Donuts Coffee Pod 0 has woken
+Small Cup 0 has woken
++ Dash, Fish
+Dunkin&#39; Donuts Coffee Pod 1 has woken
+Steak Knife 1 has woken
+Small Plate 0 has woken
+Large Fork 1 has woken
+Butter Knife 0 has woken
+Dunkin&#39; Donuts Coffee Pod 2 has woken
++ Dog Blanket, Blanket 0
+Steak Knife 2 has woken
++ Blanket 0, Dog Plush Carrot
++ Dog Plush Monkey, Blanket 0
++ Blanket 0, Dog Plush Dinosaur
++ Blanket 0, Dog Alligator Toy
+Dunkin&#39; Donuts Coffee Pod 3 has woken
+Large Fork 2 has woken
+Tall Cup 1 has woken
+Small Plate 1 has woken
+Seasonal Placemat 3 has woken
+Large Fork 3 has woken
+Small Cup 1 has woken
+Dunkin&#39; Donuts Coffee Pod 4 has woken
+Quarter Teaspoon has woken
+Dunkin&#39; Donuts Coffee Pod 5 has woken
+Large Fork 4 has woken
+Large Spoon 0 has woken
+Small Fork 0 has woken
++ Dash, Fish
+Large Plate 1 has woken
+Steak Knife 3 has woken
+Dunkin&#39; Donuts Coffee Pod 6 has woken
+Large Fork 5 has woken
+Placemat 1 has woken
+Baking Sheet 1 has woken
+Paring Knife has woken
+Small Fork 1 has woken
+Butter Knife 1 has woken
+Chair 3 has woken
+Large Fork 6 has woken
++ Phone, Computer
+Utility Knife has woken
+Small Fork 2 has woken
+Dunkin&#39; Donuts Coffee Pod 7 has woken
+Large Fork 7 has woken
+Placemat 2 has woken
+Tall Cup 0 has woken
+Large Spoon 1 has woken
+Dunkin&#39; Donuts Coffee Pod 8 has woken
+Large Fork 8 has woken
+Placemat 3 has woken
+Large Spoon 2 has woken
+Dunkin&#39; Donuts Coffee Pod 9 has woken
+Steak Knife 4 has woken
+Bowl 0 has woken
+Large Spoon 3 has woken
+Large Fork 9 has woken
+Dunkin&#39; Donuts Coffee Pod 10 has woken
+Steak Knife 5 has woken
+Butter Knife 2 has woken
+Can Opener has woken
+Steak Knife 6 has woken
+Straw Brush has woken
+Dunkin&#39; Donuts Coffee Pod 11 has woken
+Small Spoon 1 has woken
++ Dash, Fish
+        Relationship status changed from ACQUAINTANCE to FRIEND
+Dunkin&#39; Donuts Coffee Pod 12 has woken
+Bowl 2 has woken
+Steak Knife 7 has woken
+Small Fork 3 has woken
+Dunkin&#39; Donuts Coffee Pod 13 has woken
+Butter Knife 3 has woken
++ Wine Glass 0, Wine Glass 1
+Small Fork 4 has woken
+Dunkin&#39; Donuts Coffee Pod 14 has woken
+Small Fork 5 has woken
+Bowl 1 has woken
++ Phone, Computer
+Dunkin&#39; Donuts Coffee Pod 15 has woken
+Small Fork 6 has woken
+Side Table 0 has woken
+Small Fork 7 has woken
+Small Fork 8 has woken
+Dunkin&#39; Donuts Coffee Pod 16 has woken
+Small Fork 9 has woken
+Dunkin&#39; Donuts Coffee Pod 17 has woken
+Small Plate 2 has woken
+Butter Knife 4 has woken
+Dunkin&#39; Donuts Coffee Pod 18 has woken
+Butter Knife 5 has woken
+Butter Knife 6 has woken
+Dunkin&#39; Donuts Coffee Pod 19 has woken
+Butter Knife 7 has woken
+Butter Knife 8 has woken
+Side Table 1 has woken
+Dunkin&#39; Donuts Coffee Pod 20 has woken
++ Fish, Dash
+Butter Knife 9 has woken
+Dunkin&#39; Donuts Coffee Pod 21 has woken
+Dunkin&#39; Donuts Coffee Pod 22 has woken
+Dunkin&#39; Donuts Coffee Pod 23 has woken
+Large Spoon 4 has woken
+Large Spoon 5 has woken
+Large Spoon 6 has woken
+Large Spoon 7 has woken
+Large Spoon 8 has woken
+Dunkin&#39; Donuts Coffee Pod 24 has woken
+Large Spoon 9 has woken
+Dunkin&#39; Donuts Coffee Pod 25 has woken
+Small Spoon 0 has woken
+Dunkin&#39; Donuts Coffee Pod 26 has woken
+Small Spoon 2 has woken
+Dunkin&#39; Donuts Coffee Pod 27 has woken
+Dunkin&#39; Donuts Coffee Pod 28 has woken
+Small Spoon 3 has woken
+Small Spoon 4 has woken
+Dunkin&#39; Donuts Coffee Pod 29 has woken
++ Dash, Fish
+Small Spoon 5 has woken
+Dunkin&#39; Donuts Coffee Pod 30 has woken
+Small Spoon 6 has woken
+Small Spoon 7 has woken
+Dunkin&#39; Donuts Coffee Pod 31 has woken
+Small Spoon 8 has woken
++ Computer, Phone
+Dunkin&#39; Donuts Coffee Pod 32 has woken
+Small Spoon 9 has woken
+Dunkin&#39; Donuts Coffee Pod 33 has woken
+Small Cup 2 has woken
+Small Cup 3 has woken
+Dunkin&#39; Donuts Coffee Pod 34 has woken
+Tall Cup 2 has woken
+Tall Cup 2 has woken
+Dunkin&#39; Donuts Coffee Pod 35 has woken
+Small Plate 3 has woken
+Dunkin&#39; Donuts Coffee Pod 36 has woken
+Small Plate 4 has woken
+Dunkin&#39; Donuts Coffee Pod 37 has woken
+Large Plate 0 has woken
+Large Plate 2 has woken
++ Fish, Dash
++ Dash, Fish
+Dunkin&#39; Donuts Coffee Pod 38 has woken
+Large Plate 3 has woken
++ Dash, Fish
++ Computer, Phone
+Large Plate 4 has woken
++ Wine Glass 1, Wine Glass 0
+
+Community formed: Silverware
+
+Bowl 3 has woken
+Bowl 4 has woken
++ Fish, Dash
+
+
+RELATIONSHIPS:
+
+Dash&#39;s connections:
+        FRIEND          12      Fish
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+Phone&#39;s connections:
+        ACQUAINTANCE    4       Computer
+        ACQUAINTANCE    1       Xbox
+        ACQUAINTANCE    0       Cable Box
+        ACQUAINTANCE    0       TV
+Computer&#39;s connections:
+        ACQUAINTANCE    4       Phone
+        ACQUAINTANCE    1       Xbox
+        ACQUAINTANCE    0       Cable Box
+        ACQUAINTANCE    0       TV
+Fish&#39;s connections:
+        FRIEND          12      Dash
+Dog Plush Dinosaur&#39;s connections:
+        ACQUAINTANCE    0       Dash
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Dog Rope
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    1       Blanket 0
+Toy Elephant&#39;s connections:
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Dog Rope
+        ACQUAINTANCE    0       Kong
+Toy Bear&#39;s connections:
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Dog Rope
+Plant&#39;s connections:
+        ENEMY           -3      House
+Xbox&#39;s connections:
+        ACQUAINTANCE    1       Computer
+        ACQUAINTANCE    1       Phone
+        ENEMY           -6      Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Cable Box
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 1
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ENEMY           -8      TV
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 2
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 3
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Guitar Hero 5 Xbox Game&#39;s connections:
+        ENEMY           -6      Xbox
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Dog Mom Mug&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       University of Notre Dame Mug
+        ACQUAINTANCE    0       Star Wars Mug
+        ACQUAINTANCE    0       Dallas Mug
+        ACQUAINTANCE    0       Leech Lake Mug
+Cable Box&#39;s connections:
+        ACQUAINTANCE    0       Computer
+        ACQUAINTANCE    0       Phone
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       TV
+Guitar Hero Smash Hits Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Toy Train&#39;s connections:
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Dog Rope
+Toy Blanket&#39;s connections:
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Dog Rope
+Wine Glass 0&#39;s connections:
+        ACQUAINTANCE    3       Wine Glass 1
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Wine Glass 3
+        ACQUAINTANCE    0       Stemless Wine Glass 0
+        ACQUAINTANCE    0       Stemless Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 2
+        ACQUAINTANCE    0       Stemless Wine Glass 3
+Bent Metal Straw&#39;s connections:
+        ACQUAINTANCE    0       Straight Metal Straw
+Wine Glass 1&#39;s connections:
+        ACQUAINTANCE    3       Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Wine Glass 3
+        ACQUAINTANCE    0       Stemless Wine Glass 0
+        ACQUAINTANCE    0       Stemless Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 2
+        ACQUAINTANCE    0       Stemless Wine Glass 3
+University of Notre Dame Mug&#39;s connections:
+        ACQUAINTANCE    0       Dog Mom Mug
+        ACQUAINTANCE    0       Star Wars Mug
+        ACQUAINTANCE    0       Dallas Mug
+        ACQUAINTANCE    0       Leech Lake Mug
+Just Dance 2014 Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Minecraft Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Dog Alligator Toy&#39;s connections:
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Dog Rope
+        ACQUAINTANCE    1       Blanket 0
+Wine Glass 2&#39;s connections:
+        ACQUAINTANCE    0       Dog Mom Mug
+        ACQUAINTANCE    0       Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 1
+        ACQUAINTANCE    0       Star Wars Mug
+        ACQUAINTANCE    0       Wine Glass 3
+        ACQUAINTANCE    0       Stemless Wine Glass 0
+        ACQUAINTANCE    0       Dallas Mug
+        ACQUAINTANCE    0       Stemless Wine Glass 1
+        ACQUAINTANCE    0       Leech Lake Mug
+        ACQUAINTANCE    0       Stemless Wine Glass 3
+        ACQUAINTANCE    0       Stemless Wine Glass 2
+GTA V Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Star Wars Mug&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       University of Notre Dame Mug
+        ACQUAINTANCE    0       Dog Mom Mug
+        ACQUAINTANCE    0       Dallas Mug
+        ACQUAINTANCE    0       Leech Lake Mug
+Xbox Controller 0&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Xbox Controller 1
+        ACQUAINTANCE    0       TV
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 2
+        ACQUAINTANCE    0       TV Remote
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 3
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Wine Glass 3&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 0
+        ACQUAINTANCE    0       Stemless Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 2
+        ACQUAINTANCE    0       Stemless Wine Glass 3
+Xbox Controller 1&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       TV
+        ACQUAINTANCE    0       TV Remote
+Guitar Hero World Tour Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+Stemless Wine Glass 0&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Wine Glass 3
+        ACQUAINTANCE    0       Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 2
+        ACQUAINTANCE    0       Stemless Wine Glass 3
+TV&#39;s connections:
+        ACQUAINTANCE    0       Cable Box
+        ACQUAINTANCE    0       Computer
+        ACQUAINTANCE    0       Phone
+        ENEMY           -8      Xbox
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Xbox Controller 1
+        ACQUAINTANCE    0       Xbox Controller 2
+        ACQUAINTANCE    0       TV Remote
+        ACQUAINTANCE    0       Xbox Controller 3
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+Dallas Mug&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Dog Mom Mug
+        ACQUAINTANCE    0       University of Notre Dame Mug
+        ACQUAINTANCE    0       Leech Lake Mug
+        ACQUAINTANCE    0       Star Wars Mug
+Call of Duty MW3 Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+        ACQUAINTANCE    0       TV
+Dog Plush Carrot&#39;s connections:
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Dog Rope
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    1       Blanket 0
+Stemless Wine Glass 1&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 1
+        ACQUAINTANCE    0       Wine Glass 3
+        ACQUAINTANCE    0       Stemless Wine Glass 0
+        ACQUAINTANCE    0       Stemless Wine Glass 2
+        ACQUAINTANCE    0       Stemless Wine Glass 3
+Leech Lake Mug&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Dallas Mug
+        ACQUAINTANCE    0       Dog Mom Mug
+        ACQUAINTANCE    0       University of Notre Dame Mug
+        ACQUAINTANCE    0       Star Wars Mug
+Dog Plush Monkey&#39;s connections:
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Dog Rope
+        ACQUAINTANCE    0       Toy Basket
+        ACQUAINTANCE    1       Blanket 0
+Fallout 4 Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       TV
+House&#39;s connections:
+        ACQUAINTANCE    0       Loveseat
+        ACQUAINTANCE    0       Couch
+        ACQUAINTANCE    0       Fridge
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Rug
+        ENEMY           -3      Plant
+        ACQUAINTANCE    0       Kitchen Table
+        ACQUAINTANCE    0       Dishwasher
+        ACQUAINTANCE    0       Chair 0
+        ACQUAINTANCE    0       Chair 1
+        ACQUAINTANCE    0       Standing Lamp
+        ACQUAINTANCE    0       Entertainment Center
+        ACQUAINTANCE    0       Chair 2
+        ACQUAINTANCE    0       Kitchen Trashcan
+        ACQUAINTANCE    0       Chair 3
+Stemless Wine Glass 2&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 3
+        ACQUAINTANCE    0       Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 0
+        ACQUAINTANCE    0       Stemless Wine Glass 3
+        ACQUAINTANCE    0       Wine Glass 2
+Keurig&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Fridge
+        ACQUAINTANCE    0       Crockpot
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Toaster
+        ACQUAINTANCE    0       Dishwasher
+        ACQUAINTANCE    0       Coffee Pod Basket
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 0
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 1
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 2
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 3
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 4
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 5
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 6
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 7
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 8
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 9
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 10
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 11
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 12
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 13
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 14
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 15
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 16
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 17
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 18
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 19
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 20
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 21
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 22
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 23
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 24
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 25
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 26
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 27
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 28
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 29
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 30
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 31
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 32
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 33
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 34
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 35
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 36
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 37
+        ACQUAINTANCE    0       Dunkin&#39; Donuts Coffee Pod 38
+Dog Blanket&#39;s connections:
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Dog Rope
+        ACQUAINTANCE    1       Blanket 0
+Xbox Controller 2&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       TV
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Xbox Controller 3
+        ACQUAINTANCE    0       TV Remote
+Madden Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       TV
+Stemless Wine Glass 3&#39;s connections:
+        ACQUAINTANCE    0       Wine Glass 2
+        ACQUAINTANCE    0       Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 1
+        ACQUAINTANCE    0       Stemless Wine Glass 2
+        ACQUAINTANCE    0       Stemless Wine Glass 0
+        ACQUAINTANCE    0       Wine Glass 3
+Duraforce&#39;s connections:
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Dog Rope
+Halo 5 Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       TV
+TV Remote&#39;s connections:
+        ACQUAINTANCE    0       TV
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Xbox Controller 1
+        ACQUAINTANCE    0       Xbox Controller 2
+        ACQUAINTANCE    0       Xbox Controller 3
+Call of Duty Modern Warfare 2 Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+        ACQUAINTANCE    0       TV
+Xbox Controller 3&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       TV
+        ACQUAINTANCE    0       Xbox Controller 2
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       TV Remote
+Sea of Thieves Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       TV
+Call of Duty Advanced Warfare Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       TV
+Pasta Maker&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Fridge
+        ACQUAINTANCE    0       Crockpot
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Toaster
+Lego Star Wars II Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Halo 5 Xbox Game
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Madden Xbox Game
+        ACQUAINTANCE    0       Guitar Hero World Tour Xbox Game
+        ACQUAINTANCE    0       Battlefield 4 Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Fallout 4 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       TV
+Kong&#39;s connections:
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Duraforce
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Dog Rope
+Loveseat&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Couch
+        ACQUAINTANCE    0       Standing Lamp
+        ACQUAINTANCE    0       Entertainment Center
+Ice Cream Scoop&#39;s connections:
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Ladle
+        ACQUAINTANCE    0       Bottle Opener
+        ACQUAINTANCE    0       Spatula
+        ACQUAINTANCE    0       Serving Spoon 0
+        ACQUAINTANCE    0       Spatula 1
+        ACQUAINTANCE    0       Serving Spoon 1
+Battlefield 4 Xbox Game&#39;s connections:
+        ACQUAINTANCE    0       Xbox
+        ACQUAINTANCE    0       Guitar Hero 5 Xbox Game
+        ACQUAINTANCE    0       Guitar Hero Smash Hits Xbox Game
+        ACQUAINTANCE    0       Call of Duty Modern Warfare 2 Xbox Game
+        ACQUAINTANCE    0       Call of Duty Advanced Warfare Xbox Game
+        ACQUAINTANCE    0       Sea of Thieves Xbox Game
+        ACQUAINTANCE    0       Xbox Controller 0
+        ACQUAINTANCE    0       Call of Duty MW3 Xbox Game
+        ACQUAINTANCE    0       Lego Star Wars II Xbox Game
+        ACQUAINTANCE    0       Just Dance 2014 Xbox Game
+        ACQUAINTANCE    0       Minecraft Xbox Game
+        ACQUAINTANCE    0       GTA V Xbox Game
+        ACQUAINTANCE    0       TV
+Dog Rope&#39;s connections:
+        ACQUAINTANCE    0       Dog Plush Carrot
+        ACQUAINTANCE    0       Dog Plush Dinosaur
+        ACQUAINTANCE    0       Dog Plush Monkey
+        ACQUAINTANCE    0       Toy Elephant
+        ACQUAINTANCE    0       Dog Blanket
+        ACQUAINTANCE    0       Toy Blanket
+        ACQUAINTANCE    0       Dog Alligator Toy
+        ACQUAINTANCE    0       Toy Train
+        ACQUAINTANCE    0       Toy Bear
+        ACQUAINTANCE    0       Kong
+        ACQUAINTANCE    0       Duraforce
+Couch&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Loveseat
+        ACQUAINTANCE    0       Throw Pillow 0
+        ACQUAINTANCE    0       Rug
+        ACQUAINTANCE    0       Coffee Table
+        ACQUAINTANCE    0       Lamp 0
+        ACQUAINTANCE    0       Lamp 1
+        ACQUAINTANCE    0       Kitchen Table
+        ACQUAINTANCE    0       Entertainment Center
+        ACQUAINTANCE    0       Standing Lamp
+        ACQUAINTANCE    0       Side Table 0
+        ACQUAINTANCE    0       Side Table 1
+Medium Mixing Bowl&#39;s connections:
+        ACQUAINTANCE    0       Ice Cream Scoop
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Ladle
+        ACQUAINTANCE    0       Spatula
+        ACQUAINTANCE    0       Medium Pot 1
+        ACQUAINTANCE    0       Serving Spoon 0
+        ACQUAINTANCE    0       Small Pot 0
+        ACQUAINTANCE    0       Spatula 1
+        ACQUAINTANCE    0       Medium Pot 2
+        ACQUAINTANCE    0       Large Pot 0
+        ACQUAINTANCE    0       Small Pot 1
+        ACQUAINTANCE    0       Serving Spoon 1
+        ACQUAINTANCE    0       Large Pot 1
+Throw Pillow 0&#39;s connections:
+        ACQUAINTANCE    0       Couch
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Oven Mitt 0
+        ACQUAINTANCE    0       Throw Pillow 2
+        ACQUAINTANCE    0       Oven Mitt 1
+        ACQUAINTANCE    0       Dish Drying Towel 0
+        ACQUAINTANCE    0       Throw Pillow 3
+        ACQUAINTANCE    0       Blanket 1
+        ACQUAINTANCE    0       Potholder 0
+        ACQUAINTANCE    0       Rug
+        ACQUAINTANCE    0       Dish Drying Towel 1
+        ACQUAINTANCE    0       Throw Pillow 4
+        ACQUAINTANCE    0       Blanket 0
+        ACQUAINTANCE    0       Kitchen Hand Towel 0
+        ACQUAINTANCE    0       Kitchen Hand Towel 1
+Large Mixing Bowl&#39;s connections:
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Ice Cream Scoop
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Medium Pot 1
+        ACQUAINTANCE    0       Small Pot 0
+        ACQUAINTANCE    0       Medium Pot 2
+        ACQUAINTANCE    0       Large Pot 0
+        ACQUAINTANCE    0       Large Pot 1
+Medium Pot 0&#39;s connections:
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Medium Pot 1
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Medium Pot 2
+        ACQUAINTANCE    0       Large Pot 0
+        ACQUAINTANCE    0       Potholder 0
+        ACQUAINTANCE    0       Potholder 1
+        ACQUAINTANCE    0       Small Pot 1
+        ACQUAINTANCE    0       Large Pot 1
+Small Mixing Bowl&#39;s connections:
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Pot 1
+        ACQUAINTANCE    0       Ice Cream Scoop
+        ACQUAINTANCE    0       Medium Pot 2
+        ACQUAINTANCE    0       Potholder 0
+        ACQUAINTANCE    0       Large Pot 0
+        ACQUAINTANCE    0       Large Pot 1
+Whisk&#39;s connections:
+        ACQUAINTANCE    0       Ladle
+        ACQUAINTANCE    0       Bottle Opener
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Ice Cream Scoop
+        ACQUAINTANCE    0       Spatula
+        ACQUAINTANCE    0       Christmas Oven Mitt
+        ACQUAINTANCE    0       Serving Spoon 0
+        ACQUAINTANCE    0       Spatula 1
+        ACQUAINTANCE    0       Serving Spoon 1
+        ACQUAINTANCE    0       Serrated Knife
+Microwave&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+        ACQUAINTANCE    0       Fridge
+        ACQUAINTANCE    0       Bottle Opener
+        ACQUAINTANCE    0       Crockpot
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Pasta Maker
+        ACQUAINTANCE    0       Medium Pot 1
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Christmas Oven Mitt
+        ACQUAINTANCE    0       Serving Spoon 0
+        ACQUAINTANCE    0       Toaster
+        ACQUAINTANCE    0       Small Pot 0
+        ACQUAINTANCE    0       Spatula 1
+        ACQUAINTANCE    0       Oven Mitt 0
+        ACQUAINTANCE    0       Oven Mitt 1
+        ACQUAINTANCE    0       Strainer
+        ACQUAINTANCE    0       Potholder 0
+        ACQUAINTANCE    0       Dish Drying Towel 0
+        ACQUAINTANCE    0       Dish Soap
+        ACQUAINTANCE    0       Large Pot 0
+        ACQUAINTANCE    0       Sink
+        ACQUAINTANCE    0       Drying Rack
+        ACQUAINTANCE    0       Sponge
+        ACQUAINTANCE    0       Small Pot 1
+        ACQUAINTANCE    0       Hand Soap
+        ACQUAINTANCE    0       Potholder 1
+        ACQUAINTANCE    0       Chef&#39;s Knife
+        ACQUAINTANCE    0       Pasta Drying Rack
+        ACQUAINTANCE    0       Unicorn Wine Stopper
+        ACQUAINTANCE    0       Large Pot 1
+        ACQUAINTANCE    0       Serving Spoon 1
+        ACQUAINTANCE    0       Dish Drying Towel 1
+        ACQUAINTANCE    0       Straight Metal Straw
+        ACQUAINTANCE    0       One Cup Measuring Cup
+        ACQUAINTANCE    0       Kitchen Hand Towel 0
+        ACQUAINTANCE    0       Cherry Wine Stopper
+        ACQUAINTANCE    0       Serrated Knife
+        ACQUAINTANCE    0       Navy Wine Stopper
+        ACQUAINTANCE    0       Tablespoon
+        ACQUAINTANCE    0       Kitchen Table
+        ACQUAINTANCE    0       Dishwasher
+        ACQUAINTANCE    0       Half Cup Measuring Cup
+        ACQUAINTANCE    0       Chair 0
+        ACQUAINTANCE    0       Chair 1
+        ACQUAINTANCE    0       Teaspoon
+        ACQUAINTANCE    0       Slicing Knife
+        ACQUAINTANCE    0       Kitchen Hand Towel 1
+        ACQUAINTANCE    0       Knife Block
+        ACQUAINTANCE    0       Quarter Cup Measuring Cup
+        ACQUAINTANCE    0       Rubber Jar Opener
+        ACQUAINTANCE    0       Seasonal Placemat 0
+        ACQUAINTANCE    0       Tinfoil
+        ACQUAINTANCE    0       Food Scale
+        ACQUAINTANCE    0       Third Cup Measuring Cup
+        ACQUAINTANCE    0       Seasonal Placemat 1
+        ACQUAINTANCE    0       Chair 2
+        ACQUAINTANCE    0       Gallon Ziplock Bags
+        ACQUAINTANCE    0       Saran Wrap
+        ACQUAINTANCE    0       Tomato Knife
+        ACQUAINTANCE    0       Placemat 0
+        ACQUAINTANCE    0       Half Teaspoon
+        ACQUAINTANCE    0       Baking Sheet 0
+        ACQUAINTANCE    0       Sandwich Ziplock Bags
+        ACQUAINTANCE    0       Kitchen Trashcan
+        ACQUAINTANCE    0       Quarter Teaspoon
+        ACQUAINTANCE    0       Seasonal Placemat 2
+        ACQUAINTANCE    0       Seasonal Placemat 3
+        ACQUAINTANCE    0       Placemat 1
+        ACQUAINTANCE    0       Baking Sheet 1
+        ACQUAINTANCE    0       Placemat 2
+        ACQUAINTANCE    0       Placemat 3
+        ACQUAINTANCE    0       Can Opener
+        ACQUAINTANCE    0       Straw Brush
+Throw Pillow 1&#39;s connections:
+        ACQUAINTANCE    0       Throw Pillow 0
+        ACQUAINTANCE    0       Throw Pillow 2
+        ACQUAINTANCE    0       Oven Mitt 0
+        ACQUAINTANCE    0       Oven Mitt 1
+        ACQUAINTANCE    0       Potholder 0
+        ACQUAINTANCE    0       Dish Drying Towel 0
+        ACQUAINTANCE    0       Throw Pillow 3
+        ACQUAINTANCE    0       Potholder 1
+        ACQUAINTANCE    0       Rug
+        ACQUAINTANCE    0       Throw Pillow 4
+Ladle&#39;s connections:
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Ice Cream Scoop
+Fridge&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Keurig
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Pasta Maker
+Bottle Opener&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Ice Cream Scoop
+Crockpot&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Keurig
+        ACQUAINTANCE    0       Pasta Maker
+Spatula&#39;s connections:
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Ice Cream Scoop
+Oven&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Keurig
+        ACQUAINTANCE    0       Toaster
+        ACQUAINTANCE    0       Oven Mitt 0
+        ACQUAINTANCE    0       Oven Mitt 1
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Sink
+        ACQUAINTANCE    0       Pasta Maker
+Medium Pot 1&#39;s connections:
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Mixing Bowl
+Christmas Oven Mitt&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Whisk
+Serving Spoon 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Ice Cream Scoop
+Throw Pillow 2&#39;s connections:
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Throw Pillow 0
+Small Pot 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Mixing Bowl
+Toaster&#39;s connections:
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Keurig
+        ACQUAINTANCE    0       Pasta Maker
+Oven Mitt 0&#39;s connections:
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Throw Pillow 0
+Spatula 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Ice Cream Scoop
+Medium Pot 2&#39;s connections:
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Mixing Bowl
+Oven Mitt 1&#39;s connections:
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Throw Pillow 0
+Potholder 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Throw Pillow 0
+Strainer&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Dish Drying Towel 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Throw Pillow 0
+Dish Soap&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Large Pot 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Mixing Bowl
+Throw Pillow 3&#39;s connections:
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Throw Pillow 0
+        ACQUAINTANCE    0       Throw Pillow 4
+Drying Rack&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Sponge&#39;s connections:
+        ACQUAINTANCE    0       Hand Soap
+        ACQUAINTANCE    0       Sink
+        ACQUAINTANCE    0       Microwave
+Hand Soap&#39;s connections:
+        ACQUAINTANCE    0       Sponge
+        ACQUAINTANCE    0       Microwave
+Sink&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Sponge
+        ACQUAINTANCE    0       Oven
+        ACQUAINTANCE    0       Clorox Wipes
+        ACQUAINTANCE    0       Windex
+Potholder 1&#39;s connections:
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Throw Pillow 1
+Small Pot 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Medium Mixing Bowl
+Chef&#39;s Knife&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Knife Block
+Unicorn Wine Stopper&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Baby Blue Wine Stopper
+        ACQUAINTANCE    0       Cherry Wine Stopper
+        ACQUAINTANCE    0       Navy Wine Stopper
+Pasta Drying Rack&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Serving Spoon 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Medium Mixing Bowl
+        ACQUAINTANCE    0       Ice Cream Scoop
+Rug&#39;s connections:
+        ACQUAINTANCE    0       Couch
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Throw Pillow 0
+Large Pot 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Medium Pot 0
+        ACQUAINTANCE    0       Small Mixing Bowl
+        ACQUAINTANCE    0       Large Mixing Bowl
+        ACQUAINTANCE    0       Medium Mixing Bowl
+Dish Drying Towel 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Throw Pillow 0
+One Cup Measuring Cup&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Straight Metal Straw&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Bent Metal Straw
+Baby Blue Wine Stopper&#39;s connections:
+        ACQUAINTANCE    0       Unicorn Wine Stopper
+Kitchen Hand Towel 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Throw Pillow 0
+Cherry Wine Stopper&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Unicorn Wine Stopper
+Serrated Knife&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Whisk
+        ACQUAINTANCE    0       Knife Block
+Navy Wine Stopper&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Unicorn Wine Stopper
+Blanket 0&#39;s connections:
+        ACQUAINTANCE    0       Blanket 1
+        ACQUAINTANCE    0       Throw Pillow 0
+        ACQUAINTANCE    0       Placemat 0
+        ACQUAINTANCE    1       Dog Blanket
+        ACQUAINTANCE    1       Dog Plush Carrot
+        ACQUAINTANCE    1       Dog Plush Dinosaur
+        ACQUAINTANCE    1       Dog Plush Monkey
+        ACQUAINTANCE    1       Dog Alligator Toy
+Tablespoon&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Blanket 1&#39;s connections:
+        ACQUAINTANCE    0       Blanket 0
+        ACQUAINTANCE    0       Throw Pillow 0
+Coffee Table&#39;s connections:
+        ACQUAINTANCE    0       Couch
+Kitchen Table&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Couch
+Dishwasher&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Keurig
+Half Cup Measuring Cup&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Chair 0&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Chair 1
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Chair 2
+Toy Basket&#39;s connections:
+        ACQUAINTANCE    0       Dog Plush Monkey
+Chair 1&#39;s connections:
+        ACQUAINTANCE    0       Chair 0
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Microwave
+Clorox Wipes&#39;s connections:
+        ACQUAINTANCE    0       Sink
+Teaspoon&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Windex&#39;s connections:
+        ACQUAINTANCE    0       Sink
+Standing Lamp&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Loveseat
+        ACQUAINTANCE    0       Couch
+Entertainment Center&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Couch
+        ACQUAINTANCE    0       Loveseat
+Slicing Knife&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+        ACQUAINTANCE    0       Microwave
+Kitchen Hand Towel 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Throw Pillow 0
+Knife Block&#39;s connections:
+        ACQUAINTANCE    0       Chef&#39;s Knife
+        ACQUAINTANCE    0       Serrated Knife
+        ACQUAINTANCE    0       Slicing Knife
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Tomato Knife
+        ACQUAINTANCE    0       Steak Knife 0
+        ACQUAINTANCE    0       Steak Knife 1
+        ACQUAINTANCE    0       Butter Knife 0
+        ACQUAINTANCE    0       Steak Knife 2
+        ACQUAINTANCE    0       Steak Knife 3
+        ACQUAINTANCE    0       Paring Knife
+        ACQUAINTANCE    0       Butter Knife 1
+        ACQUAINTANCE    0       Utility Knife
+        ACQUAINTANCE    0       Steak Knife 4
+        ACQUAINTANCE    0       Steak Knife 5
+        ACQUAINTANCE    0       Butter Knife 2
+        ACQUAINTANCE    0       Steak Knife 6
+        ACQUAINTANCE    0       Steak Knife 7
+        ACQUAINTANCE    0       Butter Knife 3
+        ACQUAINTANCE    0       Butter Knife 4
+        ACQUAINTANCE    0       Butter Knife 5
+        ACQUAINTANCE    0       Butter Knife 6
+        ACQUAINTANCE    0       Butter Knife 7
+        ACQUAINTANCE    0       Butter Knife 8
+        ACQUAINTANCE    0       Butter Knife 9
+Quarter Cup Measuring Cup&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Rubber Jar Opener&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Seasonal Placemat 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Placemat 0
+Lamp 0&#39;s connections:
+        ACQUAINTANCE    0       Couch
+Throw Pillow 4&#39;s connections:
+        ACQUAINTANCE    0       Throw Pillow 0
+        ACQUAINTANCE    0       Throw Pillow 1
+        ACQUAINTANCE    0       Throw Pillow 3
+Tinfoil&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Food Scale&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Third Cup Measuring Cup&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Seasonal Placemat 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Placemat 0
+Lamp 1&#39;s connections:
+        ACQUAINTANCE    0       Couch
+Chair 2&#39;s connections:
+        ACQUAINTANCE    0       Chair 0
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Microwave
+Gallon Ziplock Bags&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Saran Wrap&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Tomato Knife&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+        ACQUAINTANCE    0       Microwave
+Placemat 0&#39;s connections:
+        ACQUAINTANCE    0       Blanket 0
+        ACQUAINTANCE    0       Seasonal Placemat 1
+        ACQUAINTANCE    0       Seasonal Placemat 0
+        ACQUAINTANCE    0       Seasonal Placemat 2
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Seasonal Placemat 3
+        ACQUAINTANCE    0       Placemat 1
+        ACQUAINTANCE    0       Placemat 2
+Half Teaspoon&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Baking Sheet 0&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Sandwich Ziplock Bags&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Kitchen Trashcan&#39;s connections:
+        ACQUAINTANCE    0       House
+        ACQUAINTANCE    0       Microwave
+Seasonal Placemat 2&#39;s connections:
+        ACQUAINTANCE    0       Placemat 0
+        ACQUAINTANCE    0       Microwave
+Coffee Pod Basket&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Steak Knife 0&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 0&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 1&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Steak Knife 1&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Butter Knife 0&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 2&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Steak Knife 2&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 3&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Seasonal Placemat 3&#39;s connections:
+        ACQUAINTANCE    0       Placemat 0
+        ACQUAINTANCE    0       Microwave
+Dunkin&#39; Donuts Coffee Pod 4&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Quarter Teaspoon&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Dunkin&#39; Donuts Coffee Pod 5&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Steak Knife 3&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 6&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Placemat 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Placemat 0
+        ACQUAINTANCE    0       Placemat 3
+Baking Sheet 1&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Paring Knife&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Butter Knife 1&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Chair 3&#39;s connections:
+        ACQUAINTANCE    0       House
+Utility Knife&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 7&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Placemat 2&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Placemat 0
+Dunkin&#39; Donuts Coffee Pod 8&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Placemat 3&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+        ACQUAINTANCE    0       Placemat 1
+Dunkin&#39; Donuts Coffee Pod 9&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Steak Knife 4&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 10&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Steak Knife 5&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Butter Knife 2&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Can Opener&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Steak Knife 6&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Straw Brush&#39;s connections:
+        ACQUAINTANCE    0       Microwave
+Dunkin&#39; Donuts Coffee Pod 11&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 12&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Steak Knife 7&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 13&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Butter Knife 3&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 14&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 15&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Side Table 0&#39;s connections:
+        ACQUAINTANCE    0       Couch
+Dunkin&#39; Donuts Coffee Pod 16&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 17&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Butter Knife 4&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 18&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Butter Knife 5&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Butter Knife 6&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 19&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Butter Knife 7&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Butter Knife 8&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Side Table 1&#39;s connections:
+        ACQUAINTANCE    0       Couch
+Dunkin&#39; Donuts Coffee Pod 20&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Butter Knife 9&#39;s connections:
+        ACQUAINTANCE    0       Knife Block
+Dunkin&#39; Donuts Coffee Pod 21&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 22&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 23&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 24&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 25&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 26&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 27&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 28&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 29&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 30&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 31&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 32&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 33&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 34&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 35&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 36&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 37&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+Dunkin&#39; Donuts Coffee Pod 38&#39;s connections:
+        ACQUAINTANCE    0       Keurig
+
+
+COMMUNITIES:
+
+Electronics&#39;s members:
+        Computer
+        Phone
+        Cable Box
+        TV
+        Xbox Controller 0
+        Xbox Controller 1
+
+Toys&#39;s members:
+        Dash
+        Toy Elephant
+        Toy Bear
+        Toy Train
+        Toy Blanket
+        Dog Alligator Toy
+        Dog Plush Monkey
+        Dog Plush Carrot
+        Dog Plush Dinosaur
+        Duraforce
+        Kong
+        Dog Rope
+
+Knife Block&#39;s members:
+        Knife Block
+        Chef&#39;s Knife
+        Serrated Knife
+        Slicing Knife
+        Tomato Knife
+        Steak Knife 0
+        Steak Knife 1
+        Steak Knife 2
+        Steak Knife 3
+        Paring Knife
+        Utility Knife
+        Steak Knife 4
+        Steak Knife 5
+        Steak Knife 6
+        Steak Knife 7
+
+Soft Things&#39;s members:
+        Couch
+        Throw Pillow 1
+        Oven Mitt 0
+        Throw Pillow 2
+        Oven Mitt 1
+        Dish Drying Towel 0
+        Throw Pillow 3
+        Blanket 1
+        Potholder 0
+        Rug
+        Dish Drying Towel 1
+        Throw Pillow 4
+        Blanket 0
+        Placemat 0
+        Seasonal Placemat 1
+        Seasonal Placemat 0
+        Seasonal Placemat 2
+        Dog Blanket
+        Dog Plush Carrot
+        Dog Plush Dinosaur
+        Dog Plush Monkey
+        Toy Elephant
+        Toy Bear
+        Toy Blanket
+        Seasonal Placemat 3
+        Placemat 1
+        Placemat 2
+        Placemat 3
+
+Coffee&#39;s members:
+        Keurig
+        Coffee Pod Basket
+        Dunkin&#39; Donuts Coffee Pod 0
+        Dunkin&#39; Donuts Coffee Pod 1
+        Dunkin&#39; Donuts Coffee Pod 2
+        Dunkin&#39; Donuts Coffee Pod 3
+        Dunkin&#39; Donuts Coffee Pod 4
+        Dunkin&#39; Donuts Coffee Pod 5
+        Dunkin&#39; Donuts Coffee Pod 6
+        Dunkin&#39; Donuts Coffee Pod 7
+        Dunkin&#39; Donuts Coffee Pod 8
+        Dunkin&#39; Donuts Coffee Pod 9
+        Dunkin&#39; Donuts Coffee Pod 10
+        Dunkin&#39; Donuts Coffee Pod 11
+        Dunkin&#39; Donuts Coffee Pod 12
+        Dunkin&#39; Donuts Coffee Pod 13
+        Dunkin&#39; Donuts Coffee Pod 14
+        Dunkin&#39; Donuts Coffee Pod 18
+        Dunkin&#39; Donuts Coffee Pod 19
+        Dunkin&#39; Donuts Coffee Pod 20
+        Dunkin&#39; Donuts Coffee Pod 21
+        Dunkin&#39; Donuts Coffee Pod 22
+        Dunkin&#39; Donuts Coffee Pod 23
+        Dunkin&#39; Donuts Coffee Pod 24
+        Dunkin&#39; Donuts Coffee Pod 25
+        Dunkin&#39; Donuts Coffee Pod 26
+        Dunkin&#39; Donuts Coffee Pod 27
+        Dunkin&#39; Donuts Coffee Pod 28
+        Dunkin&#39; Donuts Coffee Pod 29
+        Dunkin&#39; Donuts Coffee Pod 30
+        Dunkin&#39; Donuts Coffee Pod 31
+        Dunkin&#39; Donuts Coffee Pod 32
+        Dunkin&#39; Donuts Coffee Pod 33
+        Dunkin&#39; Donuts Coffee Pod 34
+        Dunkin&#39; Donuts Coffee Pod 35
+        Dunkin&#39; Donuts Coffee Pod 36
+        Dunkin&#39; Donuts Coffee Pod 37
+        Dunkin&#39; Donuts Coffee Pod 38
+
+Silverware&#39;s members:
+        Large Fork 0
+        Large Fork 1
+        Large Fork 2
+        Large Fork 3
+        Large Fork 4
+        Small Fork 0
+        Large Fork 5
+        Small Fork 1
+        Large Fork 6
+        Small Fork 2
+        Large Fork 7
+        Large Fork 8
+        Large Fork 9
+        Small Fork 3
+        Small Fork 4
+        Small Fork 5
+        Small Fork 6
+        Small Fork 7
+        Small Fork 8
+        Small Fork 9
+        Chef&#39;s Knife
+        Serrated Knife
+        Slicing Knife
+        Tomato Knife
+        Steak Knife 0
+        Steak Knife 1
+        Butter Knife 0
+        Steak Knife 2
+        Steak Knife 3
+        Butter Knife 1
+        Steak Knife 4
+        Steak Knife 5
+        Butter Knife 2
+        Steak Knife 6
+        Steak Knife 7
+        Butter Knife 3
+        Butter Knife 4
+        Butter Knife 5
+        Butter Knife 6
+        Butter Knife 7
+        Butter Knife 8
+        Butter Knife 9
+        Serving Spoon 0
+        Serving Spoon 1
+        Large Spoon 0
+        Large Spoon 1
+        Large Spoon 2
+        Large Spoon 3
+        Small Spoon 1
+        Large Spoon 4
+        Large Spoon 5
+        Large Spoon 6
+        Large Spoon 7
+        Large Spoon 8
+        Large Spoon 9
+        Small Spoon 0
+        Small Spoon 2
+        Small Spoon 3
+        Small Spoon 4
+        Small Spoon 5
+        Small Spoon 6
+        Small Spoon 7
+        Small Spoon 8
+        Small Spoon 9
+
+&lt;/marquee&gt;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.

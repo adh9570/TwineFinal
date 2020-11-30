@@ -104,8 +104,8 @@ def main():
 
     establishCommunication(dog, dogPlushDinosaur)
 
-    toyElephant = wake("Elephant")
-    toyBear = wake("Bear")
+    toyElephant = wake("Toy Elephant")
+    toyBear = wake("Toy Bear")
 
     establishCommunication(toyElephant, dogPlushDinosaur)
 
@@ -337,6 +337,15 @@ def main():
     establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyMW3XboxGame)
     establishCommunication(toyBlanket, dogBlanket)
     establishCommunication(dogAlligatorToy, dogPlushMonkey)
+
+    toyComm = []
+    for connection in dogPlushDinosaur.connections.keys():
+        toyComm.append(connection)
+    for connection in toyElephant.connections.keys():
+        if connection not in toyComm:
+            toyComm.append(connection)
+    
+    formCommunity("Toys", toyComm)
     
     xboxController2 = wake("Xbox Controller 2")
 
@@ -380,6 +389,9 @@ def main():
     establishCommunication(toyBlanket, dogPlushMonkey)
     establishCommunication(minecraftXboxGame, maddenXboxGame)
     establishCommunication(dogPlushMonkey, dogDuraforce)
+
+    dogDuraforce.joinCommunity("Toys")
+
     establishCommunication(xbox, halo5XboxGame)
     establishCommunication(justDance2014XboxGame, callOfDutyMW3XboxGame)
     
@@ -388,6 +400,8 @@ def main():
     establishCommunication(guitarHero5XboxGame, maddenXboxGame)
     establishCommunication(stemlessWineGlass1, stemlessWineGlass2)
     establishCommunication(callOfDutyMW3XboxGame, maddenXboxGame)
+    establishCommunication(tv, tvRemote)
+    establishCommunication(xboxController0, tvRemote)
     
     negativeInteraction(xbox, tv)
     
@@ -407,6 +421,7 @@ def main():
     establishCommunication(guitarHero5XboxGame, halo5XboxGame)
     establishCommunication(stemlessWineGlass1, stemlessWineGlass3)
     establishCommunication(fallout4XboxGame, maddenXboxGame)
+    establishCommunication(xboxController1, tvRemote)
     
     seaofThievesXboxGame = wake("Sea of Thieves Xbox Game")
 
@@ -431,10 +446,11 @@ def main():
     establishCommunication(guitarHeroSmashHitsXboxGame, halo5XboxGame)
     
     legoStarWarsIIXboxGame = wake("Lego Star Wars II Xbox Game")
-
+    
     establishCommunication(maddenXboxGame, halo5XboxGame)
     establishCommunication(callOfDutyMW3XboxGame, callOfDutyModernWarfare2XboxGame)
     establishCommunication(fallout4XboxGame, halo5XboxGame)
+    establishCommunication(halo5XboxGame, callOfDutyModernWarfare2XboxGame)
     
     dogKong = wake("Kong")
 
@@ -444,10 +460,11 @@ def main():
     establishCommunication(xbox, legoStarWarsIIXboxGame)
     
     loveseat = wake("Loveseat")
-
+    
     establishCommunication(guitarHeroWorldTourXboxGame, maddenXboxGame)
     establishCommunication(wineGlass2, stemlessWineGlass2)
     establishCommunication(maddenXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(halo5XboxGame, seaofThievesXboxGame)
     
     iceCreamScoop = wake("Ice Cream Scoop")
     
@@ -469,6 +486,7 @@ def main():
     dogRope = wake("Dog Rope")
 
     establishCommunication(toyElephant, dogDuraforce)
+    establishCommunication(callOfDutyModernWarfare2XboxGame, seaofThievesXboxGame)
     establishCommunication(justDance2014XboxGame, maddenXboxGame)
     establishCommunication(fallout4XboxGame, callOfDutyModernWarfare2XboxGame)
     
@@ -476,11 +494,14 @@ def main():
     
     establishCommunication(guitarHero5XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogAlligatorToy, dogKong)
+
+    dogKong.joinCommunity("Toys")
+
     establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(xboxController2, xboxController3)
     
     couch = wake("Couch")
-
+    
     establishCommunication(toyBear, dogDuraforce)
     establishCommunication(wineGlass3, stemlessWineGlass3)
     establishCommunication(toyTrain, dogKong)
@@ -495,12 +516,16 @@ def main():
     establishCommunication(toyBlanket, dogKong)
     establishCommunication(minecraftXboxGame, callOfDutyModernWarfare2XboxGame)
     establishCommunication(guitarHeroSmashHitsXboxGame, legoStarWarsIIXboxGame)
-    
+
     negativeInteraction(xbox, tv)
     
     establishCommunication(house, couch)
     establishCommunication(xboxController0, xboxController3)
     establishCommunication(dogPlushCarrot, dogRope)
+
+    dogRope.joinCommunity("Toys")
+
+    establishCommunication(seaofThievesXboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogAlligatorToy, dogDuraforce)
     
     throwPillow0 = wake("Throw Pillow 0")
@@ -514,8 +539,9 @@ def main():
     bowls.append(largeMixingBowl)
 
     establishCommunication(dogPlushMonkey, dogKong)
-    establishCommunication(maddenXboxGame, seaofThievesXboxGame)
+    establishCommunication(callOfDutyAdvancedWarfareXboxGame, legoStarWarsIIXboxGame)
     establishCommunication(xboxController0, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(halo5XboxGame, callOfDutyAdvancedWarfareXboxGame)
     
     mediumPot0 = wake("Medium Pot 0")
     
@@ -526,40 +552,56 @@ def main():
 
     smallMixingBowl = wake("Small Mixing Bowl")
     bowls.append(smallMixingBowl)
-
+    
+    establishCommunication(maddenXboxGame, seaofThievesXboxGame)
     establishCommunication(dogPlushMonkey, dogRope)
     establishCommunication(dogBlanket, dogKong)
+    establishCommunication(callOfDutyModernWarfare2XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogDuraforce, dogKong)
     
     negativeInteraction(xbox, tv)
     
     establishCommunication(justDance2014XboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(seaofThievesXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(xboxController2, tvRemote)
+    establishCommunication(mediumPot0, smallMixingBowl)
     establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyModernWarfare2XboxGame)
     
     whisk = wake("Whisk")
-
+    
     establishCommunication(GTAVXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(halo5XboxGame, legoStarWarsIIXboxGame)
     establishCommunication(callOfDutyMW3XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(iceCreamScoop, mediumMixingBowl)
     
     microwave = wake("Microwave")
-
+    
     establishCommunication(dogPlushDinosaur, dogKong)
     establishCommunication(toyElephant, dogRope)
     establishCommunication(guitarHeroWorldTourXboxGame, seaofThievesXboxGame)
     
     throwPillow1 = wake("Throw Pillow 1")
-
+    
     establishCommunication(keurig, microwave)
+    establishCommunication(callOfDutyModernWarfare2XboxGame, battlefield4XboxGame)
+    establishCommunication(mediumMixingBowl, largeMixingBowl)
     establishCommunication(maddenXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(loveseat, couch)
     
     ladle = wake("Ladle")
 
     removeFromCommunity(xbox, "Electronics")
 
+    establishCommunication(xboxController3, tvRemote)
+    establishCommunication(callOfDutyAdvancedWarfareXboxGame, battlefield4XboxGame)
+    establishCommunication(seaofThievesXboxGame, battlefield4XboxGame)
+
     fridge = wake("Fridge")
 
+    establishCommunication(microwave, fridge)
     establishCommunication(xboxController0, battlefield4XboxGame)
     establishCommunication(dogPlushCarrot, dogKong)
+    establishCommunication(couch, throwPillow0)
     establishCommunication(dogBlanket, dogRope)
     
     bottleOpener = wake("Bottle Opener")
@@ -567,6 +609,7 @@ def main():
     establishCommunication(callOfDutyMW3XboxGame, legoStarWarsIIXboxGame)
     establishCommunication(toyElephant, dogKong)
     establishCommunication(justDance2014XboxGame, seaofThievesXboxGame)
+    establishCommunication(largeMixingBowl, mediumPot0)
     establishCommunication(toyBlanket, dogRope)
     
     crockpot = wake("Crockpot")
@@ -574,7 +617,10 @@ def main():
     positiveInteraction(dog, fish)
 
     establishCommunication(dogAlligatorToy, dogRope)
+    establishCommunication(iceCreamScoop, largeMixingBowl)
+    establishCommunication(microwave, bottleOpener)
     establishCommunication(keurig, fridge)
+    establishCommunication(mediumMixingBowl, mediumPot0)
     establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyAdvancedWarfareXboxGame)
 
     spatula0 = wake("Spatula")
@@ -582,11 +628,19 @@ def main():
     positiveInteraction(phone, computer)
 
     establishCommunication(toyTrain, dogRope)
+    establishCommunication(whisk, ladle)
+    establishCommunication(microwave, crockpot)
     establishCommunication(callOfDutyMW3XboxGame, battlefield4XboxGame)
     establishCommunication(maddenXboxGame, legoStarWarsIIXboxGame)
 
     oven = wake("Oven")
     mediumPot1 = wake("Medium Pot 1")
+    
+    establishCommunication(microwave, oven)
+    establishCommunication(pastaMaker, microwave)
+    establishCommunication(mediumPot0, mediumPot1)
+    establishCommunication(mediumMixingBowl, smallMixingBowl)
+    
     christmasOvenMitt = wake("Christmas Oven Mitt")
 
     establishCommunication(toyBear, dogRope)
@@ -598,59 +652,139 @@ def main():
 
     establishCommunication(guitarHeroWorldTourXboxGame, legoStarWarsIIXboxGame)
     establishCommunication(justDance2014XboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(largeMixingBowl, smallMixingBowl)
+    establishCommunication(whisk, bottleOpener)
+    establishCommunication(microwave, mediumPot1)
     establishCommunication(fallout4XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogKong, dogRope)
+    establishCommunication(smallMixingBowl, mediumPot1)
 
     throwPillow2 = wake("Throw Pillow 2")
+
+    establishCommunication(iceCreamScoop, smallMixingBowl)
+    establishCommunication(microwave, mediumPot0)
+    establishCommunication(throwPillow0, throwPillow1)
+    establishCommunication(mediumMixingBowl, whisk)
+    establishCommunication(microwave, christmasOvenMitt)
+    
     smallPot0 = wake("Small Pot 0")
 
     establishCommunication(keurig, oven)
+    establishCommunication(legoStarWarsIIXboxGame, battlefield4XboxGame)
+    establishCommunication(microwave, servingSpoon0)
     establishCommunication(house, fridge)
     
     toaster = wake("Toaster")
 
     establishCommunication(dogDuraforce, dogRope)
     establishCommunication(minecraftXboxGame, callOfDutyAdvancedWarfareXboxGame)
-
+    establishCommunication(mediumMixingBowl, ladle)
+    establishCommunication(pastaMaker, fridge)
+    
     ovenMitt0 = wake("Oven Mitt 0")
+
+    establishCommunication(oven, toaster)
+    establishCommunication(microwave, toaster)
+
     spatula1 = wake("Spatula 1")
     
     establishCommunication(GTAVXboxGame, seaofThievesXboxGame)
+    establishCommunication(microwave, smallPot0)
+    establishCommunication(oven, ovenMitt0)
+    establishCommunication(iceCreamScoop, whisk)
+    establishCommunication(microwave, spatula1)
     
     negativeInteraction(xbox, tv)
     
     mediumPot2 = wake("Medium Pot 2")
+
+    establishCommunication(mediumPot0, mediumPot2)
+    establishCommunication(whisk, spatula0)
+    establishCommunication(microwave, ovenMitt0)
+
     ovenMitt1 = wake("Oven Mitt 1")
-    potholder1 = wake("Potholder 1")
+
+    establishCommunication(throwPillow1, throwPillow2)
+    establishCommunication(mediumMixingBowl, spatula0)
+    establishCommunication(oven, ovenMitt1)
+    establishCommunication(largeMixingBowl, mediumPot1)
+    
+    potholder0 = wake("Potholder 0")
+
+    establishCommunication(microwave, ovenMitt1)
+
     strainer = wake("Strainer")
     
     establishCommunication(justDance2014XboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(microwave, strainer)
+    establishCommunication(throwPillow1, ovenMitt0)
     
     dishDryingTowel0 = wake("Dish Drying Towel 0")
     
+    establishCommunication(microwave, potholder0)
     establishCommunication(house, oven)
+    establishCommunication(smallMixingBowl, mediumPot2)
+    establishCommunication(throwPillow0, ovenMitt0)
+    establishCommunication(pastaMaker, crockpot)
     
     dishSoap = wake("Dish Soap")
     largePot0 = wake("Large Pot 0")
     
     establishCommunication(GTAVXboxGame, callOfDutyAdvancedWarfareXboxGame)
+    establishCommunication(microwave, dishDryingTowel0)
+    establishCommunication(microwave, dishSoap)
+    establishCommunication(iceCreamScoop, ladle)
     
     throwPillow3 = wake("Throw Pillow 3")
+
+    establishCommunication(throwPillow1, ovenMitt1)
+    
     dryingRack = wake("Drying Rack")
+
+    establishCommunication(throwPillow0, throwPillow2)
+    establishCommunication(microwave, largePot0)
+    establishCommunication(mediumMixingBowl, mediumPot1)
+    establishCommunication(mediumPot0, largePot0)
+    establishCommunication(smallMixingBowl, potholder0)
+    
     sponge = wake("Sponge")
     kitchenHandSoap = wake("Hand Soap")
     sink = wake("Sink")
-    potholder0 = wake("Potholder 0")
+
+    establishCommunication(sponge, kitchenHandSoap)
+    establishCommunication(iceCreamScoop, bottleOpener)
+    establishCommunication(throwPillow0, ovenMitt1)
+    establishCommunication(microwave, sink)
+    
+    potholder1 = wake("Potholder 1")
+    
+    establishCommunication(smallMixingBowl, largePot0)
+    establishCommunication(sponge, sink)
+    establishCommunication(throwPillow1, potholder0)
+    establishCommunication(oven, sink)
     
     positiveInteraction(wineGlass1, wineGlass0)
+
+    establishCommunication(microwave, dryingRack)
+    establishCommunication(whisk, christmasOvenMitt)
     
     smallPot1 = wake("Small Pot 1")
+    
+    establishCommunication(mediumMixingBowl, servingSpoon0)
+    establishCommunication(microwave, sponge)
+    establishCommunication(mediumPot0, potholder0)
+    establishCommunication(largeMixingBowl, smallPot0)
+    
     knives = []
     chefsKnife = wake("Chef's Knife")
+    knives.append(chefsKnife)
 
     establishCommunication(keurig, toaster)
+    establishCommunication(mediumPot0, potholder1)
+    establishCommunication(microwave, smallPot1)
+    establishCommunication(mediumPot0, smallPot1)
+    establishCommunication(microwave, kitchenHandSoap)
     
-    knives.append(chefsKnife)
     unicornWineStopper = wake("Unicorn Wine Stopper")
     pastaDryingRack = wake("Pasta Drying Rack")
 
@@ -658,97 +792,203 @@ def main():
     negativeInteraction(fish, dog)
     
     establishCommunication(fallout4XboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(largeMixingBowl, mediumPot2)
+    establishCommunication(iceCreamScoop, spatula0)
+    establishCommunication(microwave, potholder1)
+    establishCommunication(whisk, servingSpoon0)
 
     servingSpoon1 = wake("Serving Spoon 1")
     spoons.append(servingSpoon1)
-    rug = wake("Rug")
+
+    establishCommunication(whisk, spatula1)
+    establishCommunication(microwave, chefsKnife)
+    establishCommunication(throwPillow1, dishDryingTowel0)
     
+    rug = wake("Rug")
+
+    establishCommunication(couch, rug)
+    establishCommunication(mediumMixingBowl, smallPot0)
     establishCommunication(justDance2014XboxGame, battlefield4XboxGame)
     
     largePot1 = wake("Large Pot 1")
     dishDryingTowel1 = wake("Dish Drying Towel 1")
     
     establishCommunication(house, rug)
+    establishCommunication(microwave, pastaDryingRack)
+    establishCommunication(throwPillow1, throwPillow3)
+    establishCommunication(mediumMixingBowl, spatula1)
+    establishCommunication(microwave, unicornWineStopper)
+    establishCommunication(largeMixingBowl, largePot0)
 
     oneCupMeasuringCup = wake("One Cup Measuring Cup")
 
     establishCommunication(minecraftXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(pastaMaker, oven)
+    establishCommunication(microwave, largePot1)
+    establishCommunication(mediumPot0, largePot1)
     
     straightMetalStraw = wake("Straight Metal Straw")
+    
+    establishCommunication(throwPillow1, potholder1)
+    
     babyBlueWineStopper = wake("Baby Blue Wine Stopper")
+
+    establishCommunication(throwPillow0, dishDryingTowel0)
+    establishCommunication(throwPillow1, rug)
+    establishCommunication(microwave, servingSpoon1)
+    
     kitchenHandTowel0 = wake("Kitchen Hand Towel 0")
     cherryWineStopper = wake("Cherry Wine Stopper")
+
+    establishCommunication(iceCreamScoop, servingSpoon0)
+    establishCommunication(microwave, dishDryingTowel1)
+    establishCommunication(microwave, straightMetalStraw)
+    establishCommunication(mediumMixingBowl, mediumPot2)
+    
     serratedKnife = wake("Serrated Knife")
     knives.append(serratedKnife)
+
+    establishCommunication(microwave, oneCupMeasuringCup)
+    establishCommunication(unicornWineStopper, babyBlueWineStopper)
+
     navyWineStopper = wake("Navy Wine Stopper")
 
     negativeInteraction(xbox, tv)
+
+    establishCommunication(smallMixingBowl, largePot1)
+    establishCommunication(microwave, kitchenHandTowel0)
+
     negativeInteraction(computer, phone)
 
     blanket0 = wake("Blanket 0")
+    
+    establishCommunication(throwPillow0, throwPillow3)
+    establishCommunication(microwave, cherryWineStopper)
+    
     tablespoon = wake("Tablespoon")
+
+    establishCommunication(mediumMixingBowl, largePot0)
+    establishCommunication(unicornWineStopper, cherryWineStopper)
+    
     blanket1 = wake("Blanket 1")
     coffeeTable = wake("Coffee Table")
     
+    establishCommunication(largeMixingBowl, largePot1)
+    establishCommunication(couch, coffeeTable)
+    establishCommunication(microwave, serratedKnife)
     establishCommunication(plant, house)
 
     kitchenTable = wake("Kitchen Table")
+
+    establishCommunication(microwave, navyWineStopper)
+    establishCommunication(blanket0, blanket1)
+    
     dishwasher = wake("Dishwasher")
+
+    establishCommunication(mediumMixingBowl, smallPot1)
+    establishCommunication(unicornWineStopper, navyWineStopper)
+    establishCommunication(throwPillow0, blanket1)
+    establishCommunication(microwave, tablespoon)
+    
     halfCupMeasuringCup = wake("Half Cup Measuring Cup")
     
     establishCommunication(house, kitchenTable)
+    establishCommunication(whisk, servingSpoon1)
     
     chair0 = wake("Chair 0")
     toyBasket = wake("Toy Basket")
     
     establishCommunication(GTAVXboxGame, legoStarWarsIIXboxGame)
+    establishCommunication(mediumMixingBowl, servingSpoon1)
+    establishCommunication(microwave, kitchenTable)
     
     chair1 = wake("Chair 1")
     
     establishCommunication(house, dishwasher)
+    establishCommunication(microwave, dishwasher)
+    establishCommunication(microwave, halfCupMeasuringCup)
     establishCommunication(house, chair0)
     
     cloroxWipes = wake("Clorox Wipes")
     teaspoon = wake("Teaspoon")
 
+    establishCommunication(chair0, chair1)
+
     positiveInteraction(dog, fish)
 
+    establishCommunication(microwave, chair0)
+    establishCommunication(mediumMixingBowl, largePot1)
     establishCommunication(house, chair1)
+    establishCommunication(dogPlushMonkey, toyBasket)
+    establishCommunication(sink, cloroxWipes)
+    establishCommunication(pastaMaker, toaster)
     
     windex = wake("Windex")
     
     establishCommunication(minecraftXboxGame, battlefield4XboxGame)
+    establishCommunication(throwPillow0, potholder0)
     establishCommunication(keurig, dishwasher)
     
     standingLamp = wake("Standing Lamp")
     
     negativeInteraction(xbox, tv)
 
+    establishCommunication(microwave, chair1)
     establishCommunication(house, standingLamp)
+    establishCommunication(sink, windex)
 
     entertainmentCenter = wake("Entertainment Center")
+
+    establishCommunication(whisk, serratedKnife)
+    establishCommunication(microwave, teaspoon)
+
     slicingKnife = wake("Slicing Knife")
     knives.append(slicingKnife)
 
     establishCommunication(house, entertainmentCenter)
+    establishCommunication(iceCreamScoop, spatula1)
     
-    kitchenHandTowel1 = wake("Kitchen Hand Towel")
+    kitchenHandTowel1 = wake("Kitchen Hand Towel 1")
     knifeBlock = wake("Knife Block")
+    
+    knifeComm = [knifeBlock]
+    for knife in knives:
+        establishCommunication(knifeBlock, knife)
+        knifeComm.append(knife)
+
+    formCommunity("Knife Block", knifeComm)
 
     negativeInteraction(phone, computer)
 
     quarterCupMeasuringCup = wake("Quarter Cup Measuring Cup")
+    
+    establishCommunication(microwave, slicingKnife)
+    
     rubberJarOpener = wake("Rubber Jar Opener")
     seasonalPlacemat0 = wake("Seasonal Placemat 0")
+
+    establishCommunication(throwPillow0, rug)
+    establishCommunication(microwave, kitchenHandTowel1)
+    
     lamp0 = wake("Lamp 0")
+    
+    establishCommunication(microwave, knifeBlock)
+    establishCommunication(iceCreamScoop, servingSpoon1)
+    
     throwPillow4 = wake("Throw Pillow 4")
     tinfoil = wake("Tinfoil")
 
     establishCommunication(bentMetalStraw, straightMetalStraw)
+    establishCommunication(couch, lamp0)
     
     foodScale = wake("Food Scale")
     thirdCupMeasuringCup = wake("Third Cup Measuring Cup")
     seasonalPlacemat1 = wake("Seasonal Placemat 1")
+    
+    establishCommunication(throwPillow0, dishDryingTowel1)
+    establishCommunication(microwave, quarterCupMeasuringCup)
+    establishCommunication(throwPillow0, throwPillow4)
+    
     lamp1 = wake("Lamp 1")
     chair2 = wake("Chair 2")
 
@@ -758,39 +998,97 @@ def main():
     
     positiveInteraction(wineGlass1, wineGlass0)
     
+    establishCommunication(chair0, chair2)
+    establishCommunication(couch, lamp1)
+    establishCommunication(throwPillow1, throwPillow4)
+    establishCommunication(microwave, rubberJarOpener)
+
     saranWrap = wake("Saran Wrap")
     tomatoKnife = wake("Tomato Knife")
     knives.append(tomatoKnife)
     
     establishCommunication(house, chair2)
+    establishCommunication(couch, kitchenTable)
+    establishCommunication(knifeBlock, tomatoKnife)
+
+    tomatoKnife.joinCommunity("Knife Block")
+
     establishCommunication(GTAVXboxGame, battlefield4XboxGame)
+    establishCommunication(microwave, seasonalPlacemat0)
     
     placemat0 = wake("Placemat 0")
+
+    softies = []
+    for connection in throwPillow0.connections.keys():
+        softies.append(connection)
+    formCommunity("Soft Things", softies)
+
     halfTeaspoon = wake("Half Teaspoon")
+
+    establishCommunication(couch, entertainmentCenter)
+    establishCommunication(loveseat, standingLamp)
+    
     bakingSheet0 = wake("Baking Sheet 0")
+
+    establishCommunication(microwave, tinfoil)
+    
     sandwichZiplockBags = wake("Sandwich Ziplock Bags")
+    
+    establishCommunication(microwave, foodScale)
+    establishCommunication(couch, standingLamp)
+    establishCommunication(microwave, thirdCupMeasuringCup)
+    establishCommunication(throwPillow0, blanket0)
+
+    blanket0.joinCommunity("Soft Things")
+    
     kitchenTrashcan = wake("Kitchen Trashcan")
+
+    establishCommunication(microwave, seasonalPlacemat1)
+    establishCommunication(blanket0, placemat0)
+
+    placemat0.joinCommunity("Soft Things")
+    
     seasonalPlacemat2 = wake("Seasonal Placemat 2")
 
     establishCommunication(house, kitchenTrashcan)
+    establishCommunication(microwave, chair2)
+    establishCommunication(seasonalPlacemat1, placemat0)
+
+    seasonalPlacemat1.joinCommunity("Soft Things")
     
     coffeePodBasket = wake("Coffee Pod Basket")
     forks = []
     largeFork0 = wake("Large Fork 0")
     forks.append(largeFork0)
+
+    establishCommunication(microwave, gallonZiplockBags)
+    establishCommunication(microwave, saranWrap)
+    establishCommunication(seasonalPlacemat0, placemat0)
+    establishCommunication(seasonalPlacemat2, placemat0)
+
+    seasonalPlacemat0.joinCommunity("Soft Things")
+    seasonalPlacemat2.joinCommunity("Soft Things")
+    
     steakKnife0 = wake("Steak Knife 0")
     knives.append(steakKnife0)
 
     establishCommunication(keurig, coffeePodBasket)
+    establishCommunication(microwave, tomatoKnife)
 
     coffeeCommunity = [keurig, coffeePodBasket]
     formCommunity("Coffee", coffeeCommunity)
     
+    establishCommunication(knifeBlock, steakKnife0)
+
+    steakKnife0.joinCommunity("Knife Block")
+
     dunkinDonutsCoffeePod0 = wake("Dunkin' Donuts Coffee Pod 0")
     smallCup0 = wake("Small Cup 0")
     cups.append(smallCup0)
 
     establishCommunication(keurig, dunkinDonutsCoffeePod0)
+    establishCommunication(throwPillow3, throwPillow4)
+
     dunkinDonutsCoffeePod0.joinCommunity("Coffee")
 
     positiveInteraction(dog, fish)
@@ -798,45 +1096,101 @@ def main():
     dunkinDonutsCoffeePod1 = wake("Dunkin' Donuts Coffee Pod 1")
     steakKnife1 = wake("Steak Knife 1")
     knives.append(steakKnife1)
+    
+    establishCommunication(microwave, placemat0)
+    establishCommunication(loveseat, entertainmentCenter)
+    establishCommunication(knifeBlock, steakKnife1)
+
+    steakKnife1.joinCommunity("Knife Block")
+
+    establishCommunication(throwPillow0, kitchenHandTowel0)
+    
     plates = []
     smallPlate0 = wake("Small Plate 0")
     plates.append(smallPlate0)
 
     establishCommunication(keurig, dunkinDonutsCoffeePod1)
+    establishCommunication(microwave, halfTeaspoon)
 
     dunkinDonutsCoffeePod1.joinCommunity("Coffee")
     
-    sideTable1 = wake("Side Table 1")
     largeFork1 = wake("Large Fork 1")
     forks.append(largeFork1)
-    knife0 = wake("Knife 0")
-    knives.append(knife0)
+    butterKnife0 = wake("Butter Knife 0")
+    knives.append(butterKnife0)
+    
+    establishCommunication(knifeBlock, butterKnife0)
+    establishCommunication(microwave, bakingSheet0)
+    establishCommunication(blanket0, dogBlanket)
+    
     dunkinDonutsCoffeePod2 = wake("Dunkin' Donuts Coffee Pod 2")
+
+    positiveInteraction(dogBlanket, blanket0)
+
     steakKnife2 = wake("Steak Knife 2")
     knives.append(steakKnife2)
+    
+    establishCommunication(microwave, sandwichZiplockBags)
+    establishCommunication(blanket0, dogPlushCarrot)
+    establishCommunication(knifeBlock, steakKnife2)
+
+    steakKnife2.joinCommunity("Knife Block")
+
+    positiveInteraction(blanket0, dogPlushCarrot)
+
+    establishCommunication(blanket0, dogPlushDinosaur)
+    establishCommunication(blanket0, dogPlushMonkey)
+
+    positiveInteraction(dogPlushMonkey, blanket0)
+    
+    establishCommunication(blanket0, dogAlligatorToy)
+
+    positiveInteraction(blanket0, dogPlushDinosaur)
+    positiveInteraction(blanket0, dogAlligatorToy)
+
+    dogBlanket.joinCommunity("Soft Things")
+    dogPlushCarrot.joinCommunity("Soft Things")
+    dogPlushDinosaur.joinCommunity("Soft Things")
+    dogPlushMonkey.joinCommunity("Soft Things")
+    
     dunkinDonutsCoffeePod3 = wake("Dunkin' Donuts Coffee Pod 3")
 
     establishCommunication(keurig, dunkinDonutsCoffeePod2)
+    
+    toyElephant.joinCommunity("Soft Things")
 
     dunkinDonutsCoffeePod2.joinCommunity("Coffee")
 
     largeFork2 = wake("Large Fork 2")
+    forks.append(largeFork2)
 
+    toyBear.joinCommunity("Soft Things")
+    
     negativeInteraction(phone, computer)
 
-    forks.append(largeFork2)
     tallCup1 = wake("Tall Cup 1")
     cups.append(tallCup1)
     
     establishCommunication(keurig, dunkinDonutsCoffeePod3)
     
+    toyBlanket.joinCommunity("Soft Things")
+    
     dunkinDonutsCoffeePod3.joinCommunity("Coffee")
     
     smallPlate1 = wake("Small Plate 1")
     plates.append(smallPlate1)
+    
+    establishCommunication(throwPillow0, kitchenHandTowel1)
+    
     seasonalPlacemat3 = wake("Seasonal Placemat 3")
     largeFork3 = wake("Large Fork 3")
     forks.append(largeFork3)
+    
+    establishCommunication(microwave, kitchenTrashcan)
+    establishCommunication(placemat0, seasonalPlacemat3)
+
+    seasonalPlacemat3.joinCommunity("Soft Things")
+    
     smallCup1 = wake("Small Cup 1")
     cups.append(smallCup1)
     dunkinDonutsCoffeePod4 = wake("Dunkin' Donuts Coffee Pod 4")
@@ -844,12 +1198,16 @@ def main():
 
     establishCommunication(tv, callOfDutyMW3XboxGame)
     establishCommunication(keurig, dunkinDonutsCoffeePod4)
+    establishCommunication(microwave, quarterTeaspoon)
     
     dunkinDonutsCoffeePod4.joinCommunity("Coffee")
     
     dunkinDonutsCoffeePod5 = wake("Dunkin' Donuts Coffee Pod 5")
     largeFork4 = wake("Large Fork 4")
     forks.append(largeFork4)
+    
+    establishCommunication(microwave, seasonalPlacemat2)
+    
     largeSpoon0 = wake("Large Spoon 0")
     spoons.append(largeSpoon0)
 
@@ -866,24 +1224,44 @@ def main():
     plates.append(largePlate1)
     steakKnife3 = wake("Steak Knife 3")
     knives.append(steakKnife3)
+
+    establishCommunication(microwave, seasonalPlacemat3)
+    establishCommunication(knifeBlock, steakKnife3)
+
+    steakKnife3.joinCommunity("Knife Block")
+    
     dunkinDonutsCoffeePod6 = wake("Dunkin' Donuts Coffee Pod 6")
     largeFork5 = wake("Large Fork 5")
     forks.append(largeFork5)
     placemat1 = wake("Placemat 1")
 
+    establishCommunication(microwave, placemat1)
     establishCommunication(keurig, dunkinDonutsCoffeePod6)
     
     dunkinDonutsCoffeePod6.joinCommunity("Coffee")
     
     bakingSheet1 = wake("Baking Sheet 1")
     paringKnife = wake("Paring Knife")
+
+    establishCommunication(knifeBlock, paringKnife)
+    establishCommunication(placemat0, placemat1)
+
+    placemat1.joinCommunity("Soft Things")
+
+    paringKnife.joinCommunity("Knife Block")
+
+    establishCommunication(microwave, bakingSheet1)
+
     smallFork1 = wake("Small Fork 1")
     
     establishCommunication(tv, fallout4XboxGame)
     
     forks.append(smallFork1)
-    knife1 = wake("Knife 1")
-    knives.append(knife1)
+    butterKnife1 = wake("Butter Knife 1")
+    knives.append(butterKnife1)
+
+    establishCommunication(knifeBlock, butterKnife1)
+
     chair3 = wake("Chair 3")
     largeFork6 = wake("Large Fork 6")
     forks.append(largeFork6)
@@ -895,6 +1273,11 @@ def main():
     utilityKnife = wake("Utility Knife")
     smallFork2 = wake("Small Fork 2")
     forks.append(smallFork2)
+
+    establishCommunication(knifeBlock, utilityKnife)
+
+    utilityKnife.joinCommunity("Knife Block")
+
     dunkinDonutsCoffeePod7 = wake("Dunkin' Donuts Coffee Pod 7")
     largeFork7 = wake("Large Fork 7")
     forks.append(largeFork7)
@@ -903,11 +1286,12 @@ def main():
     
     dunkinDonutsCoffeePod7.joinCommunity("Coffee")
     
-    placemat2 = wake("Placemat 2")
+    placemat2 = wake("Placemat 2")    
     tallCup0 = wake("Tall Cup 0")
     cups.append(tallCup0)
     
     establishCommunication(tv, maddenXboxGame)
+    establishCommunication(microwave, placemat2)
     
     largeSpoon1 = wake("Large Spoon 1")
     spoons.append(largeSpoon1)
@@ -918,7 +1302,14 @@ def main():
     largeFork8 = wake("Large Fork 8")
     forks.append(largeFork8)
     placemat3 = wake("Placemat 3")
-    
+
+    establishCommunication(microwave, placemat3)
+    establishCommunication(placemat0, placemat2)
+    establishCommunication(placemat1, placemat3)
+
+    placemat2.joinCommunity("Soft Things")
+    placemat3.joinCommunity("Soft Things")
+
     establishCommunication(keurig, dunkinDonutsCoffeePod8)
     
     dunkinDonutsCoffeePod8.joinCommunity("Coffee")
@@ -928,6 +1319,12 @@ def main():
     dunkinDonutsCoffeePod9 = wake("Dunkin' Donuts Coffee Pod 9")
     steakKnife4 = wake("Steak Knife 4")
     knives.append(steakKnife4)
+
+    establishCommunication(microwave, placemat3)
+    establishCommunication(knifeBlock, steakKnife4)
+
+    steakKnife4.joinCommunity("Knife Block")
+
     bowl0 = wake("Bowl 0")
     bowls.append(bowl0)
     
@@ -946,19 +1343,30 @@ def main():
     knives.append(steakKnife5)
 
     establishCommunication(keurig, dunkinDonutsCoffeePod10)
+    establishCommunication(knifeBlock, steakKnife5)
+
+    steakKnife5.joinCommunity("Knife Block")
     
     dunkinDonutsCoffeePod10.joinCommunity("Coffee")
     
-    knife2 = wake("Knife 2")
-    knives.append(knife2)
+    butterKnife2 = wake("Butter Knife 2")
+    knives.append(butterKnife2)
     
     negativeInteraction(wineGlass1, wineGlass0)
+
+    establishCommunication(knifeBlock, butterKnife2)
     
     canOpener = wake("Can Opener")
     steakKnife6 = wake("Steak Knife 6")
     knives.append(steakKnife6)
+
+    establishCommunication(knifeBlock, steakKnife6)
+
+    steakKnife6.joinCommunity("Knife Block")
+
     strawBrush = wake("Straw Brush")
     
+    establishCommunication(microwave, canOpener)
     establishCommunication(tv, callOfDutyModernWarfare2XboxGame)
     
     dunkinDonutsCoffeePod11 = wake("Dunkin' Donuts Coffee Pod 11")
@@ -976,6 +1384,7 @@ def main():
     bowls.append(bowl2)
     
     establishCommunication(keurig, dunkinDonutsCoffeePod12)
+    establishCommunication(microwave, strawBrush)
     
     dunkinDonutsCoffeePod12.joinCommunity("Coffee")
 
@@ -983,14 +1392,21 @@ def main():
     
     steakKnife7 = wake("Steak Knife 7")
     knives.append(steakKnife7)
+
+    establishCommunication(knifeBlock, steakKnife7)
+
+    steakKnife7.joinCommunity("Knife Block")
+
     smallFork3 = wake("Small Fork 3")
     forks.append(smallFork3)
     dunkinDonutsCoffeePod13 = wake("Dunkin' Donuts Coffee Pod 13")
-    knife3 = wake("Knife 3")
-    knives.append(knife3)
+    butterKnife3 = wake("Butter Knife 3")
+    knives.append(butterKnife3)
     
     positiveInteraction(wineGlass0, wineGlass1)
-    
+
+    establishCommunication(knifeBlock, butterKnife3)
+
     smallFork4 = wake("Small Fork 4")
     forks.append(smallFork4)
     
@@ -1027,6 +1443,9 @@ def main():
     negativeInteraction(plant, house)
     
     dunkinDonutsCoffeePod16 = wake("Dunkin' Donuts Coffee Pod 16")
+
+    establishCommunication(couch, sideTable0)
+
     smallFork9 = wake("Small Fork 9")
     forks.append(smallFork9)
     
@@ -1041,31 +1460,43 @@ def main():
     
     establishCommunication(keurig, dunkinDonutsCoffeePod17)
     
-    knife4 = wake("Knife 4")
-    knives.append(knife4)
+    butterKnife4 = wake("Butter Knife 4")
+    knives.append(butterKnife4)
+
+    establishCommunication(knifeBlock, butterKnife4)
+
     dunkinDonutsCoffeePod18 = wake("Dunkin' Donuts Coffee Pod 18")
-    knife5 = wake("Knife 5")
-    knives.append(knife5)
+    butterKnife5 = wake("Butter Knife 5")
+    knives.append(butterKnife5)
 
     establishCommunication(keurig, dunkinDonutsCoffeePod18)
-    
+    establishCommunication(knifeBlock, butterKnife5)
+
     dunkinDonutsCoffeePod18.joinCommunity("Coffee")
     
-    knife6 = wake("Knife 6")
-    knives.append(knife6)
+    butterKnife6 = wake("Butter Knife 6")
+    knives.append(butterKnife6)
+
+    establishCommunication(knifeBlock, butterKnife6)
+
     dunkinDonutsCoffeePod19 = wake("Dunkin' Donuts Coffee Pod 19")
     
     establishCommunication(keurig, dunkinDonutsCoffeePod19)
     
     dunkinDonutsCoffeePod19.joinCommunity("Coffee")
     
-    knife7 = wake("Knife 7")
-    knives.append(knife7)
-    knife8 = wake("Knife 8")
-    knives.append(knife8)
-   
+    butterKnife7 = wake("Butter Knife 7")
+    knives.append(butterKnife7)
+    butterKnife8 = wake("Butter Knife 8")
+    knives.append(butterKnife8)
+
     establishCommunication(tv, battlefield4XboxGame)
+
+    sideTable1 = wake("Side Table 1")
     
+    establishCommunication(knifeBlock, butterKnife7)
+    establishCommunication(knifeBlock, butterKnife8)
+
     dunkinDonutsCoffeePod20 = wake("Dunkin' Donuts Coffee Pod 20")
 
     positiveInteraction(fish, dog)
@@ -1074,12 +1505,16 @@ def main():
     
     dunkinDonutsCoffeePod20.joinCommunity("Coffee")
 
-    knife9 = wake("Knife 9")
-    knives.append(knife9)
+    butterKnife9 = wake("Butter Knife 9")
+    knives.append(butterKnife9)
+
+    establishCommunication(knifeBlock, butterKnife9)
+
     dunkinDonutsCoffeePod21 = wake("Dunkin' Donuts Coffee Pod 21")
     dunkinDonutsCoffeePod22 = wake("Dunkin' Donuts Coffee Pod 22")
     
     establishCommunication(keurig, dunkinDonutsCoffeePod21)
+    establishCommunication(couch, sideTable1)
     
     dunkinDonutsCoffeePod21.joinCommunity("Coffee")
     
@@ -1249,10 +1684,17 @@ def main():
     positiveInteraction(computer, phone)
 
     largePlate4 = wake("Large Plate 4")
+    plates.append(largePlate4)
     
     positiveInteraction(wineGlass1, wineGlass0)
 
-    plates.append(largePlate4)
+    silverware = forks
+    for knife in knives:
+        silverware.append(knife)
+    for spoon in spoons:
+        silverware.append(spoon)
+    formCommunity("Silverware", silverware)
+
     bowl3 = wake("Bowl 3")
     
     negativeInteraction(xbox, guitarHero5XboxGame)
@@ -1262,7 +1704,7 @@ def main():
     bowls.append(bowl4)
     positiveInteraction(fish, dog)
 
-    print("\n\nRELATIONSHIPS:")
+    print("\n\nRELATIONSHIPS:\n")
     for being in state["beings"]:
         if being.connections == {}:
             continue
@@ -1273,7 +1715,7 @@ def main():
                 relationship += "\t"        # for alignment purposes
             print("\t" + relationship + "\t" + str(being.connections[connection]["level"]) + "\t" + connection.name)
 
-    print("\n\nCOMMUNITIES:")
+    print("\n\nCOMMUNITIES:\n")
     if len(state) > 1:
         for community in state:
             if community == "beings":
@@ -1281,6 +1723,7 @@ def main():
             print(community + "'s members:")
             for being in state[community]:
                 print("\t" + being.name)
+            print()
 
 if __name__ == '__main__':
     main()
