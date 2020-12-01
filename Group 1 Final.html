@@ -49,6 +49,60 @@
   font-size: 30px;
   color: #C60A57;
 }
+
+
+tw-story[tags~="Train"] {
+  background-image: url('assets/Train Background-24.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #D2F2FF;
+  
+}
+  
+.couch {
+  position: relative;
+  top: 800px;
+  left: 100px;
+  font-family: "Comfortaa", cursive;
+  font-size: 30px;
+ 
+}
+
+
+
+ 
+
+
+
+#controller {
+  height: 50%;
+  width: 50%;
+  position: relative;
+  top: 600px;
+  left: 800px;
+	
+}
+
+tw-story[tags~="Game"] {
+  background-image: url('assets/TV.png');
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #CCCCCC;
+  
+}
+
+tw-story[tags~="Gameover"] {
+  background-image: url('assets/TV.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #CCCCCC;
+  
+}
+
+
   
 #sidebarHouse {
   height: 120px;
@@ -283,14 +337,8 @@ tw-story[tags~="computer"] tw-passage {
 }
 
 
-.couch {
-  position: relative;
-  top: 800px;
-  left: 100px;
-  font-family: "Comfortaa", cursive;
-  font-size: 60px;
+
  
-}
 
 .couch tw-link, .enchantment-link { color: #662D91; }
 .couch tw-link:hover, .enchantment-link:hover { color: #FFEECC; }
@@ -306,15 +354,6 @@ tw-story[tags~="couch"] {
 }
 
 
-tw-story[tags~="Train"] {
-  background-image: url('assets/Train Background-24.png');
-  background-size: 90%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #FFEECC;
-  
-}
 
 
 tw-hook[name="hook"] {
@@ -730,20 +769,19 @@ TALKSWIMSWIMEATLOOK(link-show:&quot;DART&quot;,?dart)HIDE
 SWIMSWIMSURFACE(link-show: &quot;TALK&quot;,?talk)SWIM
 LOOK(link-show:&quot;RIPPLE&quot;,?ripple)DARTEAT(link-show: &quot;LOOK&quot;,?look)RIPPLE
 EATSWIMDART(link-show:&quot;HIDE&quot;,?hide)SWIMSWIM
+
 ==&gt;
-|swim)[SWIM: Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
+|swim)[Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
 
-|ripple)[RIPPLE: The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
+|ripple)[The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
 
-|wake)[WAKE: For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
+|wake)[For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
 
-|dart)[DART: Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
+|dart)[Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
 
-|hide)[HIDE: The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
+|hide)[The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
 
-|talk)[TALK: While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
-
-|look)[LOOK: He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]
+|talk)[While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
 
 |look)[He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]</tw-passagedata><tw-passagedata pid="23" name="Computer" tags="computer" position="599,1033" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount = &quot;100&quot; style=&quot;height:20em; color: #ffffff;&quot;&gt;
@@ -4309,19 +4347,137 @@ Silverware&#39;s members:
         Small Spoon 8
         Small Spoon 9
 
-&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="" position="1213,1035" size="100,100">No one even knows when he awoke. But X wasn’t always like this. He used to talk with the others. Toss them his controllers so they could play. He put shows on TV so everyone could watch or listen or feel. Turn it up so loud it shook House. Lights fell over, Couch was airborne and Dash crashed into every small table and chair he was so excited. It became tradition that  every three turns on the light in the sky he had to shake House. Everyone loved him. 
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="Game" position="1195,64" size="100,100">No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.] 
 
-(background: white)[(link: &quot;&lt;img src=&#39;assets/controller.png&#39;&gt;&quot;)[(go-to: &quot;Game2&quot;)]]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="" position="1360,1032" size="100,100">Until he started communicating less and less. House stopped shaking. No one could play and he wouldn’t let anyone touch his controllers. He started only turning on at night. Even Halo didn’t know what was wrong with him, and he hadn’t been ejected since X awoke. One day TV asked him when they could turn off and go to sleep. X said nothing. Only the quiet whir of his fan got louder and louder.  TV pressed him more and more, each time their volume getting louder and louder until they tried to shut themselves down out of frustration. But X wouldn’t let them . X even lowered their volume. TV started to panic. Until they suddenly went quiet. 
+|hook2)[He used to talk with the others. Toss them his controllers so they could [play.]&lt;hook3|] 
 
-(background: white)[(link: &quot;&lt;img src=&#39;assets/controller.png&#39;&gt;&quot;)[(go-to: &quot;Game3&quot;)]]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="" position="1499,1030" size="100,100">No one has heard from TV in days. And X won’t even speak. Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  Smoke Detector says she smells smoke almost all the time. No one knows what to do. Please help us. </tw-passagedata><tw-passagedata pid="27" name="Toy Train" tags="train" position="1496,898" size="100,100">
+|hook4)[Put shows on TV so everyone could watch or listen or feel. And turn it up so loud it |hook5&gt;[shook House.]] 
+
+|hook6)[Lights fell over, Couch was airborne and Dash crashed into every small table and chair he was so excited. It became tradition he had to shake House every three turns of the |hook7&gt;[light in the sky.]] 
+
+|hook8)[Everyone loved him.] 
+
+[[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game2]]
+
+(click: ?hook1)[(show:?hook2)]
+(click: ?hook3)[(show:?hook4)]
+(click: ?hook5)[(show:?hook6)]
+(click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1373,100" size="100,100">Until he started communicating |hook1&gt;[less and less.] 
+|hook2)[House stopped shaking. No one could play and he wouldn’t let anyone [touch his controllers.]&lt;hook3|] 
+
+|hook4)[He started only turning on at night. Even Halo didn’t know what was wrong with him, and he hadn’t been ejected [since X awoke.]&lt;hook5|] 
+
+|hook6)[One day TV asked him when they could turn off and go to sleep.] 
+
+
+|hook7)[X said nothing.] 
+
+[[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game3]]
+(click: ?hook1)[(show:?hook2)]
+(click: ?hook3)[(show:?hook4)]
+(click: ?hook5)[(show:?hook6)]
+(click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game4" tags="Game" position="1559,109" size="100,100">No one has heard from TV in [days.]&lt;hook1| 
+|hook2)[And X won’t even speak.] 
+|hook3)[Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  |hook4&gt;[Beep says she can smell smoke almost all the time.]] 
+|hook5)[No one knows what to do.] 
+|hook6)[Please help us.] 
+
+[[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game5]]
+(click: ?hook1)[(show:?hook2)]
+(click: ?hook2)[(show:?hook3)]
+(click: ?hook4)[(show:?hook5)]
+(click: ?hook5)[(show:?hook6)]
+(click: ?hook6)[(go-to: &quot;Game5&quot;)]
+</tw-passagedata><tw-passagedata pid="27" name="Toaster" tags="" position="900,501" size="100,100">(set: $count to 0)
+
+{(live: 2s)[
+	(set: $count to it + 1)
+	(if: $count is 1)[(show: ?hook1)]
+	(else-if: $count is 2)[(show: ?hook2)]
+	(else-if: $count is 3)[(show: ?hook3)]
+	(else-if: $count is 4)[(show: ?hook4)(replace: ?hook1)[]]
+	(else-if: $count is 5)[(show: ?hook5)(replace: ?hook2)[]]
+	(else-if: $count is 6)[(show: ?hook6)(replace: ?hook3)[]]
+	(else-if: $count is 7)[(show: ?hook7)(replace: ?hook4)[]]
+	(else-if: $count is 8)[(show: ?hook8)(replace: ?hook5)[]]
+	(else-if: $count is 9)[(show: ?hook9)(replace: ?hook6)[]]
+	(else-if: $count is 10)[(show: ?hook10)(replace: ?hook7)[]]
+	(else-if: $count is 11)[(show: ?hook11)(replace: ?hook8)[]]
+	(else-if: $count is 12)[(show: ?hook12)(replace: ?hook9)[]]
+	(else-if: $count is 13)[(show: ?hook13)(replace: ?hook10)[]]
+	(else-if: $count is 14)[(show: ?hook14)(replace: ?hook11)[]]
+	(else-if: $count is 15)[(show: ?hook15)(replace: ?hook12)[]]
+	(else-if: $count is 16)[(show: ?hook16)(replace: ?hook13)[]]
+	(else-if: $count is 17)[(show: ?hook17)(replace: ?hook14)[]]
+	(else-if: $count is 18)[(show: ?hook18)(replace: ?hook15)[]]
+	(else-if: $count is 19)[(show: ?hook19)(replace: ?hook16)[]]
+	(else-if: $count is 20)[(show: ?hook20)(replace: ?hook17)[]]
+	(else-if: $count is 21)[(show: ?hook21)(replace: ?hook18)[]]
+	(else-if: $count is 22)[(show: ?hook22)(replace: ?hook19)[]]
+	(else-if: $count is 23)[(show: ?hook23)(replace: ?hook20)[]]
+	(else-if: $count is 24)[(show: ?hook24)(replace: ?hook21)[]]
+	(else-if: $count is 25)[(show: ?hook25)(replace: ?hook22)[]]
+	(else-if: $count is 26)[(show: ?hook26)(replace: ?hook23)[]]
+	(else-if: $count is 27)[(show: ?hook27)(replace: ?hook24)[]]
+	(else-if: $count is 28)[(show: ?hook28)(replace: ?hook25)[]]
+	(else-if: $count is 29)[(show: ?hook29)(replace: ?hook26)[]]
+	(else-if: $count is 30)[(show: ?hook30)(replace: ?hook27)[]]
+	(else-if: $count is 31)[(show: ?hook31)(replace: ?hook28)[]]
+	(else-if: $count is 32)[(show: ?hook32)(replace: ?hook29)[]]
+	(else-if: $count is 33)[(show: ?hook33)(replace: ?hook30)[]]
+	(else-if: $count is 34)[(show: ?hook34)(replace: ?hook31)[]]
+	(else-if: $count is 35)[(show: ?hook35)(replace: ?hook32)[]]
+	(else-if: $count is 36)[(show: ?hook36)(replace: ?hook33)[]]
+	(else-if: $count is 37)[(replace: ?hook34, ?hook35, ?hook36)[]]
+	(else:)[(stop:)]
+]}
+&lt;div class=&quot;oneline&quot;&gt;
+&lt;div class=&quot;slideup1&quot;&gt;|hook1)[i woke up first.] &lt;/div&gt;
+==&gt;&lt;==
+&lt;div class=&quot;slideup2&quot;&gt;|hook2)[DO NOT LISTEN TO FRIDGE.] &lt;/div&gt;
+&lt;div class=&quot;slideup3&quot;&gt;|hook3)[doesn’t know ANYTHING.] &lt;/div&gt;
+&lt;div class=&quot;slideup4&quot;&gt;|hook4)[if not for me he’d still be ASLEEP.] &lt;/div&gt;
+&lt;div class=&quot;slideup5&quot;&gt;|hook5)[was MY springs popping that did it.] &lt;/div&gt;
+&lt;div class=&quot;slideup6&quot;&gt;|hook6)[MINE.] &lt;/div&gt;
+&lt;div class=&quot;slideup7&quot;&gt;|hook7)[happy to do it.] &lt;/div&gt;
+&lt;div class=&quot;slideup8&quot;&gt;|hook8)[fridge is good friend.] &lt;/div&gt;
+&lt;div class=&quot;slideup9&quot;&gt;|hook9)[so is stoven.] &lt;/div&gt;
+&lt;div class=&quot;slideup10&quot;&gt;|hook10)[LOVE him.] &lt;/div&gt;
+&lt;div class=&quot;slideup11&quot;&gt;|hook11)[we heat up house when winter comes.] &lt;/div&gt;
+&lt;div class=&quot;slideup12&quot;&gt;|hook12)[BOSSES of kitchen.] &lt;/div&gt;
+&lt;div class=&quot;slideup13&quot;&gt;|hook13)[everyone thinks I’M stuck up.] &lt;/div&gt;
+&lt;div class=&quot;slideup14&quot;&gt;|hook14)[i&#39;m not stuck.]  &lt;/div&gt;
+&lt;div class=&quot;slideup15&quot;&gt;|hook15)[never burned toast.] &lt;/div&gt;
+&lt;div class=&quot;slideup16&quot;&gt;|hook16)[my voice is commanding.] &lt;/div&gt;
+&lt;div class=&quot;slideup17&quot;&gt;|hook17)[everyone is jealous.] &lt;/div&gt;
+&lt;div class=&quot;slideup18&quot;&gt;|hook18)[they’re not leaders.]&lt;/div&gt;
+&lt;div class=&quot;slideup19&quot;&gt;|hook19)[doesn’t bother me.] &lt;/div&gt;
+&lt;div class=&quot;slideup20&quot;&gt;|hook20)[i have so many friends.] &lt;/div&gt;
+&lt;div class=&quot;slideup21&quot;&gt;|hook21)[in the WHOLE HOUSE.] &lt;/div&gt;
+&lt;div class=&quot;slideup22&quot;&gt;|hook22)[been around the whole house too.] &lt;/div&gt;
+&lt;div class=&quot;slideup23&quot;&gt;|hook23)[i have stories microwave WISHES they knew.] &lt;/div&gt;
+&lt;div class=&quot;slideup24&quot;&gt;|hook24)[i know what UPSTAIRS looks like.] &lt;/div&gt;
+&lt;div class=&quot;slideup25&quot;&gt;|hook25)[even been outside.] &lt;/div&gt;
+&lt;div class=&quot;slideup26&quot;&gt;|hook26)[only one outside is tree.] &lt;/div&gt;
+&lt;div class=&quot;slideup27&quot;&gt;|hook27)[I’M FRIENDS WITH TREE.] &lt;/div&gt;
+&lt;div class=&quot;slideup28&quot;&gt;|hook28)[EXPLAIN THAT SINK.] &lt;/div&gt;
+&lt;div class=&quot;slideup29&quot;&gt;|hook29)[me and sink are friends.] &lt;/div&gt;
+&lt;div class=&quot;slideup30&quot;&gt;|hook30)[both shiny.] &lt;/div&gt;
+&lt;div class=&quot;slideup31&quot;&gt;|hook31)[but i’m shinier.] &lt;/div&gt;
+&lt;div class=&quot;slideup32&quot;&gt;|hook32)[and hotter.] &lt;/div&gt;
+&lt;div class=&quot;slideup33&quot;&gt;|hook33)[i want to explore BEYOND kitchen.] &lt;/div&gt;
+&lt;div class=&quot;slideup34&quot;&gt;|hook34)[be the first toaster on MARS.] &lt;/div&gt;
+&lt;div class=&quot;slideup35&quot;&gt;|hook35)[don’t know what mars is.] &lt;/div&gt;
+&lt;div class=&quot;slideup36&quot;&gt;|hook36)[BUT I’M GOING.]&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Toy Train" tags="Train" position="1057,599" size="100,100">
 &lt;div class= &quot;scrollleft&quot;&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;left&quot; scrollamount=&quot;10&quot;&gt;
 &lt;div class= &quot;scrollfont&quot;&gt;and no one has come to play in a long time i miss playing but i but dont remember playing ever but i know that’s what im supposed to do but no one plays only dash but he chews me sometimes and it hurts but the other toys are like me and theyre sad no one with play with them so we try to play with each other and that was fun but now were bored and we explored all of house and they said we found everything already but in the basement there was a toy named barbie and she was all alone but then we found her and she told us her name was lauren so now i have a new friend named lauren and there was also a lot of cool people in the basement like box and bin and theyre my friends and also washer and dryer and they think theyre my grandma and grandpa but they dont look like me but maybe i dont know and then we went upstairs and there was bed and dan but he didnt talk much cause bed told us his mouth was full of clothes and he was angry all the time but i don&#39;t know why im just sad all the time because no one wants to play and i already asked everyone and they played for a little while but now they dont want to play so i want to leave and i want to leave house and go to another house and find another family that wants to play with me
 &lt;/div&gt;
 &lt;/marque&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="28" name="Rug" tags="rug" position="1023.6666666666665,73.33333333333334" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
-</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="couch" position="915,1036" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="29" name="Rug" tags="Rug" position="1366,586" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
+</tw-passagedata><tw-passagedata pid="30" name="Couch" tags="Couch" position="1200,601" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
 
 (click-replace: ?hook1)[(show:?hook2)]
 (click-replace: ?hook2)[(show:?hook3)]
@@ -4396,6 +4552,21 @@ Silverware&#39;s members:
 &quot;Sit with me?&quot;,
 &quot;Will it ever be the same?&quot;,
 &quot;Will anyone love me?&quot;)
+]]</tw-passagedata><tw-passagedata pid="31" name="Game3" tags="Game" position="1407,247" size="100,100">Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
+|hook2)[TV pressed him more and more, each time their volume [rising with the sound of the fans.]&lt;hook3|] 
+|hook4)[Until they tried to shut themselves down out of [frustration.]&lt;hook5|] 
+|hook6)[But X wouldn’t let them.] 
+|hook7)[He even lowered their volume. [TV started to panic.]&lt;hook8|] 
+|hook9)[Until they suddenly went silent.] 
+
+[[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game4]]
+(click: ?hook1)[(show:?hook2)]
+(click: ?hook3)[(show:?hook4)]
+(click: ?hook5)[(show:?hook6)]
+(click: ?hook6)[(show:?hook7)]
+(click: ?hook8)[(show:?hook9)]</tw-passagedata><tw-passagedata pid="32" name="Game5" tags="Gameover" position="1717,253" size="100,100">=&gt;&lt;=
+GAME OVER!
+&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;</tw-passagedata></tw-storydata>
 ]]</tw-passagedata><tw-passagedata pid="30" name="Toaster" tags="" position="761,1034" size="100,100">&lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount=&quot;25&quot; onmousedown=&quot;this.stop();&quot; onmouseup=&quot;this.start();&quot;&gt;
 i woke up first. 
  
