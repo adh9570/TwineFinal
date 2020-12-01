@@ -1,0 +1,83 @@
+[33mcommit b933b0a2011caa8bf31a75a358848150b43d06a5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Fri Nov 27 23:58:10 2020 -0500
+
+    just an update cause its late and not unlikely i mess up
+
+[33mcommit f81148b2b666539d4c7a0c13d30977a1519ea827[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Fri Nov 27 23:14:39 2020 -0500
+
+    removed the other rooms bc realistically i will not get to them, this is taking longer than expected
+
+[33mcommit eafe139b285e06b0aa86006e1a94c91cc4bcc2ee[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Fri Nov 27 23:09:07 2020 -0500
+
+    removed the other rooms bc realistically i will not get to them, this is taking longer than expected
+
+[33mcommit b8cfeec68113b41968a2fba8dbdd9ed62c30a3eb[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Fri Nov 27 20:02:29 2020 -0500
+
+    added labels to printed names
+
+[33mcommit d43e308ca874820ef1e5519108e38fed0bcbd577[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Mon Nov 23 12:32:49 2020 -0500
+
+    moved images to assets folder
+
+[33mcommit c1ed212363c4e18c427253372d2dbdfdec0e732a[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Mon Nov 23 12:31:56 2020 -0500
+
+    uploading full room img
+
+[33mcommit 93186719229f4050528ba3effcce6cca7cf6efc9[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Sat Nov 21 23:14:30 2020 -0500
+
+    established connections between all toys
+
+[33mcommit 8fb856c76c07050cbbed51526c50d1c2e991a442[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Sat Nov 21 22:13:54 2020 -0500
+
+    added main menu and home button in sidebar
+
+[33mcommit 9b004fa2b8b7b4d42f1d5dd71e708800354f6711[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Sat Nov 21 22:04:56 2020 -0500
+
+    added coffee table
+
+[33mcommit ce37c2ef199784976526cc94e2b1d9238d810484[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Sat Nov 21 21:51:25 2020 -0500
+
+    added fork
+
+[33mcommit e7424fe31803c106845e925da3f05cb92e72682d[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Sat Nov 21 21:45:46 2020 -0500
+
+    started twine file
+
+[33mcommit fbd05ff025faffdaecd3d0e30ce66cc8482e9000[m
+Author: Lexi Halbur <jajejdjaje@gmail.com>
+Date:   Sat Nov 21 21:43:26 2020 -0500
+
+    added computer file to master
+
+[33mcommit a016e7398fb803f4abfec90d8e7989622b9a6c0a[m
+Author: Alexis Halbur <adh9570@rit.edu>
+Date:   Wed Nov 18 18:00:30 2020 -0500
+
+    Added git resources to the readme
+
+[33mcommit 9fcf25f310590aa67095ab0ea05c6216de322c90[m
+Author: Alexis Halbur <adh9570@rit.edu>
+Date:   Wed Nov 18 17:47:52 2020 -0500
+
+    Initial commit
