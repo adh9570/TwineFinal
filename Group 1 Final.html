@@ -188,6 +188,7 @@ html.kettle tw-story {
   background-color: #FFFFFF;
 }
 
+
 #rug {
   position: absolute;
   height: 7vh;
@@ -375,9 +376,15 @@ tw-sidebar tw-icon.undo {
   min-height: 100%;
 }
 
+tw-sidebar tw-icon.redo {
+	display: none;
+}
+tw-sidebar tw-icon.undo {
+	display: none;
+}
 
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="main" position="827,570" size="100,100">&lt;div&gt;[[&lt;img src=&quot;assets/House.png&quot; alt=&quot;House&quot; id=&quot;house&quot;/&gt;|House]]
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="main" position="802,508" size="100,100">&lt;div&gt;[[&lt;img src=&quot;assets/House.png&quot; alt=&quot;House&quot; id=&quot;house&quot;/&gt;|House]]
 &lt;img src=&quot;assets/Walls.png&quot; alt=&quot;Walls&quot; id=&quot;walls&quot;/&gt;
 [[&lt;img src=&quot;assets/Rug.png&quot; alt=&quot;Rug&quot; id=&quot;rug&quot;/&gt;|Rug]]
 &lt;img src=&quot;assets/Dash.png&quot; alt=&quot;Dash&quot; id=&quot;dash&quot;/&gt;
@@ -560,7 +567,8 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
     (else-if: $count is 104)[(show: ?word103)]
 	(else:)[(stop:)]
 ]}	
-</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="799,25" size="100,100">(append: ?sidebar)[ 
+
+</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="798,50" size="100,100">(append: ?sidebar)[ 
 
 
 
@@ -571,7 +579,8 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 (if: (passage:)&#39;s tags&#39;s length &gt; 0)[
 (print: &quot;&lt;script&gt;$(&#39;html&#39;).addClass(&#39;&quot; + (passage:)&#39;s tags.join(&#39; &#39;) + &quot;&#39;\)&lt;/script&gt;&quot;)
 ]
-}</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="plant" position="1273,138" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
+
+}</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="plant" position="1262,132" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
 
 (click-append: &quot;walls&quot;)[ cold-crumbled membrane]
 (click-append: &quot;silt&quot;)[ shattered were-windows scatter-strain light]
@@ -804,7 +813,7 @@ EATSWIMDART(link-show:&quot;HIDE&quot;,?hide)SWIMSWIM
 
 |look)[LOOK: He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]
 
-|look)[He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]</tw-passagedata><tw-passagedata pid="23" name="Computer" tags="computer" position="572,1022.6666666666666" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
+</tw-passagedata><tw-passagedata pid="23" name="Computer" tags="computer" position="572,1022.6666666666666" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount = &quot;100&quot; style=&quot;height:20em; color: #ffffff;&quot;&gt;
 class Being():
 
@@ -4368,7 +4377,7 @@ Silverware&#39;s members:
         Small Spoon 8
         Small Spoon 9
 
-&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="Game" position="1498,196" size="100,100">No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.] 
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="Game" position="1213,1035" size="100,100">No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.] 
 
 |hook2)[He used to talk with the others. Toss them his controllers so they could [play.]&lt;hook3|] 
 
@@ -4383,13 +4392,13 @@ Silverware&#39;s members:
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
-(click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1500,338" size="100,100">Until he started communicating |hook1&gt;[less and less.] 
+(click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1360,1032" size="100,100">Until he started communicating |hook1&gt;[less and less.] 
+
 |hook2)[House stopped shaking. No one could play and he wouldn’t let anyone [touch his controllers.]&lt;hook3|] 
 
 |hook4)[He started only turning on at night. Even Halo didn’t know what was wrong with him, and he hadn’t been ejected [since X awoke.]&lt;hook5|] 
 
 |hook6)[One day TV asked him when they could turn off and go to sleep.] 
-
 
 |hook7)[X said nothing.] 
 
@@ -4397,7 +4406,8 @@ Silverware&#39;s members:
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
-(click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="Game" position="1500,478" size="100,100">Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
+(click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="Game" position="1499,1030" size="100,100">Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
+
 |hook2)[TV pressed him more and more, each time their volume [rising with the sound of the fans.]&lt;hook3|] 
 |hook4)[Until they tried to shut themselves down out of [frustration.]&lt;hook5|] 
 |hook6)[But X wouldn’t let them.] 
@@ -4409,15 +4419,16 @@ Silverware&#39;s members:
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
 (click: ?hook6)[(show:?hook7)]
-(click: ?hook8)[(show:?hook9)]</tw-passagedata><tw-passagedata pid="27" name="Toy Train" tags="Train" position="253.33333333333331,1027" size="100,100">
+(click: ?hook8)[(show:?hook9)]</tw-passagedata><tw-passagedata pid="27" name="Toy Train" tags="Train" position="1496,898" size="100,100">
 &lt;div class= &quot;scrollleft&quot;&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;left&quot; scrollamount=&quot;10&quot;&gt;
 &lt;div class= &quot;scrollfont&quot;&gt;and no one has come to play in a long time i miss playing but i but dont remember playing ever but i know that’s what im supposed to do but no one plays only dash but he chews me sometimes and it hurts but the other toys are like me and theyre sad no one with play with them so we try to play with each other and that was fun but now were bored and we explored all of house and they said we found everything already but in the basement there was a toy named barbie and she was all alone but then we found her and she told us her name was lauren so now i have a new friend named lauren and there was also a lot of cool people in the basement like box and bin and theyre my friends and also washer and dryer and they think theyre my grandma and grandpa but they dont look like me but maybe i dont know and then we went upstairs and there was bed and dan but he didnt talk much cause bed told us his mouth was full of clothes and he was angry all the time but i don&#39;t know why im just sad all the time because no one wants to play and i already asked everyone and they played for a little while but now they dont want to play so i want to leave and i want to leave house and go to another house and find another family that wants to play with me
 &lt;/div&gt;
 &lt;/marque&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="28" name="Rug" tags="Rug" position="1051,71" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
-</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="couch" position="1349.6666666666667,1030" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
+
+</tw-passagedata><tw-passagedata pid="28" name="Rug" tags="Rug" position="1023,73" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
+</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="couch" position="915,1036" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
 
 (click-replace: ?hook1)[(show:?hook2)]
 (click-replace: ?hook2)[(show:?hook3)]
@@ -4599,7 +4610,8 @@ don’t know what mars is.
 ==&gt; 
  
 BUT I’M GOING.
-&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="31" name="Game4" tags="Game" position="1498,626" size="100,100">No one has heard from TV in [days.]&lt;hook1| 
+
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="31" name="Game4" tags="Game" position="1499,1180" size="100,100">No one has heard from TV in [days.]&lt;hook1| 
 |hook2)[And X won’t even speak.] 
 |hook3)[Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  |hook4&gt;[Beep says she can smell smoke almost all the time.]] 
 |hook5)[No one knows what to do.] 
@@ -4611,7 +4623,8 @@ BUT I’M GOING.
 (click: ?hook4)[(show:?hook5)]
 (click: ?hook5)[(show:?hook6)]
 (click: ?hook6)[(go-to: &quot;Game5&quot;)]
-</tw-passagedata><tw-passagedata pid="32" name="Game5" tags="Gameover" position="1502,772" size="100,100">=&gt;&lt;=
+
+</tw-passagedata><tw-passagedata pid="32" name="Game5" tags="Gameover" position="1499,1330" size="100,100">=&gt;&lt;=
 GAME OVER!
 &lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;</tw-passagedata></tw-storydata>
 
