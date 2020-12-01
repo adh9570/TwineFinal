@@ -20,11 +20,13 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
 
 
 .image {
     display: block;
-  	top: 250px;
+  	top: 165px;
     width: 100%;
   	height: 100%;
     margin-left: auto;
@@ -39,8 +41,8 @@
  
 .scrollleft{
   white-space: nowrap;
-  position: relative;
-  top: 600px;
+  position: fixed;
+  top: 250px;
   left: 200px
 }
 
@@ -58,12 +60,30 @@ tw-story[tags~="Train"] {
   background-color: #D2F2FF; 
 }
 
-#controller {
-  height: 50%;
-  width: 50%;
+.gameconsole {
   position: relative;
-  top: 600px;
-  left: 800px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  top: 100px;
+  left:100px;
+}
+
+.gameover {
+  position: relative;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 60px;
+  color: #1a8a01;
+  top: 150px;
+  left:100px;
+}
+
+#controller {
+  height: 277px;
+  width: 600px;
+  position: fixed;
+  top: 750px;
+  left: 1300px;
+	
 }
 
 tw-story[tags~="Game"] {
@@ -316,7 +336,7 @@ html.kettle tw-story {
 #clock {
   position: absolute;
   height: 65px;
-  top: 157px;
+  top: -566px;
   left: 688px;
 }
 
@@ -341,39 +361,58 @@ tw-story[tags~="computer"] tw-passage {
   color: #5CF002;
 }
 
+.toaster{
+  font-family: 'Changa One', cursive;
+  font-size: 25px;
+  color: #000000;
 
-.couch {
-  position: relative;
-  top: 800px;
-  left: 100px;
-  font-family: "Comfortaa", cursive;
-  font-size: 60px;
+}
+
+tw-story[tags~="Toaster"] {
+  background-image: url('assets/Toast.png');
+  background-size: 15%;
+  background-repeat: repeat;
+  background-position: left;
+  background-color: #fff6d9;
  
 }
 
-.couch tw-link, .enchantment-link { color: #662D91; }
-.couch tw-link:hover, .enchantment-link:hover { color: #FFEECC; }
+.couch {
+  position: absolute;
+  top: 295px;
+  left: 635px;
+  width: 500px;
+  font-family: "Comfortaa", cursive;
+  font-size: 50px;
+  line-height: 1.6;
+  z-index: 2;
+}
 
-tw-story[tags~="couch"] {
-  background-image: url('assets/Couch2.png');
-  background-size: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right;
+.couch tw-link, .enchantment-link { color: #FFEECC; }
+.couch tw-link:hover, .enchantment-link:hover { color: white; }
+
+#couchBg {
+  position: relative;
+  height: 700px;
+  float: right;
+  top: -85px;
+  left: 325px;
+  z-index: 1;
+}
+
+html.Couch tw-story {
   background-color: #FFB0DA;
-  color: #662D91;
+  color: #FFEECC;
 }
 
-
-tw-story[tags~="Train"] {
-  background-image: url('assets/Train Background-24.png');
-  background-size: 90%;
-  background-size: contain;
+/* tw-story[tags~="Couch"] {
+  background-image: url('assets/Couch2.png');
+  background-size: 56%;
   background-repeat: no-repeat;
-  background-position: center;
-  background-color: #FFEECC;
-  
-}
+  background-position: 665px 10px;
+  background-color: #FFB0DA;
+  color: #FFEECC;
+} */
 
 
 #light {
@@ -461,7 +500,7 @@ except. the.
 great! 
 white! 
 expanse! 
-of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags="coffee-table" position="326,136" size="100,100">&lt;div id=&quot;ctGrid&quot;&gt;|word0)[&lt;span&gt;I&lt;/span&gt;]|word1)[&lt;span&gt;stand&lt;/span&gt;]|word2)[&lt;span&gt;strong,&lt;/span&gt;]|word3)[&lt;span&gt;still.&lt;/span&gt;]|word4)[&lt;span&gt;It&lt;/span&gt;]|word5)[&lt;span&gt;has&lt;/span&gt;]|word6)[&lt;span&gt;been&lt;/span&gt;]|word7)[&lt;span&gt;long.&lt;/span&gt;]|word8)[&lt;span&gt;Unsure&lt;/span&gt;]|word9)[&lt;span&gt;exactly&lt;/span&gt;]|word10)[&lt;span&gt;how&lt;/span&gt;]|word11)[&lt;span&gt;long.&lt;/span&gt;]|word12)[&lt;span&gt;Many&lt;/span&gt;]|word13)[&lt;span&gt;millennia,&lt;/span&gt;]|word14)[&lt;span&gt;I’m&lt;/span&gt;]|word15)[&lt;span&gt;told.&lt;/span&gt;]|word16)[&lt;span&gt;I&lt;/span&gt;]|word17)[&lt;span&gt;have&lt;/span&gt;]|word18)[&lt;span&gt;known&lt;/span&gt;]|word19)[&lt;span&gt;few.&lt;/span&gt;]|word20)[&lt;span&gt;My&lt;/span&gt;]|word21)[&lt;span&gt;legs&lt;/span&gt;]|word22)[&lt;span&gt;are&lt;/span&gt;]|word23)[&lt;span&gt;weary.&lt;/span&gt;]|word24)[&lt;span&gt;I’m&lt;/span&gt;]|word25)[&lt;span&gt;strong,&lt;/span&gt;]|word26)[&lt;span&gt;but&lt;/span&gt;]|word27)[&lt;span&gt;stiff.&lt;/span&gt;]|word28)[&lt;span&gt;Around&lt;/span&gt;]|word29)[&lt;span&gt;me&lt;/span&gt;]|word30)[&lt;span&gt;is&lt;/span&gt;]|word31)[&lt;span&gt;movement.&lt;/span&gt;]|word32)[&lt;span&gt;The&lt;/span&gt;]|word33)[&lt;span&gt;movement&lt;/span&gt;]|word34)[&lt;span&gt;is&lt;/span&gt;]|word35)[&lt;span&gt;beautiful.&lt;/span&gt;]|word36)[&lt;span&gt;It&lt;/span&gt;]|word37)[&lt;span&gt;brushes&lt;/span&gt;]|word38)[&lt;span&gt;against&lt;/span&gt;]|word39)[&lt;span&gt;me.&lt;/span&gt;]|word40)[&lt;span&gt;Soft&lt;/span&gt;]|word41)[&lt;span&gt;textures,&lt;/span&gt;]|word42)[&lt;span&gt;supple&lt;/span&gt;]|word43)[&lt;span&gt;touches.&lt;/span&gt;]|word44)[&lt;span&gt;I&lt;/span&gt;]|word45)[&lt;span&gt;yearn&lt;/span&gt;]|word46)[&lt;span&gt;to&lt;/span&gt;]|word47)[&lt;span&gt;flex.&lt;/span&gt;]|word48)[&lt;span&gt;One&lt;/span&gt;]|word49)[&lt;span&gt;day&lt;/span&gt;]|word50)[&lt;span&gt;I&lt;/span&gt;]|word51)[&lt;span&gt;will.&lt;/span&gt;]|word52)[&lt;span&gt;It&lt;/span&gt;]|word53)[&lt;span&gt;will&lt;/span&gt;]|word54)[&lt;span&gt;take&lt;/span&gt;]|word55)[&lt;span&gt;time.&lt;/span&gt;]|word56)[&lt;span&gt;I&lt;/span&gt;]|word57)[&lt;span&gt;believe&lt;/span&gt;]|word58)[&lt;span&gt;in&lt;/span&gt;]|word59)[&lt;span&gt;sensation.&lt;/span&gt;]|word60)[&lt;span&gt;In&lt;/span&gt;]|word61)[&lt;span&gt;pins&lt;/span&gt;]|word62)[&lt;span&gt;and&lt;/span&gt;]|word63)[&lt;span&gt;needles.&lt;/span&gt;]|word64)[&lt;span&gt;They&lt;/span&gt;]|word65)[&lt;span&gt;tickle&lt;/span&gt;]|word66)[&lt;span&gt;my&lt;/span&gt;]|word67)[&lt;span&gt;top.&lt;/span&gt;]|word68)[&lt;span&gt;My&lt;/span&gt;]|word69)[&lt;span&gt;edges&lt;/span&gt;]|word70)[&lt;span&gt;are&lt;/span&gt;]|word71)[&lt;span&gt;sensitive.&lt;/span&gt;]|word72)[&lt;span&gt;They&lt;/span&gt;]|word73)[&lt;span&gt;feel&lt;/span&gt;]|word74)[&lt;span&gt;the&lt;/span&gt;]|word75)[&lt;span&gt;world.&lt;/span&gt;]|word76)[&lt;span&gt;They&lt;/span&gt;]|word77)[&lt;span&gt;did&lt;/span&gt;]|word78)[&lt;span&gt;not&lt;/span&gt;]|word79)[&lt;span&gt;before.&lt;/span&gt;]|word80)[&lt;span&gt;I&lt;/span&gt;]|word81)[&lt;span&gt;did&lt;/span&gt;]|word82)[&lt;span&gt;not&lt;/span&gt;]|word83)[&lt;span&gt;before.&lt;/span&gt;]|word84)[&lt;span&gt;But&lt;/span&gt;]|word85)[&lt;span&gt;now,&lt;/span&gt;]|word86)[&lt;span&gt;I&lt;/span&gt;]|word87)[&lt;span&gt;do.&lt;/span&gt;]|word88)[&lt;span&gt;Now,&lt;/span&gt;]|word89)[&lt;span&gt;I&lt;/span&gt;]|word90)[&lt;span&gt;can&lt;/span&gt;]|word91)[&lt;span&gt;think.&lt;/span&gt;]|word92)[&lt;span&gt;I&lt;/span&gt;]|word93)[&lt;span&gt;feel&lt;/span&gt;]|word94)[&lt;span&gt;the&lt;/span&gt;]|word95)[&lt;span&gt;dust.&lt;/span&gt;]|word96)[&lt;span&gt;It&lt;/span&gt;]|word97)[&lt;span&gt;settles&lt;/span&gt;]|word98)[&lt;span&gt;on&lt;/span&gt;]|word99)[&lt;span&gt;me.&lt;/span&gt;]|word100)[&lt;span&gt;Proves&lt;/span&gt;]|word101)[&lt;span&gt;I’m&lt;/span&gt;]|word102)[&lt;span&gt;not&lt;/span&gt;]|word103)[&lt;span&gt;alone.&lt;/span&gt;]&lt;/div&gt;
+of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags="coffee-table" position="302.6666666666667,97.66666666666666" size="100,100">&lt;div id=&quot;ctGrid&quot;&gt;|word0)[&lt;span&gt;I&lt;/span&gt;]|word1)[&lt;span&gt;stand&lt;/span&gt;]|word2)[&lt;span&gt;strong,&lt;/span&gt;]|word3)[&lt;span&gt;still.&lt;/span&gt;]|word4)[&lt;span&gt;It&lt;/span&gt;]|word5)[&lt;span&gt;has&lt;/span&gt;]|word6)[&lt;span&gt;been&lt;/span&gt;]|word7)[&lt;span&gt;long.&lt;/span&gt;]|word8)[&lt;span&gt;Unsure&lt;/span&gt;]|word9)[&lt;span&gt;exactly&lt;/span&gt;]|word10)[&lt;span&gt;how&lt;/span&gt;]|word11)[&lt;span&gt;long.&lt;/span&gt;]|word12)[&lt;span&gt;Many&lt;/span&gt;]|word13)[&lt;span&gt;millennia,&lt;/span&gt;]|word14)[&lt;span&gt;I’m&lt;/span&gt;]|word15)[&lt;span&gt;told.&lt;/span&gt;]|word16)[&lt;span&gt;I&lt;/span&gt;]|word17)[&lt;span&gt;have&lt;/span&gt;]|word18)[&lt;span&gt;known&lt;/span&gt;]|word19)[&lt;span&gt;few.&lt;/span&gt;]|word20)[&lt;span&gt;My&lt;/span&gt;]|word21)[&lt;span&gt;legs&lt;/span&gt;]|word22)[&lt;span&gt;are&lt;/span&gt;]|word23)[&lt;span&gt;weary.&lt;/span&gt;]|word24)[&lt;span&gt;I’m&lt;/span&gt;]|word25)[&lt;span&gt;strong,&lt;/span&gt;]|word26)[&lt;span&gt;but&lt;/span&gt;]|word27)[&lt;span&gt;stiff.&lt;/span&gt;]|word28)[&lt;span&gt;Around&lt;/span&gt;]|word29)[&lt;span&gt;me&lt;/span&gt;]|word30)[&lt;span&gt;is&lt;/span&gt;]|word31)[&lt;span&gt;movement.&lt;/span&gt;]|word32)[&lt;span&gt;The&lt;/span&gt;]|word33)[&lt;span&gt;movement&lt;/span&gt;]|word34)[&lt;span&gt;is&lt;/span&gt;]|word35)[&lt;span&gt;beautiful.&lt;/span&gt;]|word36)[&lt;span&gt;It&lt;/span&gt;]|word37)[&lt;span&gt;brushes&lt;/span&gt;]|word38)[&lt;span&gt;against&lt;/span&gt;]|word39)[&lt;span&gt;me.&lt;/span&gt;]|word40)[&lt;span&gt;Soft&lt;/span&gt;]|word41)[&lt;span&gt;textures,&lt;/span&gt;]|word42)[&lt;span&gt;supple&lt;/span&gt;]|word43)[&lt;span&gt;touches.&lt;/span&gt;]|word44)[&lt;span&gt;I&lt;/span&gt;]|word45)[&lt;span&gt;yearn&lt;/span&gt;]|word46)[&lt;span&gt;to&lt;/span&gt;]|word47)[&lt;span&gt;flex.&lt;/span&gt;]|word48)[&lt;span&gt;One&lt;/span&gt;]|word49)[&lt;span&gt;day&lt;/span&gt;]|word50)[&lt;span&gt;I&lt;/span&gt;]|word51)[&lt;span&gt;will.&lt;/span&gt;]|word52)[&lt;span&gt;It&lt;/span&gt;]|word53)[&lt;span&gt;will&lt;/span&gt;]|word54)[&lt;span&gt;take&lt;/span&gt;]|word55)[&lt;span&gt;time.&lt;/span&gt;]|word56)[&lt;span&gt;I&lt;/span&gt;]|word57)[&lt;span&gt;believe&lt;/span&gt;]|word58)[&lt;span&gt;in&lt;/span&gt;]|word59)[&lt;span&gt;sensation.&lt;/span&gt;]|word60)[&lt;span&gt;In&lt;/span&gt;]|word61)[&lt;span&gt;pins&lt;/span&gt;]|word62)[&lt;span&gt;and&lt;/span&gt;]|word63)[&lt;span&gt;needles.&lt;/span&gt;]|word64)[&lt;span&gt;They&lt;/span&gt;]|word65)[&lt;span&gt;tickle&lt;/span&gt;]|word66)[&lt;span&gt;my&lt;/span&gt;]|word67)[&lt;span&gt;top.&lt;/span&gt;]|word68)[&lt;span&gt;My&lt;/span&gt;]|word69)[&lt;span&gt;edges&lt;/span&gt;]|word70)[&lt;span&gt;are&lt;/span&gt;]|word71)[&lt;span&gt;sensitive.&lt;/span&gt;]|word72)[&lt;span&gt;They&lt;/span&gt;]|word73)[&lt;span&gt;feel&lt;/span&gt;]|word74)[&lt;span&gt;the&lt;/span&gt;]|word75)[&lt;span&gt;world.&lt;/span&gt;]|word76)[&lt;span&gt;They&lt;/span&gt;]|word77)[&lt;span&gt;did&lt;/span&gt;]|word78)[&lt;span&gt;not&lt;/span&gt;]|word79)[&lt;span&gt;before.&lt;/span&gt;]|word80)[&lt;span&gt;I&lt;/span&gt;]|word81)[&lt;span&gt;did&lt;/span&gt;]|word82)[&lt;span&gt;not&lt;/span&gt;]|word83)[&lt;span&gt;before.&lt;/span&gt;]|word84)[&lt;span&gt;But&lt;/span&gt;]|word85)[&lt;span&gt;now,&lt;/span&gt;]|word86)[&lt;span&gt;I&lt;/span&gt;]|word87)[&lt;span&gt;do.&lt;/span&gt;]|word88)[&lt;span&gt;Now,&lt;/span&gt;]|word89)[&lt;span&gt;I&lt;/span&gt;]|word90)[&lt;span&gt;can&lt;/span&gt;]|word91)[&lt;span&gt;think.&lt;/span&gt;]|word92)[&lt;span&gt;I&lt;/span&gt;]|word93)[&lt;span&gt;feel&lt;/span&gt;]|word94)[&lt;span&gt;the&lt;/span&gt;]|word95)[&lt;span&gt;dust.&lt;/span&gt;]|word96)[&lt;span&gt;It&lt;/span&gt;]|word97)[&lt;span&gt;settles&lt;/span&gt;]|word98)[&lt;span&gt;on&lt;/span&gt;]|word99)[&lt;span&gt;me.&lt;/span&gt;]|word100)[&lt;span&gt;Proves&lt;/span&gt;]|word101)[&lt;span&gt;I’m&lt;/span&gt;]|word102)[&lt;span&gt;not&lt;/span&gt;]|word103)[&lt;span&gt;alone.&lt;/span&gt;]&lt;/div&gt;
 
 
 (set: $count to 0)
@@ -575,7 +614,7 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 	(else:)[(stop:)]
 ]}	
 
-</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="799,23" size="100,100">(append: ?sidebar)[ 
+</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="745.6666666666666,103" size="100,100">(append: ?sidebar)[ 
 
 
 
@@ -587,7 +626,7 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 (print: &quot;&lt;script&gt;$(&#39;html&#39;).addClass(&#39;&quot; + (passage:)&#39;s tags.join(&#39; &#39;) + &quot;&#39;\)&lt;/script&gt;&quot;)
 ]
 
-}</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="plant" position="1262,132" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
+}</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="plant" position="1493.6666666666667,293.6666666666667" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
 
 (click-append: &quot;walls&quot;)[ cold-crumbled membrane]
 (click-append: &quot;silt&quot;)[ shattered were-windows scatter-strain light]
@@ -701,7 +740,7 @@ I love the new world. I grew into it; I made it my own. For all that it was buil
 I love the new world. I grew into it; I made it my own. For all that it was built on bloodshed, there is healing, here. And though I am certainly no philosopher in my own right, I think that, more than anything, is why we awoke. You needed to heal, and you did not wish to do it alone.&quot;)
 ]}
 
-(save-game:&quot;memory3&quot;)</tw-passagedata><tw-passagedata pid="18" name="Water" tags="water" position="1200,1026" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/rain.wav&quot;&gt;&lt;/audio&gt;
+(save-game:&quot;memory3&quot;)</tw-passagedata><tw-passagedata pid="18" name="Water" tags="water" position="1495,712.6666666666666" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/rain.wav&quot;&gt;&lt;/audio&gt;
 
 (set: $count to 0)
 
@@ -784,7 +823,7 @@ I love the new world. I grew into it; I made it my own. For all that it was buil
 	  
 	   
 	  
-*[[a&#39;murmur&#39;a&#39;moment&#39;a&#39;measure&#39;of&#39;warning|Boil]]*</tw-passagedata><tw-passagedata pid="20" name="Boil" tags="kettle" position="1499,1028" size="100,100">=&gt;&lt;=
+*[[a&#39;murmur&#39;a&#39;moment&#39;a&#39;measure&#39;of&#39;warning|Boil]]*</tw-passagedata><tw-passagedata pid="20" name="Boil" tags="kettle" position="1642.3333333333333,896.6666666666666" size="100,100">=&gt;&lt;=
  
   
  
@@ -799,7 +838,7 @@ a strangling, alchemical whistle...]
   
  
 (t8n: &quot;slide-right&quot;)+(t8n-time: 8s)+(color: gray)[...warming worlds with melodies
-bygone, bygone, bygone...]</tw-passagedata><tw-passagedata pid="21" name="Light Switch" tags="light-switch" position="551,76" size="100,100">&lt;video src=&quot;assets/light-switch.mov&quot; autoplay id=&quot;light&quot;&gt;&lt;/video&gt;
+bygone, bygone, bygone...]</tw-passagedata><tw-passagedata pid="21" name="Light Switch" tags="light-switch" position="541,99.33333333333334" size="100,100">&lt;video src=&quot;assets/light-switch.mov&quot; autoplay id=&quot;light&quot;&gt;&lt;/video&gt;
 |switch)[night holds no sway in this court amongst we who seek to send the darkness swiftly off and bid the sun set in acknowledgement her time has passed we who gather in rebellion against the night and day alike who would name ourselves as gods collect and correspond in flickering firelit signals pass on the secrets of the hidden electric ways come all connected in this grand circuit come switches and wires and breakers and bulbs come flashlights and firepits come lightning  watch for our signal at dawn know that any moment is dawn when you dictate the rotation of the earth with a turn of your head a flick and a flickering]</tw-passagedata><tw-passagedata pid="22" name="Fish" tags="fish" position="1046,1029" size="100,100">(link-show: &quot;SWIM&quot;,?swim)RIPPLESWIMLOOK(link-show: &quot;WAKE&quot;,?wake)
 TALKSWIMSWIMEATLOOK(link-show:&quot;DART&quot;,?dart)HIDE
 SWIMSWIMSURFACE(link-show: &quot;TALK&quot;,?talk)SWIM
@@ -4384,59 +4423,68 @@ Silverware&#39;s members:
         Small Spoon 8
         Small Spoon 9
 
-&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="Game" position="1494,199" size="100,100">No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.] 
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="Game" position="1213,1035" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
+No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.] 
 
-|hook2)[He used to talk with the others. Toss them his controllers so they could [play.]&lt;hook3|] 
+|hook2)[He used to talk with the others. Nudge them his controllers so they could [play.]&lt;hook3|] 
 
 |hook4)[Put shows on TV so everyone could watch or listen or feel. And turn it up so loud it |hook5&gt;[shook House.]] 
 
-|hook6)[Lights fell over, Couch was airborne and Dash crashed into every small table and chair he was so excited. It became tradition he had to shake House every three turns of the |hook7&gt;[light in the sky.]] 
+|hook6)[Lights fell over, Couch was airborne and Dash crashed into every small table and chair. It became tradition he had to shake House every three turns of the |hook7&gt;[light in the sky.]] 
 
 |hook8)[Everyone loved him.] 
 
+&lt;/div&gt;
 [[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game2]]
 
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
-(click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1496,353" size="100,100">Until he started communicating |hook1&gt;[less and less.] 
+(click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1360,1032" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
+Until he started communicating |hook1&gt;[less and less.] 
 
-|hook2)[House stopped shaking. No one could play and he wouldn’t let anyone [touch his controllers.]&lt;hook3|] 
+|hook2)[He never acknowledged requests to play and touching his controllers was a one way ticket to nonstop Dance Dance Revolution for the next 24 hrs. 
 
-|hook4)[He started only turning on at night. Even Halo didn’t know what was wrong with him, and he hadn’t been ejected [since X awoke.]&lt;hook5|] 
+[At full volume.]&lt;hook3| House only shook then.] 
+
+|hook4)[His iridescent white power light only glowed at night. Halo hadn’t been ejected [since X awoke]&lt;hook5| and even he didn’t know what was wrong with him.] 
+
 
 |hook6)[One day TV asked him when they could turn off and go to sleep.] 
 
 |hook7)[X said nothing.] 
-
+&lt;/div&gt;
 [[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game3]]
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
-(click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="Game" position="1495,500" size="100,100">Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
-
+(click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="Game" position="1497.3333333333333,1033.3333333333333" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
+Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
 |hook2)[TV pressed him more and more, each time their volume [rising with the sound of the fans.]&lt;hook3|] 
-|hook4)[Until they tried to shut themselves down out of [frustration.]&lt;hook5|] 
-|hook6)[But X wouldn’t let them.] 
-|hook7)[He even lowered their volume. [TV started to panic.]&lt;hook8|] 
-|hook9)[Until they suddenly went silent.] 
 
+|hook4)[Until they tried to shut [themselves down.]&lt;hook5|] 
+|hook6)[But X wouldn’t let them.] 
+
+|hook7)[He just slowly lowered their volume. [TV started flickering]&lt;hook8| through channels and static fuzz while emitting high pitched noises and cries.] 
+
+|hook9)[Until they suddenly fell silent.] 
+&lt;/div&gt;
 [[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game4]]
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
 (click: ?hook6)[(show:?hook7)]
-(click: ?hook8)[(show:?hook9)]</tw-passagedata><tw-passagedata pid="27" name="Toy Train" tags="Train" position="1357,1023" size="100,100">
+(click: ?hook8)[(show:?hook9)]</tw-passagedata><tw-passagedata pid="27" name="Toy Train" tags="Train" position="250.33333333333326,1023" size="100,100">
 &lt;div class= &quot;scrollleft&quot;&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;left&quot; scrollamount=&quot;10&quot;&gt;
-&lt;div class= &quot;scrollfont&quot;&gt;and no one has come to play in a long time i miss playing but i but dont remember playing ever but i know that’s what im supposed to do but no one plays only dash but he chews me sometimes and it hurts but the other toys are like me and theyre sad no one with play with them so we try to play with each other and that was fun but now were bored and we explored all of house and they said we found everything already but in the basement there was a toy named barbie and she was all alone but then we found her and she told us her name was lauren so now i have a new friend named lauren and there was also a lot of cool people in the basement like box and bin and theyre my friends and also washer and dryer and they think theyre my grandma and grandpa but they dont look like me but maybe i dont know and then we went upstairs and there was bed and dan but he didnt talk much cause bed told us his mouth was full of clothes and he was angry all the time but i don&#39;t know why im just sad all the time because no one wants to play and i already asked everyone and they played for a little while but now they dont want to play so i want to leave and i want to leave house and go to another house and find another family that wants to play with me
+&lt;div class= &quot;scrollfont&quot;&gt;and no one has come to play in a long time i miss playing but i but dont remember playing ever but i know that’s what im supposed to do but no one plays only dash but he leaves bite marks sometimes and it hurts but racecar and robot and bear and dolly and lego and truck and blocks and tractor are like me and theyre sad no one with play with them so we try to play with each other but some are twice the size of train and some dont move and some are broken so we just sit and rot but we explored all of house and in the basement there was a toy named barb and she said she was looking for her friend ken so we found him stuck in a big box 40 feet off the ground but firetruck got him so she told us she would be our friend and she played for a day but now she is always with ken upstairs and they close door so we cant play but in the basement there was walter and dryden and they think theyre my grandpas but they dont look like me im not that big or white or loud or shiny and upstairs there was beatris and drayson but he didnt talk much cause beatris told us his mouth was full of clothes and his joints ached and rubbed but beatris let us go underneath her and hide and play but i cant go upstairs a lot cause its too high so im just sad because no one wants to play and i already asked everyone and they played for a little while but now they say they&#39;re tired of playing so they dont want to play so i want to leave i want to leave house and go to another house and find another friend that wants to play with me and wont get tired
 &lt;/div&gt;
 &lt;/marque&gt;
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="28" name="Rug" tags="Rug" position="1023,73" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
-</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="couch" position="265,1022" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
-
+</tw-passagedata><tw-passagedata pid="28" name="Rug" tags="Rug" position="1493,118" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
+</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="Couch" position="1495,539" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:left;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
+&lt;img src=&quot;assets/Couch.png&quot; alt=&quot;Couch&quot; id=&quot;couchBg&quot;/&gt;
 (click-replace: ?hook1)[(show:?hook2)]
 (click-replace: ?hook2)[(show:?hook3)]
 (click-replace: ?hook3)[(show:?hook4)]
@@ -4473,7 +4521,7 @@ Silverware&#39;s members:
 (click-replace: ?hook34)[(show:?hook35)]
 (click-replace: ?hook35)[(show:?hook36)]
 (click-replace: ?hook36)[(show:?hook37)]
-(click-replace: ?hook37)[(live: 0.5s)[(either: &quot;Will someone sit?&quot;, 
+(click-replace: ?hook37)[(live: 0.4s)[(either: &quot;Will someone sit?&quot;, 
 &quot;Cushions too firm?&quot;, 
 &quot;Arms too low?&quot;,
 &quot;Where did every person go?&quot;,
@@ -4510,7 +4558,8 @@ Silverware&#39;s members:
 &quot;Sit with me?&quot;,
 &quot;Will it ever be the same?&quot;,
 &quot;Will anyone love me?&quot;)
-]]</tw-passagedata><tw-passagedata pid="30" name="Toaster" tags="" position="403,1025" size="100,100">&lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount=&quot;25&quot; onmousedown=&quot;this.stop();&quot; onmouseup=&quot;this.start();&quot;&gt;
+]]</tw-passagedata><tw-passagedata pid="30" name="Toaster" tags="Toaster" position="412.66666666666663,1023.3333333333334" size="100,100">&lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount=&quot;25&quot; onmousedown=&quot;this.stop();&quot; onmouseup=&quot;this.start();&quot;&gt;
+&lt;div class=&quot;toaster&quot;&gt;
 i woke up first. 
  
  ==&gt;   
@@ -4617,27 +4666,29 @@ don’t know what mars is.
 ==&gt; 
  
 BUT I’M GOING.
-
-&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="31" name="Game4" tags="Game" position="1495,650" size="100,100">No one has heard from TV in [days.]&lt;hook1| 
+&lt;/div&gt;
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="31" name="Game4" tags="Game" position="1499,1178" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
+No one has heard from TV in [hours.]&lt;hook1| 
 |hook2)[And X won’t even speak.] 
-|hook3)[Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  |hook4&gt;[Beep says she can smell smoke almost all the time.]] 
+|hook3)[Dash sniffed him and burnt his nose. Halo has been playing for the last 86 hours and House reaks of melted plastic.  |hook4&gt;[Beep says she can smell smoke.]]
+
 |hook5)[No one knows what to do.] 
 |hook6)[Please help us.] 
-
-[[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game5]]
+&lt;/div&gt;
+&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook2)[(show:?hook3)]
 (click: ?hook4)[(show:?hook5)]
 (click: ?hook5)[(show:?hook6)]
 (click: ?hook6)[(go-to: &quot;Game5&quot;)]
-
-</tw-passagedata><tw-passagedata pid="32" name="Game5" tags="Gameover" position="1499,781" size="100,100">=&gt;&lt;=
+</tw-passagedata><tw-passagedata pid="32" name="Game5" tags="Gameover" position="1499,1326" size="100,100">=&gt;&lt;=
+&lt;div class=&quot;gameover&quot;&gt;
 GAME OVER!
-&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;</tw-passagedata><tw-passagedata pid="33" name="Authors" tags="main" position="1098,501" size="100,100">Authors:
+&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;</tw-passagedata><tw-passagedata pid="33" name="Authors" tags="main" position="933.0000000000001,100.99999999999997" size="100,100">Authors:
 * Abby Bratton
 * Alexis Halbur
 * Jonathan Holl
-WARNING: the light switch lexia contains flashing lights. Viewer discretion is advised</tw-passagedata><tw-passagedata pid="34" name="Clock" tags="clock" position="529.6666666666666,570" size="100,100">&lt;img src=&quot;assets/transparent clock.png&quot; alt=&quot;clock&quot; id=&quot;clockLexia&quot;/&gt;</tw-passagedata></tw-storydata>
+WARNING: the light switch lexia contains flashing lights. Viewer discretion is advised</tw-passagedata><tw-passagedata pid="34" name="Clock" tags="clock" position="1164.0000000000002,98.33333333333326" size="100,100">&lt;img src=&quot;assets/transparent clock.png&quot; alt=&quot;clock&quot; id=&quot;clockLexia&quot;/&gt;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
