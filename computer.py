@@ -114,6 +114,7 @@ def main():
     positiveInteraction(dog, fish)
 
     establishCommunication(toyBear, toyElephant)
+    
     positiveInteraction(phone, computer)
 
     xbox = wake("Xbox")
@@ -135,6 +136,7 @@ def main():
     dogMomMug = wake("Dog Mom Mug")
     cups.append(dogMomMug)
     
+    positiveInteraction(dog, dogPlushDinosaur)
     positiveInteraction(dog, fish)
 
     establishCommunication(xbox, guitarHero5XboxGame)
@@ -166,20 +168,29 @@ def main():
 
     bentMetalStraw = wake("Bent Metal Straw")
 
+    negativeInteraction(xbox, phone)
+
     establishCommunication(toyTrain, toyBear)
     establishCommunication(toyBlanket, toyElephant)
     establishCommunication(toyBlanket, dogPlushDinosaur)
+    
+    positiveInteraction(computer, xbox)
+
     establishCommunication(toyBear, toyBlanket)
 
     wineGlass1 = wake("Wine Glass 1")
     cups.append(wineGlass1)
 
     establishCommunication(wineGlass0, wineGlass1)
+    establishCommunication(dog, toyElephant)
     establishCommunication(toyTrain, toyBlanket)
 
     UNDMug = wake("University of Notre Dame Mug")
     cups.append(UNDMug)
     justDance2014XboxGame = wake("Just Dance 2014 Xbox Game")
+    
+    establishCommunication(dog, toyBear)
+
     minecraftXboxGame = wake("Minecraft Xbox Game")
     dogAlligatorToy = wake("Dog Alligator Toy")
 
@@ -203,9 +214,12 @@ def main():
 
     establishCommunication(guitarHero5XboxGame, minecraftXboxGame)
     establishCommunication(guitarHeroSmashHitsXboxGame, justDance2014XboxGame)
+    establishCommunication(dog, toyTrain)
     
     starWarsMug = wake("Star Wars Mug")
     cups.append(starWarsMug)
+
+    negativeInteraction(dog, dogPlushDinosaur)
     
     establishCommunication(xbox, minecraftXboxGame)
     establishCommunication(wineGlass1, wineGlass2)
@@ -220,6 +234,7 @@ def main():
     establishCommunication(dogMomMug, UNDMug)
     establishCommunication(wineGlass2, starWarsMug)
     establishCommunication(xbox, GTAVXboxGame)
+    establishCommunication(dog, toyBlanket)
     establishCommunication(guitarHeroSmashHitsXboxGame, GTAVXboxGame)
 
     xboxController1 = wake("Xbox Controller 1")
@@ -234,6 +249,9 @@ def main():
 
     establishCommunication(xboxController0, xboxController1)
     establishCommunication(toyBear, dogAlligatorToy)
+    
+    negativeInteraction(xbox, computer)
+    
     establishCommunication(wineGlass0, wineGlass3)
     establishCommunication(guitarHeroSmashHitsXboxGame, guitarHeroWorldTourXboxGame)
     establishCommunication(wineGlass2, stemlessWineGlass0)
@@ -244,9 +262,14 @@ def main():
     establishCommunication(tv, cableBox)
     establishCommunication(UNDMug, starWarsMug)
     establishCommunication(justDance2014XboxGame, minecraftXboxGame)
+
+    positiveInteraction(toyElephant, dogPlushDinosaur)
+    
     establishCommunication(wineGlass1, wineGlass3)
     establishCommunication(xbox, guitarHeroWorldTourXboxGame)
 
+    negativeInteraction(dog, dogPlushDinosaur)
+    
     dallasMug = wake("Dallas Mug")
     cups.append(dallasMug)
     
@@ -287,6 +310,8 @@ def main():
 
     fallout4XboxGame = wake("Fallout 4 Xbox Game")
 
+    negativeInteraction(xbox, phone)
+    
     establishCommunication(tv, xboxController0)
     establishCommunication(toyBear, dogPlushCarrot)
     establishCommunication(tv, xboxController1)
@@ -318,6 +343,7 @@ def main():
 
     establishCommunication(wineGlass1, stemlessWineGlass1)
     establishCommunication(toyTrain, dogPlushCarrot)
+    establishCommunication(dog, dogPlushMonkey)
     establishCommunication(callOfDutyMW3XboxGame, fallout4XboxGame)
     
     keurig = wake("Keurig")
@@ -337,6 +363,7 @@ def main():
     establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyMW3XboxGame)
     establishCommunication(toyBlanket, dogBlanket)
     establishCommunication(dogAlligatorToy, dogPlushMonkey)
+    establishCommunication(dog, dogBlanket)
 
     toyComm = []
     for connection in dogPlushDinosaur.connections.keys():
@@ -365,7 +392,13 @@ def main():
 
     establishCommunication(dogMomMug, leechLakeMug)
     establishCommunication(toyBlanket, dogPlushCarrot)
+    
+    positiveInteraction(computer, xbox)
+    
     establishCommunication(dogAlligatorToy, dogBlanket)
+    
+    positiveInteraction(dogPlushDinosaur, toyElephant)
+    
     establishCommunication(xboxController0, fallout4XboxGame)
     establishCommunication(UNDMug, leechLakeMug)
     establishCommunication(minecraftXboxGame, fallout4XboxGame)
@@ -374,8 +407,14 @@ def main():
     
     establishCommunication(toyTrain, dogPlushMonkey)
     establishCommunication(starWarsMug, dallasMug)
+    
+    negativeInteraction(xbox, phone)
+    
     establishCommunication(wineGlass2, stemlessWineGlass3)
     establishCommunication(wineGlass1, stemlessWineGlass2)
+    
+    positiveInteraction(toyBear, toyElephant)
+    
     establishCommunication(dogPlushCarrot, dogBlanket)
 
     dogDuraforce = wake("Duraforce")
@@ -387,12 +426,17 @@ def main():
     halo5XboxGame = wake("Halo 5 Xbox Game")
 
     establishCommunication(toyBlanket, dogPlushMonkey)
+    
+    positiveInteraction(dogPlushDinosaur, dog)
+    
     establishCommunication(minecraftXboxGame, maddenXboxGame)
     establishCommunication(dogPlushMonkey, dogDuraforce)
+    establishCommunication(dog, dogDuraforce)
 
     dogDuraforce.joinCommunity("Toys")
 
     establishCommunication(xbox, halo5XboxGame)
+    establishCommunication(dog, dogPlushCarrot)
     establishCommunication(justDance2014XboxGame, callOfDutyMW3XboxGame)
     
     tvRemote = wake("TV Remote")
@@ -478,6 +522,9 @@ def main():
     establishCommunication(toyTrain, dogBlanket)
     establishCommunication(minecraftXboxGame, halo5XboxGame)
     establishCommunication(guitarHeroSmashHitsXboxGame, callOfDutyModernWarfare2XboxGame)
+    
+    negativeInteraction(dog, dogPlushDinosaur)
+    
     establishCommunication(guitarHero5XboxGame, seaofThievesXboxGame)
     establishCommunication(dogBlanket, dogDuraforce)
     establishCommunication(guitarHeroSmashHitsXboxGame, seaofThievesXboxGame)
@@ -505,6 +552,7 @@ def main():
     establishCommunication(toyBear, dogDuraforce)
     establishCommunication(wineGlass3, stemlessWineGlass3)
     establishCommunication(toyTrain, dogKong)
+    establishCommunication(dog, dogRope)
     establishCommunication(xboxController0, seaofThievesXboxGame)
     establishCommunication(guitarHero5XboxGame, legoStarWarsIIXboxGame)
     
@@ -514,7 +562,14 @@ def main():
 
     establishCommunication(xboxController0, legoStarWarsIIXboxGame)
     establishCommunication(toyBlanket, dogKong)
+    
+    negativeInteraction(xbox, computer)
+    
     establishCommunication(minecraftXboxGame, callOfDutyModernWarfare2XboxGame)
+    establishCommunication(dog, dogKong)
+    
+    negativeInteraction(dogPlushDinosaur, dog)
+    
     establishCommunication(guitarHeroSmashHitsXboxGame, legoStarWarsIIXboxGame)
 
     negativeInteraction(xbox, tv)
@@ -564,6 +619,9 @@ def main():
     establishCommunication(justDance2014XboxGame, callOfDutyModernWarfare2XboxGame)
     establishCommunication(seaofThievesXboxGame, legoStarWarsIIXboxGame)
     establishCommunication(xboxController2, tvRemote)
+    
+    positiveInteraction(dogPlushDinosaur, toyElephant)
+    
     establishCommunication(mediumPot0, smallMixingBowl)
     establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyModernWarfare2XboxGame)
     
@@ -584,6 +642,9 @@ def main():
     
     establishCommunication(keurig, microwave)
     establishCommunication(callOfDutyModernWarfare2XboxGame, battlefield4XboxGame)
+    
+    positiveInteraction(toyElephant, toyBear)
+    
     establishCommunication(mediumMixingBowl, largeMixingBowl)
     establishCommunication(maddenXboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(loveseat, couch)
@@ -607,6 +668,9 @@ def main():
     bottleOpener = wake("Bottle Opener")
 
     establishCommunication(callOfDutyMW3XboxGame, legoStarWarsIIXboxGame)
+    
+    negativeInteraction(dog, dogPlushDinosaur)
+    
     establishCommunication(toyElephant, dogKong)
     establishCommunication(justDance2014XboxGame, seaofThievesXboxGame)
     establishCommunication(largeMixingBowl, mediumPot0)
@@ -632,6 +696,8 @@ def main():
     establishCommunication(microwave, crockpot)
     establishCommunication(callOfDutyMW3XboxGame, battlefield4XboxGame)
     establishCommunication(maddenXboxGame, legoStarWarsIIXboxGame)
+    
+    negativeInteraction(xbox, computer)
 
     oven = wake("Oven")
     mediumPot1 = wake("Medium Pot 1")
@@ -679,6 +745,9 @@ def main():
     establishCommunication(dogDuraforce, dogRope)
     establishCommunication(minecraftXboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(mediumMixingBowl, ladle)
+    
+    negativeInteraction(dog, dogPlushDinosaur)
+    
     establishCommunication(pastaMaker, fridge)
     
     ovenMitt0 = wake("Oven Mitt 0")
@@ -722,10 +791,15 @@ def main():
     dishDryingTowel0 = wake("Dish Drying Towel 0")
     
     establishCommunication(microwave, potholder0)
+    
+    negativeInteraction(xbox, computer)
+    
     establishCommunication(house, oven)
     establishCommunication(smallMixingBowl, mediumPot2)
     establishCommunication(throwPillow0, ovenMitt0)
     establishCommunication(pastaMaker, crockpot)
+    
+    negativeInteraction(dogPlushDinosaur, dog)
     
     dishSoap = wake("Dish Soap")
     largePot0 = wake("Large Pot 0")
@@ -800,6 +874,8 @@ def main():
     servingSpoon1 = wake("Serving Spoon 1")
     spoons.append(servingSpoon1)
 
+    positiveInteraction(dog, dogPlushDinosaur)
+    
     establishCommunication(whisk, spatula1)
     establishCommunication(microwave, chefsKnife)
     establishCommunication(throwPillow1, dishDryingTowel0)
@@ -808,6 +884,9 @@ def main():
 
     establishCommunication(couch, rug)
     establishCommunication(mediumMixingBowl, smallPot0)
+    
+    negativeInteraction(xbox, computer)
+    
     establishCommunication(justDance2014XboxGame, battlefield4XboxGame)
     
     largePot1 = wake("Large Pot 1")
@@ -817,6 +896,9 @@ def main():
     establishCommunication(microwave, pastaDryingRack)
     establishCommunication(throwPillow1, throwPillow3)
     establishCommunication(mediumMixingBowl, spatula1)
+    
+    positiveInteraction(toyElephant, dogPlushDinosaur)
+    
     establishCommunication(microwave, unicornWineStopper)
     establishCommunication(largeMixingBowl, largePot0)
 
@@ -864,6 +946,8 @@ def main():
     
     establishCommunication(throwPillow0, throwPillow3)
     establishCommunication(microwave, cherryWineStopper)
+    
+    positiveInteraction(dogPlushDinosaur, dog)
     
     tablespoon = wake("Tablespoon")
 
@@ -1046,8 +1130,7 @@ def main():
     establishCommunication(microwave, seasonalPlacemat1)
     establishCommunication(blanket0, placemat0)
 
-    placemat0.joinCommunity("Soft Things")
-    
+    placemat0.joinCommunity("Soft Things")    
     seasonalPlacemat2 = wake("Seasonal Placemat 2")
 
     establishCommunication(house, kitchenTrashcan)
@@ -1063,6 +1146,9 @@ def main():
 
     establishCommunication(microwave, gallonZiplockBags)
     establishCommunication(microwave, saranWrap)
+    
+    positiveInteraction(toyBear, toyElephant)
+    
     establishCommunication(seasonalPlacemat0, placemat0)
     establishCommunication(seasonalPlacemat2, placemat0)
 
@@ -1092,6 +1178,7 @@ def main():
     dunkinDonutsCoffeePod0.joinCommunity("Coffee")
 
     positiveInteraction(dog, fish)
+    negativeInteraction(xbox, computer)
 
     dunkinDonutsCoffeePod1 = wake("Dunkin' Donuts Coffee Pod 1")
     steakKnife1 = wake("Steak Knife 1")
@@ -1100,6 +1187,8 @@ def main():
     establishCommunication(microwave, placemat0)
     establishCommunication(loveseat, entertainmentCenter)
     establishCommunication(knifeBlock, steakKnife1)
+    
+    negativeInteraction(toyElephant, dogPlushDinosaur)
 
     steakKnife1.joinCommunity("Knife Block")
 
@@ -1126,6 +1215,7 @@ def main():
     dunkinDonutsCoffeePod2 = wake("Dunkin' Donuts Coffee Pod 2")
 
     positiveInteraction(dogBlanket, blanket0)
+    positiveInteraction(dogPlushDinosaur, dog)
 
     steakKnife2 = wake("Steak Knife 2")
     knives.append(steakKnife2)
@@ -1197,6 +1287,9 @@ def main():
     quarterTeaspoon = wake("Quarter Teaspoon")
 
     establishCommunication(tv, callOfDutyMW3XboxGame)
+    
+    positiveInteraction(dogPlushDinosaur, toyElephant)
+
     establishCommunication(keurig, dunkinDonutsCoffeePod4)
     establishCommunication(microwave, quarterTeaspoon)
     
@@ -1271,6 +1364,9 @@ def main():
     establishCommunication(house, chair3)
     
     utilityKnife = wake("Utility Knife")
+
+    positiveInteraction(dog, dogPlushDinosaur)
+    
     smallFork2 = wake("Small Fork 2")
     forks.append(smallFork2)
 
@@ -1298,12 +1394,16 @@ def main():
     dunkinDonutsCoffeePod8 = wake("Dunkin' Donuts Coffee Pod 8")
     
     negativeInteraction(xbox, guitarHero5XboxGame)
+    positiveInteraction(toyElephant, dogPlushDinosaur)
     
     largeFork8 = wake("Large Fork 8")
     forks.append(largeFork8)
     placemat3 = wake("Placemat 3")
 
     establishCommunication(microwave, placemat3)
+    
+    positiveInteraction(toyBear, toyElephant)
+    
     establishCommunication(placemat0, placemat2)
     establishCommunication(placemat1, placemat3)
 
@@ -1487,6 +1587,9 @@ def main():
     
     butterKnife7 = wake("Butter Knife 7")
     knives.append(butterKnife7)
+    
+    positiveInteraction(dog, dogPlushDinosaur)
+    
     butterKnife8 = wake("Butter Knife 8")
     knives.append(butterKnife8)
 
@@ -1630,6 +1733,7 @@ def main():
     cups.append(tallCup2)
     
     negativeInteraction(wineGlass1, wineGlass0)
+    positiveInteraction(dogPlushDinosaur, dog)
     
     establishCommunication(keurig, dunkinDonutsCoffeePod33)
     
