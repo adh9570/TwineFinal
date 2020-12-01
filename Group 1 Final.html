@@ -22,40 +22,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
 
 
-tw-sidebar {
-  position: fixed;
-  top: 0px;
-  bottom: 0px;
-  left: 0;
-  width: 250px; /* padding-right of the tw-story element. */
-  height: 10000px;
-  margin-top: 0; /* padding-top of the tw-story element. */
-  margin-bottom: 0;
-  padding: 0 0.5em 0.5em 0.5em;
-  text-align: center;
-  background-image: url('assets/Sidebar Image.png');
-  background-size: 75%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #FFF4CF;
-  
-}
-
-tw-sidebar tw-icon.redo {
-    display: none;
-}
-tw-sidebar tw-icon.undo {
-    display: none;
-}
-
-.sidebar{
-  position:fixed;	
-  top:50%;
-  bottom:50%;
-  
-}
-
-
 .image {
     display: block;
   	top: 250px;
@@ -70,17 +36,12 @@ tw-sidebar tw-icon.undo {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-tw-story[tags~="Rug"] {
-background-color: #EAA968;
-}
  
 .scrollleft{
   white-space: nowrap;
   position: relative;
   top: 600px;
   left: 200px
-  
 }
 
 .scrollfont {
@@ -89,6 +50,9 @@ background-color: #EAA968;
   color: #C60A57;
 }
   
+#sidebarHouse {
+  height: 120px;
+}
 
 #ctGrid {
    display: grid;
@@ -112,11 +76,34 @@ html.forkDarkGrey tw-story {
   color: black;
 }
 
-html.forkBlack tw-story {
+#house {
+  position: relative;
+  height: 78vh;
+  float: right;
 }
 
+#walls {
+  position: absolute;
+  height: 47vh;
+  top: 121px;
+  left: 143px;
+}
+
+
+tw-story[tags~="Rug"] {
+background-color: #EAA968;
+}
 tw-story[tags~="fork"] tw-passage {
-  font: 100% 'News Cycle', sans-serif;;
+  font: 100% 'News Cycle', sans-serif;
+}
+
+tw-story[tags~="kettle"] tw-passage {
+  background-image: url("assets/kettle.png");
+  width: 1100px;
+  height: 630px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
 }
 
 tw-story[tags~="coffee-table"] tw-passage {
@@ -127,48 +114,135 @@ tw-story[tags~="plant"] tw-passage {
   font: 100% 'Zeyada', cursive;
 }
 
-html.plant tw-story {
-  color: #4F7634;
-  background-color: #E3E0BC;
+#rug {
+  position: absolute;
+  height: 7vh;
+  top: 313px;
+  left: 643px;
 }
 
-html.house tw-story {
-  color: #F4F9B8;
-  background-color: #3C4B58;
+#dash {
+  position: absolute;
+  height: 8vh;
+  top: 370px;
+  left: 668px;
 }
 
-tw-story[tags~="house"] tw-passage {
-  font: 100% 'Cormorant Garamond', serif;
+#fork {
+  position: absolute;
+  height: 3vh;
+  top: 170px;
+  left: 251px;
 }
 
-html.water tw-story {
-  color: #C8F5F1;
-  background-color: #011045;
+#plant {
+  position: absolute;
+  height: 15vh;
+  top: 60px;
+  left: 668px;
 }
 
-tw-story[tags~="water"] tw-passage {
-  font: 100% 'Raleway Dots', cursive;
+#couch {
+  position: absolute;
+  height: 15vh;
+  top: 64px;
+  left: 771px;
 }
 
-html.fish tw-story {
-  color: #1F0627;
-  background-color: #90B8C2;
+#coffeeTable {
+  position: absolute;
+  height: 6vh;
+  top: 100px;
+  left: 788px;
 }
 
-tw-story[tags~="fish"] tw-passage {
-  font: 100% 'Nerko One', cursive;
+#computer {
+  position: absolute;
+  height: 4vh;
+  top: 39px;
+  left: 850px;
 }
 
-tw-story[tags~="kettle"] tw-passage {
-	background-image: url("assets/kettle.png");
-	width: 1100px;
-	height: 630px;
-	background-size: contain;
-	background-repeat: no-repeat;
-    text-align: center;
-    font: 100% 'Comfortaa', cursive;
+#stove {
+  position: absolute;
+  height: 17vh;
+  top: 278px;
+  left: 396px;
 }
 
+#fridge {
+  position: absolute;
+  height: 25vh;
+  top: 215px;
+  left: 152px;
+}
+
+#fish {
+  position: absolute;
+  height: 5vh;
+  top: -189px;
+  left: 817px;
+}
+
+#lightSwitch {
+  position: absolute;
+  height: 3vh;
+  top: -152px;
+  left: 530px;
+}
+
+#xbox {
+  position: absolute;
+  height: 3vh;
+  top: -140px;
+  left: 580px;
+}
+
+#water {
+  position: absolute;
+  height: 11vh;
+  top: -307px;
+  left: 314px;
+}
+
+#kettle {
+  position: absolute;
+  height: 9vh;
+  top: -322px;
+  left: 351px;
+}
+
+#microwave {
+  position: absolute;
+  height: 5vh;
+  top: 283px;
+  left: 252px;
+}
+
+#toaster {
+  position: absolute;
+  height: 10vh;
+  top: -465px;
+  left: 166px;
+}
+
+#train {
+  position: absolute;
+  height: 3vh;
+  top: -236px;
+  left: 541px;
+}
+
+#clock {
+  position: absolute;
+  height: 9vh;
+  top: 157px;
+  left: 688px;
+}
+
+html.main tw-story {
+  background-color: white;
+}
 tw-story[tags~="computer"] tw-passage {
   font: 100% 'Anonymous Pro', monospace;
   color: #5CF002;
@@ -216,21 +290,46 @@ tw-hook[name="hook"] {
   margin-top:85%;
 }
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="" position="799.3333333333333,501.00000000000006" size="100,100">&lt;!-- main page, put images here --&gt;
-[[Fork]]
-[[Coffee Table]] 
-[[Plant]]
-[[House]]
-[[Water]]
-[[Kettle]]
-[[Light Switch]]
-[[Fish]]
-[[Computer]] 
-[[Game Console]]
-[[Toaster]]
-[[Toy Train]]
-[[Rug]]
-[[Couch]]</tw-passagedata><tw-passagedata pid="2" name="Fork" tags="forkWhite fork" position="104,203" size="100,100">the. view. never! changes.
+
+div.slide-up2 {
+  height:200px;
+  overflow:hidden;
+}
+div.slide-up2 p {
+  animation-delay: 3s;
+  animation: 2s slide-up;
+  margin-top:100%;
+} 
+  
+tw-sidebar tw-icon.redo {
+	display: none;
+}
+tw-sidebar tw-icon.undo {
+	display: none;
+}
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="main" position="996,120" size="100,100">&lt;div&gt;[[&lt;img src=&quot;assets/House.png&quot; alt=&quot;House&quot; id=&quot;house&quot;/&gt;|House]]
+&lt;img src=&quot;assets/Walls.png&quot; alt=&quot;Walls&quot; id=&quot;walls&quot;/&gt;
+[[&lt;img src=&quot;assets/Rug.png&quot; alt=&quot;Rug&quot; id=&quot;rug&quot;/&gt;|Rug]]
+&lt;img src=&quot;assets/Dash.png&quot; alt=&quot;Dash&quot; id=&quot;dash&quot;/&gt;
+[[&lt;img src=&quot;assets/Fork.png&quot; alt=&quot;Fork&quot; id=&quot;fork&quot;/&gt;|Fork]]
+[[&lt;img src=&quot;assets/Plant.png&quot; alt=&quot;Plant&quot; id=&quot;plant&quot;/&gt;|Plant]]
+[[&lt;img src=&quot;assets/Couch.png&quot; alt=&quot;Couch&quot; id=&quot;couch&quot;/&gt;|Couch]]
+[[&lt;img src=&quot;assets/Coffee Table.png&quot; alt=&quot;Coffee Table&quot; id=&quot;coffeeTable&quot;&gt;|Coffee Table]]
+[[&lt;img src=&quot;assets/Computer.png&quot; alt=&quot;computer&quot; id=&quot;computer&quot;/&gt;|Computer]]
+&lt;img src=&quot;assets/Stove.png&quot; alt=&quot;stove&quot; id=&quot;stove&quot;/&gt;
+&lt;img src=&quot;assets/Fridge.png&quot; alt=&quot;Fridge&quot; id=&quot;fridge&quot;/&gt;
+[[&lt;img src=&quot;assets/Goldfish.png&quot; alt=&quot;Fish&quot; id=&quot;fish&quot;/&gt;|Fish]]
+[[&lt;img src=&quot;assets/Light Switch.png&quot; alt=&quot;Light Switch&quot; id=&quot;lightSwitch&quot;/&gt;|Light Switch]]
+[[&lt;img src=&quot;assets/Xbox.png&quot; alt=&quot;Xbox&quot; id=&quot;xbox&quot;/&gt;|Game Console]]
+[[&lt;img src=&quot;assets/Water.png&quot; alt=&quot;water&quot; id=&quot;water&quot;/&gt;|Water]]
+[[&lt;img src=&quot;assets/Kettle1.png&quot; alt=&quot;kettle&quot; id=&quot;kettle&quot;/&gt;|Kettle]]
+&lt;img src=&quot;assets/Microwave.png&quot; alt=&quot;microwave&quot; id=&quot;microwave&quot;/&gt;
+[[&lt;img src=&quot;assets/Toaster.png&quot; alt=&quot;toaster&quot; id=&quot;toaster&quot;/&gt;|Toaster]]
+[[&lt;img src=&quot;assets/Train.png&quot; alt=&quot;train&quot; id=&quot;train&quot;/&gt;|Toy Train]]
+&lt;img src=&quot;assets/Clock.png&quot; alt=&quot;clock&quot; id=&quot;clock&quot;/&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Fork" tags="forkWhite" position="99,52" size="100,100">the. view. never! changes.
 plain! plain! plain!
 all. i. ever. see. is. this. [[ceiling!]]
 they. could. have. 
@@ -393,7 +492,12 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
     (else-if: $count is 104)[(show: ?word103)]
 	(else:)[(stop:)]
 ]}	
-</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="799,9" size="100,100">(append: ?sidebar)[ [[go home|main]] ]
+</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="997,0" size="100,100">(append: ?sidebar)[ 
+
+
+
+
+[[&lt;img src=&quot;assets/Sidebar Image.png&quot; id=&quot;sidebarHouse&quot;/&gt;|main]] ]
 {
 (print: &quot;&lt;script&gt;$(&#39;html&#39;).removeClass(\)&lt;/script&gt;&quot;)
 (if: (passage:)&#39;s tags&#39;s length &gt; 0)[
@@ -602,19 +706,20 @@ TALKSWIMSWIMEATLOOK(link-show:&quot;DART&quot;,?dart)HIDE
 SWIMSWIMSURFACE(link-show: &quot;TALK&quot;,?talk)SWIM
 LOOK(link-show:&quot;RIPPLE&quot;,?ripple)DARTEAT(link-show: &quot;LOOK&quot;,?look)RIPPLE
 EATSWIMDART(link-show:&quot;HIDE&quot;,?hide)SWIMSWIM
-
 ==&gt;
-|swim)[Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
+|swim)[SWIM: Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
 
-|ripple)[The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
+|ripple)[RIPPLE: The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
 
-|wake)[For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
+|wake)[WAKE: For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
 
-|dart)[Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
+|dart)[DART: Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
 
-|hide)[The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
+|hide)[HIDE: The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
 
-|talk)[While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
+|talk)[TALK: While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
+
+|look)[LOOK: He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]
 
 |look)[He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]</tw-passagedata><tw-passagedata pid="23" name="Computer" tags="computer" position="599,1033" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount = &quot;100&quot; style=&quot;height:20em; color: #ffffff;&quot;&gt;
