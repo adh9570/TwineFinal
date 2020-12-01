@@ -42,7 +42,7 @@
 .scrollleft{
   white-space: nowrap;
   position: fixed;
-  top: 450px;
+  top: 850px;
   left: 200px
 }
 
@@ -72,7 +72,7 @@ tw-story[tags~="Train"] {
 .gameconsole {
   position: relative;
   font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
+  font-size: 20px;
   top: 100px;
   left:100px;
 }
@@ -80,7 +80,7 @@ tw-story[tags~="Train"] {
 .gameover {
   position: relative;
   font-family: 'Press Start 2P', cursive;
-  font-size: 50px;
+  font-size: 60px;
   color: #1a8a01;
   top: 150px;
   left:100px;
@@ -90,8 +90,8 @@ tw-story[tags~="Train"] {
   height: 277px;
   width: 600px;
   position: fixed;
-  top: 500px;
-  left: 750px;
+  top: 750px;
+  left: 1300px;
 	
 }
 
@@ -363,25 +363,26 @@ tw-story[tags~="Toaster"] {
 }
 
 .couch {
-  position: relative;
-  top: 800px;
-  left: 100px;
+  position: fixed;
+  top: 700px;
+  left: 1700px;
   font-family: "Comfortaa", cursive;
-  font-size: 60px;
+  font-size: 50px;
+  line-height: 1.6;
  
 }
 
 .couch tw-link, .enchantment-link { color: #662D91; }
 .couch tw-link:hover, .enchantment-link:hover { color: #FFEECC; }
 
-tw-story[tags~="couch"] {
+tw-story[tags~="Couch"] {
   background-image: url('assets/Couch2.png');
-  background-size: 100%;
-  background-size: contain;
+  background-size: 50%;
   background-repeat: no-repeat;
-  background-position: right;
+  background-attachment: absolute;
+  background-position: 1275px 100px;
   background-color: #FFB0DA;
-  color: #662D91;
+  color: #FFEECC;
 }
 
 
@@ -4396,7 +4397,10 @@ No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.]
 (click: ?hook5)[(show:?hook6)]
 (click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1360,1032" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
 Until he started communicating |hook1&gt;[less and less.] 
-|hook2)[He never acknowledged requests to play and touching his controllers was a one way ticket to nonstop Dance Dance Revolution for the next 24 hrs. [At full volume.]&lt;hook3| House only shook then.] 
+
+|hook2)[He never acknowledged requests to play and touching his controllers was a one way ticket to nonstop Dance Dance Revolution for the next 24 hrs. 
+
+[At full volume.]&lt;hook3| House only shook then.] 
 
 |hook4)[His iridescent white power light only glowed at night. Halo hadn’t been ejected [since X awoke]&lt;hook5| and even he didn’t know what was wrong with him.] 
 
@@ -4413,6 +4417,7 @@ Until he started communicating |hook1&gt;[less and less.]
 (click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="Game" position="1499,1030" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
 Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
 |hook2)[TV pressed him more and more, each time their volume [rising with the sound of the fans.]&lt;hook3|] 
+
 |hook4)[Until they tried to shut [themselves down.]&lt;hook5|] 
 |hook6)[But X wouldn’t let them.] 
 
@@ -4433,7 +4438,7 @@ Only the quiet whir of his fan got |hook1&gt;[louder and louder.]
 &lt;/marque&gt;
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="28" name="Rug" tags="Rug" position="1023,73" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
-</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="couch" position="915,1036" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="Couch" position="915,1034.3333333333333" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:left;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
 
 (click-replace: ?hook1)[(show:?hook2)]
 (click-replace: ?hook2)[(show:?hook3)]
@@ -4471,7 +4476,7 @@ Only the quiet whir of his fan got |hook1&gt;[louder and louder.]
 (click-replace: ?hook34)[(show:?hook35)]
 (click-replace: ?hook35)[(show:?hook36)]
 (click-replace: ?hook36)[(show:?hook37)]
-(click-replace: ?hook37)[(live: 0.5s)[(either: &quot;Will someone sit?&quot;, 
+(click-replace: ?hook37)[(live: 0.4s)[(either: &quot;Will someone sit?&quot;, 
 &quot;Cushions too firm?&quot;, 
 &quot;Arms too low?&quot;,
 &quot;Where did every person go?&quot;,
