@@ -52,7 +52,7 @@ background-color: #EAA968;
 }
   
 #sidebarHouse {
-  height: 50px;
+  height: 120px;
 }
 
 #ctGrid {
@@ -96,49 +96,49 @@ html.forkDarkGrey tw-story {
   position: absolute;
   height: 47vh;
   top: 121px;
-  left: 152px;
+  left: 143px;
 }
 
 #rug {
   position: absolute;
   height: 7vh;
   top: 313px;
-  left: 650px;
+  left: 643px;
 }
 
 #dash {
   position: absolute;
   height: 8vh;
   top: 370px;
-  left: 675px;
+  left: 668px;
 }
 
 #fork {
   position: absolute;
   height: 3vh;
   top: 170px;
-  left: 258px;
+  left: 251px;
 }
 
 #plant {
   position: absolute;
   height: 15vh;
   top: 60px;
-  left: 675px;
+  left: 668px;
 }
 
 #couch {
   position: absolute;
   height: 15vh;
   top: 64px;
-  left: 778px;
+  left: 771px;
 }
 
 #coffeeTable {
   position: absolute;
   height: 6vh;
   top: 100px;
-  left: 795px;
+  left: 788px;
 }
 
 #computer {
@@ -152,28 +152,77 @@ html.forkDarkGrey tw-story {
   position: absolute;
   height: 17vh;
   top: 278px;
-  left: 403px;
+  left: 396px;
 }
 
 #fridge {
   position: absolute;
   height: 25vh;
   top: 215px;
-  left: 159px;
+  left: 152px;
 }
 
 #fish {
   position: absolute;
   height: 5vh;
   top: -189px;
-  left: 824px;
+  left: 817px;
 }
 
 #lightSwitch {
   position: absolute;
   height: 3vh;
   top: -152px;
-  left: 537px;
+  left: 530px;
+}
+
+#xbox {
+  position: absolute;
+  height: 3vh;
+  top: -140px;
+  left: 580px;
+}
+
+#water {
+  position: absolute;
+  height: 11vh;
+  top: -307px;
+  left: 314px;
+}
+
+#kettle {
+  position: absolute;
+  height: 9vh;
+  top: -322px;
+  left: 351px;
+}
+
+#microwave {
+  position: absolute;
+  height: 5vh;
+  top: 283px;
+  left: 252px;
+}
+
+#toaster {
+  position: absolute;
+  height: 10vh;
+  top: -465px;
+  left: 166px;
+}
+
+#train {
+  position: absolute;
+  height: 3vh;
+  top: -236px;
+  left: 541px;
+}
+
+#clock {
+  position: absolute;
+  height: 9vh;
+  top: 157px;
+  left: 688px;
 }
 
 html.main tw-story {
@@ -232,9 +281,14 @@ div.slide-up2 p {
   animation-delay: 3s;
   animation: 2s slide-up;
   margin-top:100%;
+} 
   
-
-
+tw-sidebar tw-icon.redo {
+	display: none;
+}
+tw-sidebar tw-icon.undo {
+	display: none;
+}
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="main" position="996,120" size="100,100">&lt;div&gt;[[&lt;img src=&quot;assets/House.png&quot; alt=&quot;House&quot; id=&quot;house&quot;/&gt;|House]]
@@ -250,6 +304,13 @@ div.slide-up2 p {
 &lt;img src=&quot;assets/Fridge.png&quot; alt=&quot;Fridge&quot; id=&quot;fridge&quot;/&gt;
 [[&lt;img src=&quot;assets/Goldfish.png&quot; alt=&quot;Fish&quot; id=&quot;fish&quot;/&gt;|Fish]]
 [[&lt;img src=&quot;assets/Light Switch.png&quot; alt=&quot;Light Switch&quot; id=&quot;lightSwitch&quot;/&gt;|Light Switch]]
+[[&lt;img src=&quot;assets/Xbox.png&quot; alt=&quot;Xbox&quot; id=&quot;xbox&quot;/&gt;|Game Console]]
+[[&lt;img src=&quot;assets/Water.png&quot; alt=&quot;water&quot; id=&quot;water&quot;/&gt;|Water]]
+[[&lt;img src=&quot;assets/Kettle1.png&quot; alt=&quot;kettle&quot; id=&quot;kettle&quot;/&gt;|Kettle]]
+&lt;img src=&quot;assets/Microwave.png&quot; alt=&quot;microwave&quot; id=&quot;microwave&quot;/&gt;
+[[&lt;img src=&quot;assets/Toaster.png&quot; alt=&quot;toaster&quot; id=&quot;toaster&quot;/&gt;|Toaster]]
+[[&lt;img src=&quot;assets/Train.png&quot; alt=&quot;train&quot; id=&quot;train&quot;/&gt;|Toy Train]]
+&lt;img src=&quot;assets/Clock.png&quot; alt=&quot;clock&quot; id=&quot;clock&quot;/&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Fork" tags="forkWhite" position="99,52" size="100,100">the. view. never! changes.
 plain! plain! plain!
 all. i. ever. see. is. this. [[ceiling!]]
@@ -413,7 +474,12 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
     (else-if: $count is 104)[(show: ?word103)]
 	(else:)[(stop:)]
 ]}	
-</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="997,0" size="100,100">(append: ?sidebar)[ [[&lt;img src=&quot;assets/Sidebar Image.png&quot; id=&quot;sidebarHouse&quot;/&gt;|main]] ]
+</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="997,0" size="100,100">(append: ?sidebar)[ 
+
+
+
+
+[[&lt;img src=&quot;assets/Sidebar Image.png&quot; id=&quot;sidebarHouse&quot;/&gt;|main]] ]
 {
 (print: &quot;&lt;script&gt;$(&#39;html&#39;).removeClass(\)&lt;/script&gt;&quot;)
 (if: (passage:)&#39;s tags&#39;s length &gt; 0)[
@@ -4360,15 +4426,7 @@ Silverware&#39;s members:
 &quot;Sit with me?&quot;,
 &quot;Will it ever be the same?&quot;,
 &quot;Will anyone love me?&quot;)
-]]</tw-passagedata><tw-passagedata pid="31" name="Untitled Passage" tags="" position="689,239" size="100,100">
-&lt;!-- main page, put images here --&gt;
-[[Water]]
-[[Kettle]]
-[[Light Switch]]
-[[Game Console]]
-[[Toaster]]
-[[Toy Train]]
-</tw-passagedata></tw-storydata>
+]]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
