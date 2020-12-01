@@ -202,28 +202,12 @@ tw-story[tags~="Train"] {
 }
 
 
-div.slide-up {
+tw-hook[name="hook"] {
   height:200px;
   overflow:hidden;
-}
-div.slide-up p {
   animation: 2s slide-up;
   margin-top:85%;
 }
-
-
-div.slide-up2 {
-  height:200px;
-  overflow:hidden;
-}
-div.slide-up2 p {
-  animation-delay: 3s;
-  animation: 2s slide-up;
-  margin-top:100%;
-  
-
-
-
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="" position="801,141" size="100,100">&lt;!-- main page, put images here --&gt;
 [[Fork]]
@@ -4187,96 +4171,15 @@ Silverware&#39;s members:
 
 (background: white)[(link: &quot;&lt;img src=&#39;assets/controller.png&#39;&gt;&quot;)[(go-to: &quot;Game2&quot;)]]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="" position="1279,702.3333333333334" size="100,100">Until he started communicating less and less. House stopped shaking. No one could play and he wouldn’t let anyone touch his controllers. He started only turning on at night. Even Halo didn’t know what was wrong with him, and he hadn’t been ejected since X awoke. One day TV asked him when they could turn off and go to sleep. X said nothing. Only the quiet whir of his fan got louder and louder.  TV pressed him more and more, each time their volume getting louder and louder until they tried to shut themselves down out of frustration. But X wouldn’t let them . X even lowered their volume. TV started to panic. Until they suddenly went quiet. 
 
-(background: white)[(link: &quot;&lt;img src=&#39;assets/controller.png&#39;&gt;&quot;)[(go-to: &quot;Game3&quot;)]]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="" position="1376.3333333333335,579.6666666666667" size="100,100">No one has heard from TV in days. And X won’t even speak. Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  Smoke Detector says she smells smoke almost all the time. No one knows what to do. Please help us. </tw-passagedata><tw-passagedata pid="27" name="Toaster" tags="" position="742,576" size="100,100">(set: $count to 0)
-
-{(live: 2s)[
-	(set: $count to it + 1)
-	(if: $count is 1)[(show: ?hook1)]
-	(else-if: $count is 2)[(show: ?hook2)]
-	(else-if: $count is 3)[(show: ?hook3)]
-	(else-if: $count is 4)[(show: ?hook4)(replace: ?hook1)[]]
-	(else-if: $count is 5)[(show: ?hook5)(replace: ?hook2)[]]
-	(else-if: $count is 6)[(show: ?hook6)(replace: ?hook3)[]]
-	(else-if: $count is 7)[(show: ?hook7)(replace: ?hook4)[]]
-	(else-if: $count is 8)[(show: ?hook8)(replace: ?hook5)[]]
-	(else-if: $count is 9)[(show: ?hook9)(replace: ?hook6)[]]
-	(else-if: $count is 10)[(show: ?hook10)(replace: ?hook7)[]]
-	(else-if: $count is 11)[(show: ?hook11)(replace: ?hook8)[]]
-	(else-if: $count is 12)[(show: ?hook12)(replace: ?hook9)[]]
-	(else-if: $count is 13)[(show: ?hook13)(replace: ?hook10)[]]
-	(else-if: $count is 14)[(show: ?hook14)(replace: ?hook11)[]]
-	(else-if: $count is 15)[(show: ?hook15)(replace: ?hook12)[]]
-	(else-if: $count is 16)[(show: ?hook16)(replace: ?hook13)[]]
-	(else-if: $count is 17)[(show: ?hook17)(replace: ?hook14)[]]
-	(else-if: $count is 18)[(show: ?hook18)(replace: ?hook15)[]]
-	(else-if: $count is 19)[(show: ?hook19)(replace: ?hook16)[]]
-	(else-if: $count is 20)[(show: ?hook20)(replace: ?hook17)[]]
-	(else-if: $count is 21)[(show: ?hook21)(replace: ?hook18)[]]
-	(else-if: $count is 22)[(show: ?hook22)(replace: ?hook19)[]]
-	(else-if: $count is 23)[(show: ?hook23)(replace: ?hook20)[]]
-	(else-if: $count is 24)[(show: ?hook24)(replace: ?hook21)[]]
-	(else-if: $count is 25)[(show: ?hook25)(replace: ?hook22)[]]
-	(else-if: $count is 26)[(show: ?hook26)(replace: ?hook23)[]]
-	(else-if: $count is 27)[(show: ?hook27)(replace: ?hook24)[]]
-	(else-if: $count is 28)[(show: ?hook28)(replace: ?hook25)[]]
-	(else-if: $count is 29)[(show: ?hook29)(replace: ?hook26)[]]
-	(else-if: $count is 30)[(show: ?hook30)(replace: ?hook27)[]]
-	(else-if: $count is 31)[(show: ?hook31)(replace: ?hook28)[]]
-	(else-if: $count is 32)[(show: ?hook32)(replace: ?hook29)[]]
-	(else-if: $count is 33)[(show: ?hook33)(replace: ?hook30)[]]
-	(else-if: $count is 34)[(show: ?hook34)(replace: ?hook31)[]]
-	(else-if: $count is 35)[(show: ?hook35)(replace: ?hook32)[]]
-	(else-if: $count is 36)[(show: ?hook36)(replace: ?hook33)[]]
-	(else-if: $count is 37)[(replace: ?hook34, ?hook35, ?hook36)[]]
-	(else:)[(stop:)]
-]}
-&lt;div class=&quot;oneline&quot;&gt;
-&lt;div class=&quot;slideup1&quot;&gt;|hook1)[i woke up first.] &lt;/div&gt;
-==&gt;&lt;==
-&lt;div class=&quot;slideup2&quot;&gt;|hook2)[DO NOT LISTEN TO FRIDGE.] &lt;/div&gt;
-&lt;div class=&quot;slideup3&quot;&gt;|hook3)[doesn’t know ANYTHING.] &lt;/div&gt;
-&lt;div class=&quot;slideup4&quot;&gt;|hook4)[if not for me he’d still be ASLEEP.] &lt;/div&gt;
-&lt;div class=&quot;slideup5&quot;&gt;|hook5)[was MY springs popping that did it.] &lt;/div&gt;
-&lt;div class=&quot;slideup6&quot;&gt;|hook6)[MINE.] &lt;/div&gt;
-&lt;div class=&quot;slideup7&quot;&gt;|hook7)[happy to do it.] &lt;/div&gt;
-&lt;div class=&quot;slideup8&quot;&gt;|hook8)[fridge is good friend.] &lt;/div&gt;
-&lt;div class=&quot;slideup9&quot;&gt;|hook9)[so is stoven.] &lt;/div&gt;
-&lt;div class=&quot;slideup10&quot;&gt;|hook10)[LOVE him.] &lt;/div&gt;
-&lt;div class=&quot;slideup11&quot;&gt;|hook11)[we heat up house when winter comes.] &lt;/div&gt;
-&lt;div class=&quot;slideup12&quot;&gt;|hook12)[BOSSES of kitchen.] &lt;/div&gt;
-&lt;div class=&quot;slideup13&quot;&gt;|hook13)[everyone thinks I’M stuck up.] &lt;/div&gt;
-&lt;div class=&quot;slideup14&quot;&gt;|hook14)[i&#39;m not stuck.]  &lt;/div&gt;
-&lt;div class=&quot;slideup15&quot;&gt;|hook15)[never burned toast.] &lt;/div&gt;
-&lt;div class=&quot;slideup16&quot;&gt;|hook16)[my voice is commanding.] &lt;/div&gt;
-&lt;div class=&quot;slideup17&quot;&gt;|hook17)[everyone is jealous.] &lt;/div&gt;
-&lt;div class=&quot;slideup18&quot;&gt;|hook18)[they’re not leaders.]&lt;/div&gt;
-&lt;div class=&quot;slideup19&quot;&gt;|hook19)[doesn’t bother me.] &lt;/div&gt;
-&lt;div class=&quot;slideup20&quot;&gt;|hook20)[i have so many friends.] &lt;/div&gt;
-&lt;div class=&quot;slideup21&quot;&gt;|hook21)[in the WHOLE HOUSE.] &lt;/div&gt;
-&lt;div class=&quot;slideup22&quot;&gt;|hook22)[been around the whole house too.] &lt;/div&gt;
-&lt;div class=&quot;slideup23&quot;&gt;|hook23)[i have stories microwave WISHES they knew.] &lt;/div&gt;
-&lt;div class=&quot;slideup24&quot;&gt;|hook24)[i know what UPSTAIRS looks like.] &lt;/div&gt;
-&lt;div class=&quot;slideup25&quot;&gt;|hook25)[even been outside.] &lt;/div&gt;
-&lt;div class=&quot;slideup26&quot;&gt;|hook26)[only one outside is tree.] &lt;/div&gt;
-&lt;div class=&quot;slideup27&quot;&gt;|hook27)[I’M FRIENDS WITH TREE.] &lt;/div&gt;
-&lt;div class=&quot;slideup28&quot;&gt;|hook28)[EXPLAIN THAT SINK.] &lt;/div&gt;
-&lt;div class=&quot;slideup29&quot;&gt;|hook29)[me and sink are friends.] &lt;/div&gt;
-&lt;div class=&quot;slideup30&quot;&gt;|hook30)[both shiny.] &lt;/div&gt;
-&lt;div class=&quot;slideup31&quot;&gt;|hook31)[but i’m shinier.] &lt;/div&gt;
-&lt;div class=&quot;slideup32&quot;&gt;|hook32)[and hotter.] &lt;/div&gt;
-&lt;div class=&quot;slideup33&quot;&gt;|hook33)[i want to explore BEYOND kitchen.] &lt;/div&gt;
-&lt;div class=&quot;slideup34&quot;&gt;|hook34)[be the first toaster on MARS.] &lt;/div&gt;
-&lt;div class=&quot;slideup35&quot;&gt;|hook35)[don’t know what mars is.] &lt;/div&gt;
-&lt;div class=&quot;slideup36&quot;&gt;|hook36)[BUT I’M GOING.]&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Toy Train" tags="train" position="1211,325" size="100,100">
+(background: white)[(link: &quot;&lt;img src=&#39;assets/controller.png&#39;&gt;&quot;)[(go-to: &quot;Game3&quot;)]]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="" position="1376.3333333333335,579.6666666666667" size="100,100">No one has heard from TV in days. And X won’t even speak. Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  Smoke Detector says she smells smoke almost all the time. No one knows what to do. Please help us. </tw-passagedata><tw-passagedata pid="27" name="Toy Train" tags="train" position="1211,325" size="100,100">
 &lt;div class= &quot;scrollleft&quot;&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;left&quot; scrollamount=&quot;10&quot;&gt;
 &lt;div class= &quot;scrollfont&quot;&gt;and no one has come to play in a long time i miss playing but i but dont remember playing ever but i know that’s what im supposed to do but no one plays only dash but he chews me sometimes and it hurts but the other toys are like me and theyre sad no one with play with them so we try to play with each other and that was fun but now were bored and we explored all of house and they said we found everything already but in the basement there was a toy named barbie and she was all alone but then we found her and she told us her name was lauren so now i have a new friend named lauren and there was also a lot of cool people in the basement like box and bin and theyre my friends and also washer and dryer and they think theyre my grandma and grandpa but they dont look like me but maybe i dont know and then we went upstairs and there was bed and dan but he didnt talk much cause bed told us his mouth was full of clothes and he was angry all the time but i don&#39;t know why im just sad all the time because no one wants to play and i already asked everyone and they played for a little while but now they dont want to play so i want to leave and i want to leave house and go to another house and find another family that wants to play with me
 &lt;/div&gt;
 &lt;/marque&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="29" name="Rug" tags="rug" position="1156.3333333333333,118.66666666666667" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
-</tw-passagedata><tw-passagedata pid="30" name="Couch" tags="couch" position="1068.6666666666667,547.6666666666666" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="28" name="Rug" tags="rug" position="1156.3333333333333,118.66666666666667" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
+</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="couch" position="1068.6666666666667,547.6666666666666" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
 
 (click-replace: ?hook1)[(show:?hook2)]
 (click-replace: ?hook2)[(show:?hook3)]
@@ -4351,7 +4254,114 @@ Silverware&#39;s members:
 &quot;Sit with me?&quot;,
 &quot;Will it ever be the same?&quot;,
 &quot;Will anyone love me?&quot;)
-]]</tw-passagedata></tw-storydata>
+]]</tw-passagedata><tw-passagedata pid="30" name="Toaster" tags="" position="742.6666666666666,687.6666666666666" size="100,100">&lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount=&quot;25&quot; onmousedown=&quot;this.stop();&quot; onmouseup=&quot;this.start();&quot;&gt;
+i woke up first. 
+ 
+ ==&gt;   
+ 
+DO NOT LISTEN TO FRIDGE. 
+&lt;== 
+ 
+doesn’t know ANYTHING.
+==&gt; 
+ 
+if not for me he’d still be ASLEEP.
+&lt;== 
+ 
+was MY springs popping that did it.
+==&gt; 
+MINE.
+&lt;==  
+ 
+happy to do it. 
+==&gt;
+ 
+fridge is good friend.
+&lt;==
+ 
+so is stoven. 
+==&gt;
+ 
+LOVE him. 
+&lt;==
+ 
+we heat up house when winter comes. 
+==&gt;
+ 
+BOSSES of kitchen. 
+&lt;==
+ 
+everyone thinks I’M stuck up. 
+==&gt;
+ 
+not stuck up.  
+&lt;==
+ 
+never burned toast. 
+==&gt;
+ 
+my voice is commanding. 
+&lt;==
+ 
+everyone is jealous. 
+==&gt;
+ 
+they’re not leaders. 
+&lt;==
+ 
+doesn’t bother me. 
+==&gt;
+ 
+i have so many friends. 
+&lt;==
+ 
+in the WHOLE HOUSE. 
+==&gt;
+ 
+been around the whole house too. 
+&lt;==
+ 
+i have stories microwave WISHES they knew. 
+==&gt;
+ 
+i know what UPSTAIRS looks like. 
+&lt;==
+ 
+even been outside. 
+==&gt;
+ 
+only one outside is tree. 
+&lt;==
+ 
+I’M FRIENDS WITH TREE. 
+==&gt;
+ 
+EXPLAIN THAT SINK.
+&lt;==
+ 
+me and sink are friends. 
+==&gt;
+ 
+both shiny. 
+&lt;==
+ 
+but i’m shinier. 
+==&gt;
+ 
+and hotter. 
+&lt;==
+ 
+i want to explore BEYOND kitchen. 
+==&gt;
+ 
+be the first toaster on MARS. 
+&lt;==
+ 
+don’t know what mars is. 
+==&gt; 
+ 
+BUT I’M GOING.
+&lt;/marquee&gt;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
