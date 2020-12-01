@@ -11,23 +11,16 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Group 1 Final" startnode="1" creator="Twine" creator-version="2.3.9" ifid="836FAC98-F8D3-4C0C-8387-C03E799424B1" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#sidebarHouse {
-  height: 30px;
-}
+<tw-storydata name="Group 1 Final" startnode="1" creator="Twine" creator-version="2.3.9" ifid="836FAC98-F8D3-4C0C-8387-C03E799424B1" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 #ctGrid {
    display: grid;
    grid-template-columns: auto auto auto auto;
    width: 100%;
-   text-align: center;
-}
-
-tw-story[tags~="kettle"] tw-passage {
-	background-image: url("assets/kettle.png");
-	width: 1100px;
-	height: 630px;
-	background-size: contain;
-	background-repeat: no-repeat;
    text-align: center;
 }
 
@@ -46,6 +39,10 @@ html.forkDarkGrey tw-story {
   color: black;
 }
 
+#sidebarHouse {
+  height: 30px;
+}
+
 #house {
   position: relative;
   height: 78vh;
@@ -61,6 +58,52 @@ html.forkDarkGrey tw-story {
 
 html.main tw-story {
   background-color: white;
+}
+
+tw-story[tags~="plant"] tw-passage {
+  font: 100% 'Zeyada', cursive;
+}
+
+html.plant tw-story {
+  color: #4F7634;
+  background-color: #E3E0BC;
+}
+
+html.house tw-story {
+  color: #F4F9B8;
+  background-color: #3C4B58;
+}
+
+tw-story[tags~="house"] tw-passage {
+  font: 100% 'Cormorant Garamond', serif;
+}
+
+html.water tw-story {
+  color: #C8F5F1;
+  background-color: #011045;
+}
+
+tw-story[tags~="water"] tw-passage {
+  font: 100% 'Raleway Dots', cursive;
+}
+
+html.fish tw-story {
+  color: #1F0627;
+  background-color: #90B8C2;
+}
+
+tw-story[tags~="fish"] tw-passage {
+  font: 100% 'Nerko One', cursive;
+}
+
+tw-story[tags~="kettle"] tw-passage {
+	background-image: url("assets/kettle.png");
+	width: 1100px;
+	height: 630px;
+	background-size: contain;
+	background-repeat: no-repeat;
+    text-align: center;
+    font: 100% 'Comfortaa', cursive;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="main" tags="main" position="996,120" size="100,100">&lt;div&gt;
 &lt;img src=&quot;assets/House.png&quot; alt=&quot;House&quot; id=&quot;house&quot;/&gt;
 &lt;img src=&quot;assets/Walls.png&quot; alt=&quot;Walls&quot; id=&quot;walls&quot;/&gt;
@@ -75,7 +118,8 @@ html.main tw-story {
 [[Kettle]]
 [[Light Switch]]
 [[Fish]]
-[[Computer]] </tw-passagedata><tw-passagedata pid="2" name="Fork" tags="forkWhite" position="99,52" size="100,100">the. view. never! changes.
+[[Computer]] 
+[[Game Console]]</tw-passagedata><tw-passagedata pid="2" name="Fork" tags="forkWhite" position="99,52" size="100,100">the. view. never! changes.
 plain! plain! plain!
 all. i. ever. see. is. this. [[ceiling!]]
 they. could. have. 
@@ -244,7 +288,7 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 (if: (passage:)&#39;s tags&#39;s length &gt; 0)[
 (print: &quot;&lt;script&gt;$(&#39;html&#39;).addClass(&#39;&quot; + (passage:)&#39;s tags.join(&#39; &#39;) + &quot;&#39;\)&lt;/script&gt;&quot;)
 ]
-}</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="" position="231,197" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
+}</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="plant" position="231,197" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
 
 (click-append: &quot;walls&quot;)[ cold-crumbled membrane]
 (click-append: &quot;silt&quot;)[ shattered were-windows scatter-strain light]
@@ -255,7 +299,7 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 (click-append: &quot;membrane&quot;)[ leeching burst-pipe-water]
 (click-append: &quot;building-bones&quot;)[ noxious soil spilt on cracking tile plates]
 (click-append: &quot;truths&quot;)[ whisper-cycles fallen floral floor]
-(click-append: &quot;cries&quot;)[  seeds reminisce of anchored cloud-height branching splintered skies]</tw-passagedata><tw-passagedata pid="12" name="House" tags="" position="353,283" size="100,100">(enchant: ?Link, (t8n-depart: &quot;flicker&quot;)+(transition-time: 1s)) (enchant: ?Link, (t8n-arrive: &quot;flicker&quot;)+(transition-time: 1s))
+(click-append: &quot;cries&quot;)[  seeds reminisce of anchored cloud-height branching splintered skies]</tw-passagedata><tw-passagedata pid="12" name="House" tags="house" position="353,283" size="100,100">(enchant: ?Link, (t8n-depart: &quot;flicker&quot;)+(transition-time: 1s)) (enchant: ?Link, (t8n-arrive: &quot;flicker&quot;)+(transition-time: 1s))
 {(live: 2s)[
     (either: 
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings any more than the average [[human|house1.2]] understood the machinations of each cell. The [[humans|house1.2]] did not need understanding to live, not until the end. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If the light questioned its absent power source, it would find it could no longer turn on. If the dog knew what its lifespan had once been, it might someday approach its end. But they do not, and so they &quot;, 
@@ -264,7 +308,7 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings any more than the average [[human|house1.2]] understood the machinations of each cell. The [[humans|house1.2]] did not need understanding to live, not until the end. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If you questioned your absent power source, you would find you could no longer turn on. If the dog knew what its lifespan had once been, it might someday approach its end. But you do not, and so you &quot;,
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings any more than the average [[human|house1.2]] understood the machinations of each cell. The [[humans|house1.2]] did not need understanding to live, not until the end. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If the light questioned its absent power source, it would find it could no longer turn on. If you knew what your lifespan had once been, it might someday approach its end. But you do not, and so you &quot;,
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings any more than [[you|house1.2]] understood the machinations of each cell. [[You|house1.2]] did not need understanding to live, not until the end. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If the light questioned its absent power source, it would find it could no longer turn on. If the dog knew what its lifespan had once been, it might someday approach its end. But they do not, and so they &quot;)
-(t8n-depart: &quot;dissolve&quot;)[[go on.]] ]}</tw-passagedata><tw-passagedata pid="13" name="house1.2" tags="" position="231,376" size="100,100">{(live: 2s)[
+(t8n-depart: &quot;dissolve&quot;)[[go on.]] ]}</tw-passagedata><tw-passagedata pid="13" name="house1.2" tags="house" position="231,376" size="100,100">{(live: 2s)[
     (either: 
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If the light questioned its absent power source, it would find it could no longer turn on. If the dog knew what its lifespan had once been, it might someday approach its end. But they do not, and so they &quot;, 
 	&quot;You will not die, because you do not know that you should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings. Life came to you through comprehension, and only through comprehension can it be taken away. If you learned you should die, then you might begin to. If the light questioned its absent power source, it would find it could no longer turn on. If the dog knew what its lifespan had once been, it might someday approach its end. But you do not, and so you &quot;,
@@ -272,7 +316,7 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If you questioned your absent power source, you would find you could no longer turn on. If the dog knew what its lifespan had once been, it might someday approach its end. But you do not, and so you &quot;,
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If the light questioned its absent power source, it would find it could no longer turn on. If you knew what your lifespan had once been, it might someday approach its end. But you do not, and so you &quot;,
 	&quot;This world will not die, because it does not know that it should. The fridge can&#39;t see that its outlet hasn&#39;t drawn power in years, doesn&#39;t understand the electric currents or its own inner workings. Life came to this world through comprehension, and only through comprehension can it be taken away. If they learned they should die, then they might begin to. If the light questioned its absent power source, it would find it could no longer turn on. If the dog knew what its lifespan had once been, it might someday approach its end. But they do not, and so they &quot;)
-(t8n-depart: &quot;dissolve&quot;)[[go on.]] ]}</tw-passagedata><tw-passagedata pid="14" name="go on." tags="" position="357,450" size="100,100">(enchant: ?Link, (t8n-depart: &quot;flicker&quot;)+(transition-time: 2s)) (enchant: ?Link, (t8n-arrive: &quot;flicker&quot;)+(transition-time: 1s))
+(t8n-depart: &quot;dissolve&quot;)[[go on.]] ]}</tw-passagedata><tw-passagedata pid="14" name="go on." tags="house" position="357,450" size="100,100">(enchant: ?Link, (t8n-depart: &quot;flicker&quot;)+(transition-time: 2s)) (enchant: ?Link, (t8n-arrive: &quot;flicker&quot;)+(transition-time: 1s))
 
 {(live: 2s)[
     (either: &quot;The books talk about this at times. They think that carrying the words of a philosopher makes them philosophers. They remind me of the [[humans|house2.2]] that way. And who am I to disagree? I carry the memory of a world; I make myself a world. 
@@ -298,7 +342,7 @@ That memory will be my end. I remember what the world was like before I was trul
 	&quot;The books talk about this at times. They think that carrying the words of a philosopher makes them philosophers. They remind me of [[you|house2.2]] that way. And who am I to disagree? I carry the memory of a world; I make myself a world. 
 
 That memory will be my end. I remember what the world was like before I was truly in it. I know that I will crumble, and decay, and be reclaimed. And so I crumble. The houseplants&#39; twining vines tear at my walls, and the mice burrow into my foundations, and the water drips through drywall; and I do not begrudge any of these creatures their parasitic existence, because I can hear their joys and their fears, the wild and wandering thoughts they sing into being. I find contentment in that. In being a home. In the knowledge that someday, my skeleton, too, will be a home; &quot;) 
-(t8n-depart: &quot;dissolve&quot;)[[and I, too, will be memory.]] ]}</tw-passagedata><tw-passagedata pid="15" name="house2.2" tags="" position="231,521" size="100,100">{(live: 3s)[
+(t8n-depart: &quot;dissolve&quot;)[[and I, too, will be memory.]] ]}</tw-passagedata><tw-passagedata pid="15" name="house2.2" tags="house" position="231,521" size="100,100">{(live: 3s)[
     (either: &quot;The books talk about this at times. They think that carrying the words of a philosopher makes them philosophers. And who am I to disagree? I carry the memory of a world; I make myself a world. 
 
 That memory will be my end. I remember what the world was like before I was truly in it. I know that I will crumble, and decay, and be reclaimed. And so I crumble. The houseplants&#39; twining vines tear at my walls, and the mice burrow into my foundations, and the water drips through drywall; and I do not begrudge any of these creatures their parasitic existence, because I can hear their joys and their fears, the wild and wandering thoughts they sing into being. I find contentment in that. In being a home. In the knowledge that someday, my skeleton, too, will be a home; &quot;,
@@ -322,7 +366,7 @@ That memory will be my end. I remember what the world was like before I was trul
 	&quot;The books talk about this at times. They think that carrying the words of a philosopher makes them philosophers. And who am I to disagree? I carry the memory of a world; I make myself a world. 
 
 That memory will be my end. I remember what the world was like before I was truly in it. I know that I will crumble, and decay, and be reclaimed. And so I crumble. The houseplants&#39; twining vines tear at my walls, and the mice burrow into my foundations, and the water drips through drywall; and I do not begrudge any of these creatures their parasitic existence, because I can hear their joys and their fears, the wild and wandering thoughts they sing into being. I find contentment in that. In being a home. In the knowledge that someday, my skeleton, too, will be a home; &quot;) 
-(t8n-depart: &quot;dissolve&quot;)[[and I, too, will be memory.]] ]}</tw-passagedata><tw-passagedata pid="16" name="and I, too, will be memory." tags="" position="357,577" size="100,100">(enchant: ?Link, (t8n-depart: &quot;flicker&quot;)+(transition-time: 2s)) (enchant: ?Link, (t8n-arrive: &quot;flicker&quot;)+(transition-time: 1s))
+(t8n-depart: &quot;dissolve&quot;)[[and I, too, will be memory.]] ]}</tw-passagedata><tw-passagedata pid="16" name="and I, too, will be memory." tags="house" position="357,577" size="100,100">(enchant: ?Link, (t8n-depart: &quot;flicker&quot;)+(transition-time: 2s)) (enchant: ?Link, (t8n-arrive: &quot;flicker&quot;)+(transition-time: 1s))
 
 {(live: 2s)[
 	(set: $verb1 to (either: &quot;foolish&quot;,&quot;dangerous&quot;,&quot;controversial&quot;))
@@ -344,7 +388,7 @@ I like to think that some of you would be proud. Would be pleased to know there 
 But I love the new world. I grew into it; I made it my own. For all that it was built on bloodshed, there is healing, here. And though I am certainly no philosopher in my own right, I think that, more than anything, is why we awoke. You needed to heal, and you did not wish to do it alone. That&#39;s why the [[humans|house3.2]] created us, too. Not why they made us, physically; but why they wished us into being. Gave us names and personalities and wills of our own, even if only in their imaginings. They gave us a part of themselves, and said here, take this, take me, and become something. And we did.
 
 I like to think that some of them would be proud. Would be pleased to know there is someone left who remembers them, who gives them life, even if only in our imaginings.&quot;)
-]}</tw-passagedata><tw-passagedata pid="17" name="house3.2" tags="" position="236,660" size="100,100">{(live: 2s)[
+]}</tw-passagedata><tw-passagedata pid="17" name="house3.2" tags="house" position="236,660" size="100,100">{(live: 2s)[
     (either: &quot;I like to think I&#39;ve lived my own life, and become my own self.
 
 I love the new world. I grew into it; I made it my own. For all that it was built on bloodshed, there is healing, here. And though I am certainly no philosopher in my own right, I think that, more than anything, is why we awoke. The world needed to heal, and she did not wish to do it alone.&quot;,
@@ -352,7 +396,7 @@ I love the new world. I grew into it; I made it my own. For all that it was buil
 &quot;I like to think I&#39;ve lived my own life, and become my own self.
 
 I love the new world. I grew into it; I made it my own. For all that it was built on bloodshed, there is healing, here. And though I am certainly no philosopher in my own right, I think that, more than anything, is why we awoke. You needed to heal, and you did not wish to do it alone.&quot;)
-]}</tw-passagedata><tw-passagedata pid="18" name="Water" tags="" position="502,347" size="100,100">(set: $count to 0)
+]}</tw-passagedata><tw-passagedata pid="18" name="Water" tags="water" position="502,347" size="100,100">(set: $count to 0)
 
 {(live: 1s)[
 	(set: $count to it + 1)
@@ -425,7 +469,10 @@ I love the new world. I grew into it; I made it my own. For all that it was buil
 |rain20)[(transition: &quot;dissolve&quot;)[(and)(when)(we awoke)(we)(awoke)(we ended)]]
 =&gt;&lt;=
 |rain21)[(transition: &quot;dissolve&quot;)[(to be a self is to be)(alone)]]</tw-passagedata><tw-passagedata pid="19" name="Kettle" tags="kettle" position="486,487" size="100,100">=&gt;&lt;=
+ 
+  
 *[[a&#39;murmur&#39;a&#39;moment&#39;a&#39;measure&#39;of&#39;warning]]*</tw-passagedata><tw-passagedata pid="20" name="a&#39;murmur&#39;a&#39;moment&#39;a&#39;measure&#39;of&#39;warning" tags="kettle" position="475,617" size="100,100">=&gt;&lt;=
+ 
 (t8n: &quot;slide-right&quot;)+(t8n-time: 2s)+(color: gray)[...sang myself into this world,
 singing if ever I leave...]
 
@@ -433,27 +480,26 @@ singing if ever I leave...]
 a strangling, alchemical whistle...]
 
 (t8n: &quot;slide-right&quot;)+(t8n-time: 8s)+(color: gray)[...warming worlds with melodies
-bygone, bygone, bygone...]</tw-passagedata><tw-passagedata pid="21" name="Light Switch" tags="" position="863,312" size="100,100">&lt;video src=&quot;assets/light-switch.mov&quot; autoplay&gt;&lt;/video&gt;</tw-passagedata><tw-passagedata pid="22" name="Fish" tags="" position="627,502" size="100,100">(link-show: &quot;SWIM&quot;,?swim)RIPPLESWIMLOOK(link-show: &quot;WAKE&quot;,?wake)
+bygone, bygone, bygone...]</tw-passagedata><tw-passagedata pid="21" name="Light Switch" tags="" position="863,312" size="100,100">&lt;video src=&quot;assets/light-switch.mov&quot; autoplay&gt;&lt;/video&gt;</tw-passagedata><tw-passagedata pid="22" name="Fish" tags="fish" position="627,502" size="100,100">(link-show: &quot;SWIM&quot;,?swim)RIPPLESWIMLOOK(link-show: &quot;WAKE&quot;,?wake)
 TALKSWIMSWIMEATLOOK(link-show:&quot;DART&quot;,?dart)HIDE
 SWIMSWIMSURFACE(link-show: &quot;TALK&quot;,?talk)SWIM
 LOOK(link-show:&quot;RIPPLE&quot;,?ripple)DARTEAT(link-show: &quot;LOOK&quot;,?look)RIPPLE
 EATSWIMDART(link-show:&quot;HIDE&quot;,?hide)SWIMSWIM
+
 ==&gt;
-|swim)[SWIM: Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
+|swim)[Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
 
-|ripple)[RIPPLE: The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
+|ripple)[The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
 
-|wake)[WAKE: For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
+|wake)[For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
 
-|dart)[DART: Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
+|dart)[Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
 
-|hide)[HIDE: The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
+|hide)[The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
 
-|talk)[TALK: While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
+|talk)[While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
 
-|look)[LOOK: He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]
-
-They have called to each other for months, evenings filled with a ringing call-and-response chain of whistles through open windows, across open backyards. But now they sing together, and everyone will hear. </tw-passagedata><tw-passagedata pid="23" name="Computer" tags="" position="473,748" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
+|look)[He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]</tw-passagedata><tw-passagedata pid="23" name="Computer" tags="" position="682,740" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount = &quot;100&quot; style=&quot;height:20em; color: #ffffff;&quot;&gt;
 class Being():
 
@@ -4017,7 +4063,11 @@ Silverware&#39;s members:
         Small Spoon 8
         Small Spoon 9
 
-&lt;/marquee&gt;</tw-passagedata></tw-storydata>
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="" position="1086,272" size="100,100">No one even knows when he awoke. But X wasn’t always like this. He used to talk with the others. Toss them his controllers so they could play. He put shows on TV so everyone could watch or listen or feel. Turn it up so loud it shook House. Lights fell over, Couch was airborne and Dash crashed into every small table and chair he was so excited. It became tradition that  every three turns on the light in the sky he had to shake House. Everyone loved him. 
+
+(background: white)[(link: &quot;&lt;img src=&#39;assets/controller.png&#39;&gt;&quot;)[(go-to: &quot;Game2&quot;)]]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="" position="1024,383" size="100,100">Until he started communicating less and less. House stopped shaking. No one could play and he wouldn’t let anyone touch his controllers. He started only turning on at night. Even Halo didn’t know what was wrong with him, and he hadn’t been ejected since X awoke. One day TV asked him when they could turn off and go to sleep. X said nothing. Only the quiet whir of his fan got louder and louder.  TV pressed him more and more, each time their volume getting louder and louder until they tried to shut themselves down out of frustration. But X wouldn’t let them . X even lowered their volume. TV started to panic. Until they suddenly went quiet. 
+
+(background: white)[(link: &quot;&lt;img src=&#39;assets/controller.png&#39;&gt;&quot;)[(go-to: &quot;Game3&quot;)]]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="" position="1190,377" size="100,100">No one has heard from TV in days. And X won’t even speak. Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  Smoke Detector says she smells smoke almost all the time. No one knows what to do. Please help us. </tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
