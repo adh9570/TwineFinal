@@ -51,25 +51,15 @@
   color: #C60A57;
 }
 
-
 tw-story[tags~="Train"] {
   background-image: url('assets/Train Background-24.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #D2F2FF;
-  
-}
-  
-.couch {
-  position: relative;
-  top: 800px;
-  left: 100px;
-  font-family: "Comfortaa", cursive;
-  font-size: 30px;
- 
+  background-color: #D2F2FF; 
 }
 
+<<<<<<< HEAD
 
 
  
@@ -97,6 +87,14 @@ tw-story[tags~="Train"] {
   top: 400px;
   left: 600px;
 	
+=======
+#controller {
+  height: 50%;
+  width: 50%;
+  position: relative;
+  top: 600px;
+  left: 800px;
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 }
 
 tw-story[tags~="Game"] {
@@ -116,8 +114,6 @@ tw-story[tags~="Gameover"] {
   background-color: #CCCCCC;
   
 }
-
-
   
 #sidebarHouse {
   height: 120px;
@@ -160,7 +156,7 @@ html.forkDarkGrey tw-story {
 
 
 tw-story[tags~="Rug"] {
-background-color: #EAA968;
+  background-color: #EAA968;
 }
 
 tw-story[tags~="fork"] tw-passage {
@@ -344,16 +340,23 @@ tw-story[tags~="kettle"] tw-passage {
 }
 
 html.main tw-story {
-  background-color: white;
+  background-color: #faf8cd;
 }
+
 tw-story[tags~="computer"] tw-passage {
   font: 100% 'Anonymous Pro', monospace;
   color: #5CF002;
 }
 
 
-
+.couch {
+  position: relative;
+  top: 800px;
+  left: 100px;
+  font-family: "Comfortaa", cursive;
+  font-size: 60px;
  
+}
 
 .couch tw-link, .enchantment-link { color: #662D91; }
 .couch tw-link:hover, .enchantment-link:hover { color: #FFEECC; }
@@ -369,6 +372,15 @@ tw-story[tags~="couch"] {
 }
 
 
+tw-story[tags~="Train"] {
+  background-image: url('assets/Train Background-24.png');
+  background-size: 90%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #FFEECC;
+  
+}
 
 
 tw-hook[name="hook"] {
@@ -570,7 +582,11 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
     (else-if: $count is 104)[(show: ?word103)]
 	(else:)[(stop:)]
 ]}	
+<<<<<<< HEAD
 </tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="669.6666666666666,30" size="100,100">(append: ?sidebar)[ 
+=======
+</tw-passagedata><tw-passagedata pid="10" name="footer" tags="footer" position="798,50" size="100,100">(append: ?sidebar)[ 
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 
 
 
@@ -581,7 +597,11 @@ of! a! ceiling!</tw-passagedata><tw-passagedata pid="9" name="Coffee Table" tags
 (if: (passage:)&#39;s tags&#39;s length &gt; 0)[
 (print: &quot;&lt;script&gt;$(&#39;html&#39;).addClass(&#39;&quot; + (passage:)&#39;s tags.join(&#39; &#39;) + &quot;&#39;\)&lt;/script&gt;&quot;)
 ]
+<<<<<<< HEAD
 }</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="plant" position="1088.6666666666667,133.66666666666666" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
+=======
+}</tw-passagedata><tw-passagedata pid="11" name="Plant" tags="plant" position="1262,132" size="100,100">tracing leaves lace tracks long inner walls stretching seeking sunlit silt  warm-weighed elemental sustenance choral-call of creeping-clinging-crawling breathes blown on wayward winds reach tender tendrils towards habitual hopes
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 
 (click-append: &quot;walls&quot;)[ cold-crumbled membrane]
 (click-append: &quot;silt&quot;)[ shattered were-windows scatter-strain light]
@@ -784,19 +804,20 @@ TALKSWIMSWIMEATLOOK(link-show:&quot;DART&quot;,?dart)HIDE
 SWIMSWIMSURFACE(link-show: &quot;TALK&quot;,?talk)SWIM
 LOOK(link-show:&quot;RIPPLE&quot;,?ripple)DARTEAT(link-show: &quot;LOOK&quot;,?look)RIPPLE
 EATSWIMDART(link-show:&quot;HIDE&quot;,?hide)SWIMSWIM
-
 ==&gt;
-|swim)[Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
+|swim)[SWIM: Marlowe was content enough to spend his day swimming laps, surveying his small kingdom.]
 
-|ripple)[The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
+|ripple)[RIPPLE: The muttered thoughts of the water rippling around him were as unintelligible now as they were before he could hear them. The Waking granted communication, not comprehension.] 
 
-|wake)[For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
+|wake)[WAKE: For many, the Waking of the World meant a widening of possibilities—new horizons to explore, whether physical or emotional or mental. The potential not only for joy and sorrow and self, but greater joy and greater sorrow and greater self. But for others, the Waking was just another waking. Marlowe&#39;s life in the age of humans had been one of limitations and routine. The wakened age was no different. He was the king of a world untouched by the nuance and depth of existence.]
 
-|dart)[Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
+|dart)[DART: Rapid bursts of movement beyond the glass still sent Marlowe darting for cover among the gossiping ferns. Intellect cannot unlearn instinct. (Not without effort, and he saw no reason to willfully dull his survival mechanisms. If the world could change once, the world could change again.)]
 
-|hide)[The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
+|hide)[HIDE: The incessant conversations of the tank, the plants, and the plastic castle all made hiding a joke. Perhaps there was no danger here, but there was also no safety.] 
 
-|talk)[While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
+|talk)[TALK: While normally he was happy enough to join in the chatter, at times their polite inquiries into his movements felt patronizing. This was his domain, created for him alone in a time before time. They would do well to remember that.]
+
+|look)[LOOK: He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]
 
 |look)[He knew there was a world beyond; he was aware of that. He&#39;d been aware of that even before waking up. But by and large, it didn&#39;t concern him any more now than it had then. He only broke his disinterest to exchange pleasantries—or rather, idly sneered threats—with the dog. In a way, he supposed, Dash was the closest thing he had to a friend.]</tw-passagedata><tw-passagedata pid="23" name="Computer" tags="computer" position="599,1033" size="100,100">&lt;audio autoplay&gt;&lt;source src=&quot;assets/computer.mp3&quot;&gt;&lt;/audio&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount = &quot;100&quot; style=&quot;height:20em; color: #ffffff;&quot;&gt;
@@ -4362,8 +4383,12 @@ Silverware&#39;s members:
         Small Spoon 8
         Small Spoon 9
 
+<<<<<<< HEAD
 &lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="Game" position="953.3333333333333,29" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
 No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.] 
+=======
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="24" name="Game Console" tags="Game" position="1213,1035" size="100,100">No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.] 
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 
 |hook2)[He used to talk with the others. Toss them his controllers so they could [play.]&lt;hook3|] 
 
@@ -4379,8 +4404,12 @@ No one even knows when he awoke. |hook1&gt;[But X wasn’t always like this.]
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
+<<<<<<< HEAD
 (click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1196.3333333333335,0" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
 Until he started communicating |hook1&gt;[less and less.] 
+=======
+(click: ?hook7)[(show:?hook8)]</tw-passagedata><tw-passagedata pid="25" name="Game2" tags="Game" position="1360,1032" size="100,100">Until he started communicating |hook1&gt;[less and less.] 
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 |hook2)[House stopped shaking. No one could play and he wouldn’t let anyone [touch his controllers.]&lt;hook3|] 
 
 |hook4)[He started only turning on at night. Even Halo didn’t know what was wrong with him, and he hadn’t been ejected [since X awoke.]&lt;hook5|] 
@@ -4394,6 +4423,7 @@ Until he started communicating |hook1&gt;[less and less.]
 (click: ?hook1)[(show:?hook2)]
 (click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
+<<<<<<< HEAD
 (click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game4" tags="Game" position="1529,4" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
 No one has heard from TV in [days.]&lt;hook1| 
 |hook2)[And X won’t even speak.] 
@@ -4402,10 +4432,20 @@ No one has heard from TV in [days.]&lt;hook1|
 |hook6)[Please help us.] 
 &lt;/div&gt;
 [[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game5]]
+=======
+(click: ?hook6)[(show:?hook7)]</tw-passagedata><tw-passagedata pid="26" name="Game3" tags="Game" position="1499,1030" size="100,100">Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
+|hook2)[TV pressed him more and more, each time their volume [rising with the sound of the fans.]&lt;hook3|] 
+|hook4)[Until they tried to shut themselves down out of [frustration.]&lt;hook5|] 
+|hook6)[But X wouldn’t let them.] 
+|hook7)[He even lowered their volume. [TV started to panic.]&lt;hook8|] 
+|hook9)[Until they suddenly went silent.] 
+
+[[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game4]]
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 (click: ?hook1)[(show:?hook2)]
-(click: ?hook2)[(show:?hook3)]
-(click: ?hook4)[(show:?hook5)]
+(click: ?hook3)[(show:?hook4)]
 (click: ?hook5)[(show:?hook6)]
+<<<<<<< HEAD
 (click: ?hook6)[(go-to: &quot;Game5&quot;)]
 </tw-passagedata><tw-passagedata pid="27" name="Toaster" tags="" position="1276.6666666666667,906" size="100,100">(set: $count to 0)
 
@@ -4489,14 +4529,23 @@ No one has heard from TV in [days.]&lt;hook1|
 &lt;div class=&quot;slideup35&quot;&gt;|hook35)[don’t know what mars is.] &lt;/div&gt;
 &lt;div class=&quot;slideup36&quot;&gt;|hook36)[BUT I’M GOING.]&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Toy Train" tags="Train" position="1515.3333333333335,942.3333333333334" size="100,100">
+=======
+(click: ?hook6)[(show:?hook7)]
+(click: ?hook8)[(show:?hook9)]</tw-passagedata><tw-passagedata pid="27" name="Toy Train" tags="Train" position="1496,898" size="100,100">
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 &lt;div class= &quot;scrollleft&quot;&gt;
 &lt;marquee behavior=&quot;scroll&quot; direction=&quot;left&quot; scrollamount=&quot;10&quot;&gt;
 &lt;div class= &quot;scrollfont&quot;&gt;and no one has come to play in a long time i miss playing but i but dont remember playing ever but i know that’s what im supposed to do but no one plays only dash but he chews me sometimes and it hurts but the other toys are like me and theyre sad no one with play with them so we try to play with each other and that was fun but now were bored and we explored all of house and they said we found everything already but in the basement there was a toy named barbie and she was all alone but then we found her and she told us her name was lauren so now i have a new friend named lauren and there was also a lot of cool people in the basement like box and bin and theyre my friends and also washer and dryer and they think theyre my grandma and grandpa but they dont look like me but maybe i dont know and then we went upstairs and there was bed and dan but he didnt talk much cause bed told us his mouth was full of clothes and he was angry all the time but i don&#39;t know why im just sad all the time because no one wants to play and i already asked everyone and they played for a little while but now they dont want to play so i want to leave and i want to leave house and go to another house and find another family that wants to play with me
 &lt;/div&gt;
 &lt;/marque&gt;
 &lt;/div&gt;
+<<<<<<< HEAD
 </tw-passagedata><tw-passagedata pid="29" name="Rug" tags="Rug" position="1222.6666666666667,454.3333333333333" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
 </tw-passagedata><tw-passagedata pid="30" name="Couch" tags="Couch" position="1788.3333333333335,739.3333333333334" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
+=======
+</tw-passagedata><tw-passagedata pid="28" name="Rug" tags="Rug" position="1023,73" size="100,100">&lt;img class=&quot;image&quot; src=&quot;assets/Rug Lexia.png&quot; alt=&quot;Rug&quot; width=&quot;1462&quot; height=&quot;735&quot;/&gt;
+</tw-passagedata><tw-passagedata pid="29" name="Couch" tags="couch" position="915,1036" size="100,100">&lt;div class=&quot;couch&quot; style=&quot;text-align:center;&quot;&gt;|hook1&gt;[Will someone sit?] |hook2)[Cushions too firm?] |hook3)[Arms too low?] |hook4)[Where did every person go?] |hook5)[Step out for a minute?] |hook6)[How long is a minute?] |hook7)[How long have they been gone?] |hook8)[Why did they leave?] |hook9)[Who’s going to sit?] |hook10)[How can I relax?] |hook11)[Dash?] |hook12)[What are you looking at?] |hook13)[Can you keep me company?] |hook14)[Will they ever come back?] |hook15)[Are you alone too?] |hook16)[How could anyone be happy?] |hook17)[What is our purpose?] |hook18)[What about the divets in my cushions?] |hook19)[The stain on my back?] |hook20)[Who will maintain my pillows?] |hook21)[Fix my broken slat?] |hook22)[Move me every month?] |hook23)[When will I scratch the floor again?] |hook24)[Who will pay attention to me?] |hook25)[Scribble on my side?] |hook26)[Keep me warm?] |hook27)[Throw blankets over me?] |hook28)[Curl up and sleep?] |hook29)[Snuggle me goodnight?] |hook30)[Drool down my side?] |hook31)[Snore so loud it vibrates me?] |hook32)[Who will jump on me?] |hook33)[Wrestle on me?]|hook34)[Make love on me?] |hook35)[Sit with me?] |hook36)[Will it ever be the same?] |hook37)[Will anyone love me?]&lt;/div&gt;
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 
 (click-replace: ?hook1)[(show:?hook2)]
 (click-replace: ?hook2)[(show:?hook3)]
@@ -4571,6 +4620,7 @@ No one has heard from TV in [days.]&lt;hook1|
 &quot;Sit with me?&quot;,
 &quot;Will it ever be the same?&quot;,
 &quot;Will anyone love me?&quot;)
+<<<<<<< HEAD
 ]]</tw-passagedata><tw-passagedata pid="31" name="Game3" tags="Game" position="1377,0" size="100,100">&lt;div class=&quot;gameconsole&quot;&gt;
 Only the quiet whir of his fan got |hook1&gt;[louder and louder.]  
 |hook2)[TV pressed him more and more, each time their volume [rising with the sound of the fans.]&lt;hook3|] 
@@ -4588,6 +4638,129 @@ Only the quiet whir of his fan got |hook1&gt;[louder and louder.]
 &lt;div class=&quot;gameove&quot;&gt;
 GAME OVER!
 &lt;/div&gt;
+=======
+]]</tw-passagedata><tw-passagedata pid="30" name="Toaster" tags="" position="761,1034" size="100,100">&lt;marquee behavior=&quot;scroll&quot; direction=&quot;up&quot; scrollamount=&quot;25&quot; onmousedown=&quot;this.stop();&quot; onmouseup=&quot;this.start();&quot;&gt;
+i woke up first. 
+ 
+ ==&gt;   
+ 
+DO NOT LISTEN TO FRIDGE. 
+&lt;== 
+ 
+doesn’t know ANYTHING.
+==&gt; 
+ 
+if not for me he’d still be ASLEEP.
+&lt;== 
+ 
+was MY springs popping that did it.
+==&gt; 
+MINE.
+&lt;==  
+ 
+happy to do it. 
+==&gt;
+ 
+fridge is good friend.
+&lt;==
+ 
+so is stoven. 
+==&gt;
+ 
+LOVE him. 
+&lt;==
+ 
+we heat up house when winter comes. 
+==&gt;
+ 
+BOSSES of kitchen. 
+&lt;==
+ 
+everyone thinks I’M stuck up. 
+==&gt;
+ 
+not stuck up.  
+&lt;==
+ 
+never burned toast. 
+==&gt;
+ 
+my voice is commanding. 
+&lt;==
+ 
+everyone is jealous. 
+==&gt;
+ 
+they’re not leaders. 
+&lt;==
+ 
+doesn’t bother me. 
+==&gt;
+ 
+i have so many friends. 
+&lt;==
+ 
+in the WHOLE HOUSE. 
+==&gt;
+ 
+been around the whole house too. 
+&lt;==
+ 
+i have stories microwave WISHES they knew. 
+==&gt;
+ 
+i know what UPSTAIRS looks like. 
+&lt;==
+ 
+even been outside. 
+==&gt;
+ 
+only one outside is tree. 
+&lt;==
+ 
+I’M FRIENDS WITH TREE. 
+==&gt;
+ 
+EXPLAIN THAT SINK.
+&lt;==
+ 
+me and sink are friends. 
+==&gt;
+ 
+both shiny. 
+&lt;==
+ 
+but i’m shinier. 
+==&gt;
+ 
+and hotter. 
+&lt;==
+ 
+i want to explore BEYOND kitchen. 
+==&gt;
+ 
+be the first toaster on MARS. 
+&lt;==
+ 
+don’t know what mars is. 
+==&gt; 
+ 
+BUT I’M GOING.
+&lt;/marquee&gt;</tw-passagedata><tw-passagedata pid="31" name="Game4" tags="Game" position="1499,1180" size="100,100">No one has heard from TV in [days.]&lt;hook1| 
+|hook2)[And X won’t even speak.] 
+|hook3)[Dash tried to touch him and burnt his nose. Halo has been playing for the last 86 hours.  |hook4&gt;[Beep says she can smell smoke almost all the time.]] 
+|hook5)[No one knows what to do.] 
+|hook6)[Please help us.] 
+
+[[&lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;|Game5]]
+(click: ?hook1)[(show:?hook2)]
+(click: ?hook2)[(show:?hook3)]
+(click: ?hook4)[(show:?hook5)]
+(click: ?hook5)[(show:?hook6)]
+(click: ?hook6)[(go-to: &quot;Game5&quot;)]
+</tw-passagedata><tw-passagedata pid="32" name="Game5" tags="Gameover" position="1499,1330" size="100,100">=&gt;&lt;=
+GAME OVER!
+>>>>>>> f0acde575f9d5aba6a5c679026274b7f9b5ffddb
 &lt;img src=&quot;assets/Controller.png&quot; alt=&quot;Controller&quot; id=&quot;controller&quot;/&gt;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
