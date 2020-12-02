@@ -297,6 +297,9 @@ def main():
     establishCommunication(GTAVXboxGame, guitarHeroWorldTourXboxGame)
     establishCommunication(toyElephant, dogPlushCarrot)
     establishCommunication(xbox, callOfDutyMW3XboxGame)
+
+    positiveInteraction(wineGlass0, wineGlass1)
+    
     establishCommunication(tv, xbox)
     establishCommunication(wineGlass0, stemlessWineGlass0)
     establishCommunication(wineGlass1, stemlessWineGlass0)
@@ -334,6 +337,9 @@ def main():
     house = wake("House")
 
     establishCommunication(dogMomMug, dallasMug)
+    
+    positiveInteraction(dogPlushDinosaur, toyTrain)
+    
     establishCommunication(wineGlass2, leechLakeMug)
     establishCommunication(justDance2014XboxGame, guitarHeroWorldTourXboxGame)
     establishCommunication(minecraftXboxGame, callOfDutyMW3XboxGame)
@@ -414,6 +420,7 @@ def main():
     establishCommunication(wineGlass1, stemlessWineGlass2)
     
     positiveInteraction(toyBear, toyElephant)
+    positiveInteraction(wineGlass2, wineGlass1)
     
     establishCommunication(dogPlushCarrot, dogBlanket)
 
@@ -426,9 +433,6 @@ def main():
     halo5XboxGame = wake("Halo 5 Xbox Game")
 
     establishCommunication(toyBlanket, dogPlushMonkey)
-    
-    positiveInteraction(dogPlushDinosaur, dog)
-    
     establishCommunication(minecraftXboxGame, maddenXboxGame)
     establishCommunication(dogPlushMonkey, dogDuraforce)
     establishCommunication(dog, dogDuraforce)
@@ -461,6 +465,8 @@ def main():
     
     xboxController3 = wake("Xbox Controller 3")
 
+    positiveInteraction(toyElephant, dogPlushDinosaur)
+    
     establishCommunication(xbox, xboxController3)
     establishCommunication(guitarHero5XboxGame, halo5XboxGame)
     establishCommunication(stemlessWineGlass1, stemlessWineGlass3)
@@ -553,6 +559,9 @@ def main():
     establishCommunication(wineGlass3, stemlessWineGlass3)
     establishCommunication(toyTrain, dogKong)
     establishCommunication(dog, dogRope)
+    
+    positiveInteraction(dogRope, dog)
+    
     establishCommunication(xboxController0, seaofThievesXboxGame)
     establishCommunication(guitarHero5XboxGame, legoStarWarsIIXboxGame)
     
@@ -610,6 +619,10 @@ def main():
     
     establishCommunication(maddenXboxGame, seaofThievesXboxGame)
     establishCommunication(dogPlushMonkey, dogRope)
+    
+    positiveInteraction(dog, toyElephant)
+    positiveInteraction(wineGlass2, wineGlass3)
+    
     establishCommunication(dogBlanket, dogKong)
     establishCommunication(callOfDutyModernWarfare2XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogDuraforce, dogKong)
@@ -693,6 +706,10 @@ def main():
 
     establishCommunication(toyTrain, dogRope)
     establishCommunication(whisk, ladle)
+    
+    positiveInteraction(toyTrain, dog)
+    positiveInteraction(toyBear, toyTrain)
+    
     establishCommunication(microwave, crockpot)
     establishCommunication(callOfDutyMW3XboxGame, battlefield4XboxGame)
     establishCommunication(maddenXboxGame, legoStarWarsIIXboxGame)
@@ -720,9 +737,15 @@ def main():
     establishCommunication(justDance2014XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(largeMixingBowl, smallMixingBowl)
     establishCommunication(whisk, bottleOpener)
+    
+    positiveInteraction(wineGlass0, wineGlass1)
+    
     establishCommunication(microwave, mediumPot1)
     establishCommunication(fallout4XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(dogKong, dogRope)
+    
+    positiveInteraction(wineGlass2, wineGlass1)
+    
     establishCommunication(smallMixingBowl, mediumPot1)
 
     throwPillow2 = wake("Throw Pillow 2")
@@ -795,6 +818,9 @@ def main():
     negativeInteraction(xbox, computer)
     
     establishCommunication(house, oven)
+    
+    positiveInteraction(toyBlanket, toyBear)
+    
     establishCommunication(smallMixingBowl, mediumPot2)
     establishCommunication(throwPillow0, ovenMitt0)
     establishCommunication(pastaMaker, crockpot)
@@ -845,8 +871,14 @@ def main():
     smallPot1 = wake("Small Pot 1")
     
     establishCommunication(mediumMixingBowl, servingSpoon0)
+    
+    positiveInteraction(wineGlass0, wineGlass3)
+    
     establishCommunication(microwave, sponge)
     establishCommunication(mediumPot0, potholder0)
+    
+    positiveInteraction(dogAlligatorToy, toyBlanket)
+    
     establishCommunication(largeMixingBowl, smallPot0)
     
     knives = []
@@ -867,6 +899,9 @@ def main():
     
     establishCommunication(fallout4XboxGame, legoStarWarsIIXboxGame)
     establishCommunication(largeMixingBowl, mediumPot2)
+    
+    positiveInteraction(dogBlanket, toyBlanket)
+    
     establishCommunication(iceCreamScoop, spatula0)
     establishCommunication(microwave, potholder1)
     establishCommunication(whisk, servingSpoon0)
@@ -907,6 +942,9 @@ def main():
     establishCommunication(minecraftXboxGame, legoStarWarsIIXboxGame)
     establishCommunication(pastaMaker, oven)
     establishCommunication(microwave, largePot1)
+    
+    positiveInteraction(dogPlushMonkey, toyBear)
+    
     establishCommunication(mediumPot0, largePot1)
     
     straightMetalStraw = wake("Straight Metal Straw")
@@ -971,7 +1009,13 @@ def main():
 
     establishCommunication(mediumMixingBowl, smallPot1)
     establishCommunication(unicornWineStopper, navyWineStopper)
+    
+    positiveInteraction(dogPlushCarrot, toyTrain)
+    
     establishCommunication(throwPillow0, blanket1)
+    
+    positiveInteraction(dogPlushCarrot, dogAlligatorToy)
+    
     establishCommunication(microwave, tablespoon)
     
     halfCupMeasuringCup = wake("Half Cup Measuring Cup")
@@ -985,6 +1029,8 @@ def main():
     establishCommunication(GTAVXboxGame, legoStarWarsIIXboxGame)
     establishCommunication(mediumMixingBowl, servingSpoon1)
     establishCommunication(microwave, kitchenTable)
+    
+    positiveInteraction(wineGlass1, wineGlass0)
     
     chair1 = wake("Chair 1")
     
@@ -1004,6 +1050,9 @@ def main():
     establishCommunication(mediumMixingBowl, largePot1)
     establishCommunication(house, chair1)
     establishCommunication(dogPlushMonkey, toyBasket)
+    
+    positiveInteraction(dogPlushMonkey, dogPlushCarrot)
+    
     establishCommunication(sink, cloroxWipes)
     establishCommunication(pastaMaker, toaster)
     
@@ -1049,6 +1098,9 @@ def main():
     establishCommunication(microwave, slicingKnife)
     
     rubberJarOpener = wake("Rubber Jar Opener")
+    
+    positiveInteraction(dogBlanket, dogPlushMonkey)
+    
     seasonalPlacemat0 = wake("Seasonal Placemat 0")
 
     establishCommunication(throwPillow0, rug)
@@ -1071,6 +1123,9 @@ def main():
     
     establishCommunication(throwPillow0, dishDryingTowel1)
     establishCommunication(microwave, quarterCupMeasuringCup)
+    
+    positiveInteraction(dogDuraforce, dogBlanket)
+    
     establishCommunication(throwPillow0, throwPillow4)
     
     lamp1 = wake("Lamp 1")
@@ -1085,11 +1140,16 @@ def main():
     establishCommunication(chair0, chair2)
     establishCommunication(couch, lamp1)
     establishCommunication(throwPillow1, throwPillow4)
+    
+    positiveInteraction(wineGlass0, wineGlass1)
+    
     establishCommunication(microwave, rubberJarOpener)
 
     saranWrap = wake("Saran Wrap")
     tomatoKnife = wake("Tomato Knife")
     knives.append(tomatoKnife)
+    
+    positiveInteraction(dogAlligatorToy, dog)
     
     establishCommunication(house, chair2)
     establishCommunication(couch, kitchenTable)
@@ -1121,6 +1181,9 @@ def main():
     establishCommunication(microwave, foodScale)
     establishCommunication(couch, standingLamp)
     establishCommunication(microwave, thirdCupMeasuringCup)
+    
+    positiveInteraction(toyBlanket, toyElephant)
+    
     establishCommunication(throwPillow0, blanket0)
 
     blanket0.joinCommunity("Soft Things")
@@ -1148,6 +1211,7 @@ def main():
     establishCommunication(microwave, saranWrap)
     
     positiveInteraction(toyBear, toyElephant)
+    positiveInteraction(dogKong, dogDuraforce)
     
     establishCommunication(seasonalPlacemat0, placemat0)
     establishCommunication(seasonalPlacemat2, placemat0)
@@ -1210,6 +1274,9 @@ def main():
     
     establishCommunication(knifeBlock, butterKnife0)
     establishCommunication(microwave, bakingSheet0)
+    
+    positiveInteraction(wineGlass0, wineGlass1)
+    
     establishCommunication(blanket0, dogBlanket)
     
     dunkinDonutsCoffeePod2 = wake("Dunkin' Donuts Coffee Pod 2")
@@ -1232,6 +1299,7 @@ def main():
     establishCommunication(blanket0, dogPlushMonkey)
 
     positiveInteraction(dogPlushMonkey, blanket0)
+    positiveInteraction(dogPlushDinosaur, dogKong)
     
     establishCommunication(blanket0, dogAlligatorToy)
 
@@ -1273,6 +1341,9 @@ def main():
     establishCommunication(throwPillow0, kitchenHandTowel1)
     
     seasonalPlacemat3 = wake("Seasonal Placemat 3")
+    
+    positiveInteraction(toyElephant, dogKong)
+    
     largeFork3 = wake("Large Fork 3")
     forks.append(largeFork3)
     
@@ -1326,6 +1397,9 @@ def main():
     dunkinDonutsCoffeePod6 = wake("Dunkin' Donuts Coffee Pod 6")
     largeFork5 = wake("Large Fork 5")
     forks.append(largeFork5)
+    
+    positiveInteraction(dog, dogPlushDinosaur)
+    
     placemat1 = wake("Placemat 1")
 
     establishCommunication(microwave, placemat1)
@@ -1403,6 +1477,7 @@ def main():
     establishCommunication(microwave, placemat3)
     
     positiveInteraction(toyBear, toyElephant)
+    positiveInteraction(toyTrain, toyElephant)
     
     establishCommunication(placemat0, placemat2)
     establishCommunication(placemat1, placemat3)
@@ -1417,6 +1492,9 @@ def main():
     largeSpoon2 = wake("Large Spoon 2")
     spoons.append(largeSpoon2)
     dunkinDonutsCoffeePod9 = wake("Dunkin' Donuts Coffee Pod 9")
+    
+    positiveInteraction(wineGlass2, wineGlass3)
+    
     steakKnife4 = wake("Steak Knife 4")
     knives.append(steakKnife4)
 
@@ -1432,6 +1510,8 @@ def main():
     
     dunkinDonutsCoffeePod9.joinCommunity("Coffee")
 
+    positiveInteraction(toyBear, dog)
+    
     establishCommunication(tv, halo5XboxGame)
     
     largeSpoon3 = wake("Large Spoon 3")
@@ -1453,6 +1533,7 @@ def main():
     knives.append(butterKnife2)
     
     negativeInteraction(wineGlass1, wineGlass0)
+    positiveInteraction(toyBlanket, toyTrain)
 
     establishCommunication(knifeBlock, butterKnife2)
     
@@ -1497,6 +1578,8 @@ def main():
 
     steakKnife7.joinCommunity("Knife Block")
 
+    positiveInteraction(dogAlligatorToy, toyBear)
+    
     smallFork3 = wake("Small Fork 3")
     forks.append(smallFork3)
     dunkinDonutsCoffeePod13 = wake("Dunkin' Donuts Coffee Pod 13")
@@ -1541,6 +1624,7 @@ def main():
     forks.append(smallFork8)
     
     negativeInteraction(plant, house)
+    positiveInteraction(dogPlushCarrot, toyBlanket)
     
     dunkinDonutsCoffeePod16 = wake("Dunkin' Donuts Coffee Pod 16")
 
@@ -1603,6 +1687,7 @@ def main():
     dunkinDonutsCoffeePod20 = wake("Dunkin' Donuts Coffee Pod 20")
 
     positiveInteraction(fish, dog)
+    positiveInteraction(dogPlushMonkey, dogAlligatorToy)
     
     establishCommunication(keurig, dunkinDonutsCoffeePod20)
     
@@ -1635,12 +1720,22 @@ def main():
     spoons.append(largeSpoon4)
     largeSpoon5 = wake("Large Spoon 5")
     spoons.append(largeSpoon5)
+    
+    positiveInteraction(dogBlanket, dogPlushCarrot)
+    
     largeSpoon6 = wake("Large Spoon 6")
     spoons.append(largeSpoon6)
+    
+    positiveInteraction(dogDuraforce, dogPlushMonkey)
+    positiveInteraction(dogKong, dogBlanket)
+    
     largeSpoon7 = wake("Large Spoon 7")
     spoons.append(largeSpoon7)
     largeSpoon8 = wake("Large Spoon 8")
     spoons.append(largeSpoon8)
+    
+    positiveInteraction(dogPlushDinosaur, dogDuraforce)
+    
     dunkinDonutsCoffeePod24 = wake("Dunkin' Donuts Coffee Pod 24")
     largeSpoon9 = wake("Large Spoon 9")
     spoons.append(largeSpoon9)
@@ -1673,6 +1768,10 @@ def main():
     dunkinDonutsCoffeePod28 = wake("Dunkin' Donuts Coffee Pod 28")
     smallSpoon3 = wake("Small Spoon 3")
     spoons.append(smallSpoon3)
+    
+    positiveInteraction(toyElephant, dogBlanket)
+    positiveInteraction(dog, dogDuraforce)
+    
     smallSpoon4 = wake("Small Spoon 4")
     spoons.append(smallSpoon4)
 
@@ -1703,6 +1802,9 @@ def main():
     
     smallSpoon7 = wake("Small Spoon 7")
     spoons.append(smallSpoon7)
+    
+    positiveInteraction(dogDuraforce, dogAlligatorToy)
+    
     dunkinDonutsCoffeePod31 = wake("Dunkin' Donuts Coffee Pod 31")
     smallSpoon8 = wake("Small Spoon 8")
     spoons.append(smallSpoon8)
@@ -1716,9 +1818,15 @@ def main():
     dunkinDonutsCoffeePod32 = wake("Dunkin' Donuts Coffee Pod 32")
     smallSpoon9 = wake("Small Spoon 9")
     spoons.append(smallSpoon9)
+    
+    positiveInteraction(dogKong, dogPlushMonkey)
+    
     dunkinDonutsCoffeePod33 = wake("Dunkin' Donuts Coffee Pod 33")
     smallCup2 = wake("Small Cup 2")
     cups.append(smallCup2)
+    
+    positiveInteraction(toyTrain, dogKong)
+    
     smallCup3 = wake("Small Cup 3")
     cups.append(smallCup3)
 
@@ -1765,6 +1873,9 @@ def main():
     dunkinDonutsCoffeePod37 = wake("Dunkin' Donuts Coffee Pod 37")
     largePlate0 = wake("Large Plate 0")
     plates.append(largePlate0)
+    
+    positiveInteraction(toyBear, dogPlushDinosaur)
+    
     largePlate2 = wake("Large Plate 2")
     plates.append(largePlate2)
 
@@ -1806,6 +1917,7 @@ def main():
     bowls.append(bowl3)
     bowl4 = wake("Bowl 4")
     bowls.append(bowl4)
+    
     positiveInteraction(fish, dog)
 
     print("\n\nRELATIONSHIPS:\n")
