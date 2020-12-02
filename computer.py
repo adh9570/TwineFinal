@@ -272,6 +272,8 @@ def main():
     
     dallasMug = wake("Dallas Mug")
     cups.append(dallasMug)
+
+    establishCommunication(dogAlligatorToy, dog)
     
     callOfDutyMW3XboxGame = wake("Call of Duty MW3 Xbox Game")
     
@@ -1149,8 +1151,6 @@ def main():
     tomatoKnife = wake("Tomato Knife")
     knives.append(tomatoKnife)
     
-    positiveInteraction(dogAlligatorToy, dog)
-    
     establishCommunication(house, chair2)
     establishCommunication(couch, kitchenTable)
     establishCommunication(knifeBlock, tomatoKnife)
@@ -1289,6 +1289,9 @@ def main():
     
     establishCommunication(microwave, sandwichZiplockBags)
     establishCommunication(blanket0, dogPlushCarrot)
+    
+    positiveInteraction(dogAlligatorToy, dog)
+    
     establishCommunication(knifeBlock, steakKnife2)
 
     steakKnife2.joinCommunity("Knife Block")
