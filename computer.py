@@ -472,6 +472,9 @@ def main():
     establishCommunication(xbox, xboxController3)
     establishCommunication(guitarHero5XboxGame, halo5XboxGame)
     establishCommunication(stemlessWineGlass1, stemlessWineGlass3)
+    
+    positiveInteraction(stemlessWineGlass1, stemlessWineGlass0)
+    
     establishCommunication(fallout4XboxGame, maddenXboxGame)
     establishCommunication(xboxController1, tvRemote)
     
@@ -508,6 +511,9 @@ def main():
 
     establishCommunication(toyBear, dogBlanket)
     establishCommunication(xbox, callOfDutyAdvancedWarfareXboxGame)
+    
+    positiveInteraction(stemlessWineGlass2, stemlessWineGlass1)
+    
     establishCommunication(toyTrain, dogDuraforce)
     establishCommunication(xbox, legoStarWarsIIXboxGame)
     
@@ -536,6 +542,9 @@ def main():
     establishCommunication(guitarHero5XboxGame, seaofThievesXboxGame)
     establishCommunication(dogBlanket, dogDuraforce)
     establishCommunication(guitarHeroSmashHitsXboxGame, seaofThievesXboxGame)
+    
+    positiveInteraction(stemlessWineGlass3, stemlessWineGlass2)
+    
     establishCommunication(xbox, battlefield4XboxGame)
 
     dogRope = wake("Dog Rope")
@@ -559,6 +568,9 @@ def main():
     
     establishCommunication(toyBear, dogDuraforce)
     establishCommunication(wineGlass3, stemlessWineGlass3)
+    
+    positiveInteraction(stemlessWineGlass0, stemlessWineGlass3)
+    
     establishCommunication(toyTrain, dogKong)
     establishCommunication(dog, dogRope)
     
@@ -599,6 +611,9 @@ def main():
     establishCommunication(guitarHero5XboxGame, battlefield4XboxGame)
     establishCommunication(justDance2014XboxGame, halo5XboxGame)
     establishCommunication(guitarHeroWorldTourXboxGame, halo5XboxGame)
+    
+    positiveInteraction(stemlessWineGlass1, stemlessWineGlass3)
+    
     establishCommunication(fallout4XboxGame, seaofThievesXboxGame)
 
     largeMixingBowl = wake("Large Mixing Bowl")
@@ -633,6 +648,9 @@ def main():
     
     establishCommunication(justDance2014XboxGame, callOfDutyModernWarfare2XboxGame)
     establishCommunication(seaofThievesXboxGame, legoStarWarsIIXboxGame)
+    
+    positiveInteraction(stemlessWineGlass0, stemlessWineGlass2)
+    
     establishCommunication(xboxController2, tvRemote)
     
     positiveInteraction(dogPlushDinosaur, toyElephant)
@@ -650,6 +668,9 @@ def main():
     microwave = wake("Microwave")
     
     establishCommunication(dogPlushDinosaur, dogKong)
+    
+    positiveInteraction(stemlessWineGlass1, stemlessWineGlass3)
+    
     establishCommunication(toyElephant, dogRope)
     establishCommunication(guitarHeroWorldTourXboxGame, seaofThievesXboxGame)
     
@@ -697,9 +718,15 @@ def main():
 
     establishCommunication(dogAlligatorToy, dogRope)
     establishCommunication(iceCreamScoop, largeMixingBowl)
+    
+    positiveInteraction(stemlessWineGlass2, stemlessWineGlass0)
+    
     establishCommunication(microwave, bottleOpener)
     establishCommunication(keurig, fridge)
     establishCommunication(mediumMixingBowl, mediumPot0)
+    
+    positiveInteraction(stemlessWineGlass3, stemlessWineGlass1)
+    
     establishCommunication(guitarHeroWorldTourXboxGame, callOfDutyAdvancedWarfareXboxGame)
 
     spatula0 = wake("Spatula")
@@ -736,6 +763,10 @@ def main():
     spoons.append(servingSpoon0)
 
     establishCommunication(guitarHeroWorldTourXboxGame, legoStarWarsIIXboxGame)
+    
+    positiveInteraction(stemlessWineGlass1, stemlessWineGlass2)
+    positiveInteraction(stemlessWineGlass2, stemlessWineGlass3)
+    
     establishCommunication(justDance2014XboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(largeMixingBowl, smallMixingBowl)
     establishCommunication(whisk, bottleOpener)
@@ -785,6 +816,9 @@ def main():
     establishCommunication(GTAVXboxGame, seaofThievesXboxGame)
     establishCommunication(microwave, smallPot0)
     establishCommunication(oven, ovenMitt0)
+    
+    positiveInteraction(stemlessWineGlass3, stemlessWineGlass0)
+    
     establishCommunication(iceCreamScoop, whisk)
     establishCommunication(microwave, spatula1)
     
@@ -834,6 +868,9 @@ def main():
     
     establishCommunication(GTAVXboxGame, callOfDutyAdvancedWarfareXboxGame)
     establishCommunication(microwave, dishDryingTowel0)
+    
+    positiveInteraction(stemlessWineGlass0, stemlessWineGlass1)
+    
     establishCommunication(microwave, dishSoap)
     establishCommunication(iceCreamScoop, ladle)
     
@@ -846,6 +883,9 @@ def main():
     establishCommunication(throwPillow0, throwPillow2)
     establishCommunication(microwave, largePot0)
     establishCommunication(mediumMixingBowl, mediumPot1)
+    
+    positiveInteraction(stemlessWineGlass1, stemlessWineGlass3)
+    
     establishCommunication(mediumPot0, largePot0)
     establishCommunication(smallMixingBowl, potholder0)
     
@@ -859,6 +899,8 @@ def main():
     establishCommunication(microwave, sink)
     
     potholder1 = wake("Potholder 1")
+    
+    positiveInteraction(stemlessWineGlass2, stemlessWineGlass0)
     
     establishCommunication(smallMixingBowl, largePot0)
     establishCommunication(sponge, sink)
@@ -886,6 +928,8 @@ def main():
     knives = []
     chefsKnife = wake("Chef's Knife")
     knives.append(chefsKnife)
+
+    positiveInteraction(stemlessWineGlass0, stemlessWineGlass2)
 
     establishCommunication(keurig, toaster)
     establishCommunication(mediumPot0, potholder1)
